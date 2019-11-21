@@ -1,0 +1,30 @@
+// Body
+$body-bg: #f8fafc;
+
+// Typography
+$font-family-sans-serif: 'Raleway', sans-serif;
+// $font-size-base: 0.9rem;
+// $line-height-base: 1.6;
+
+// Colors
+$blue: #3490dc;
+$indigo: #6574cd;
+$purple: #9561e2;
+$pink: #f66d9b;
+$red: #e3342f;
+$orange: #f6993f;
+$yellow: #ffed4a;
+$green: #38c172;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;
+$lblue: #00adfa;
+$dblue: #285677;
+$byell: #ffc24b;
+$gray: #3b3b3a;
+$lgray: rgba(0, 0, 0, 0.125);
+
+$theme-colors: (
+    primary: $lblue,
+    success: $teal
+);
+
