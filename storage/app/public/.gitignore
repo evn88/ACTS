@@ -1,3 +1,4 @@
 *
 !.gitignore
-!img
+!/img/
+!/img/*
