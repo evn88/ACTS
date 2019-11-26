@@ -13,16 +13,16 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/home') }}">Главная</a>
+                    <a class="nav-link" href="{{ route('home') }}">Главная</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/staff') }}">Сотрудники</a>
+                    <a class="nav-link" href="{{ route('staff') }}">Сотрудники</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/groups') }}">Учебные группы</a>
+                    <a class="nav-link" href="{{ route('groups') }}">Учебные группы</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/plans') }}">Учебный план</a>
+                    <a class="nav-link" href="{{ route('plans') }}">Учебный план</a>
                 </li>
                 <!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"

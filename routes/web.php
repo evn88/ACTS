@@ -24,23 +24,32 @@ Auth::routes();
 
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home', function() {
-    return view('home');
-})->name('home');
+/*
+ * Админка
+ */
+Route::group(['prefix'=>'admin','middleware' => ['auth']], function()
+{
 
-Route::get('/staff', function() {
-    return view('staff');
-})->name('staff');
+    Route::get('/home', function() {
+        return view('admin.home');
+    })->name('home');
 
-Route::get('/groups', function() {
-    return view('groups');
-})->name('groups');
+    Route::get('/staff', function() {
+        return view('admin.staff');
+    })->name('staff');
 
-Route::get('/plans', function() {
-    return view('plans');
-})->name('plans');
+    Route::get('/groups', function() {
+        return view('admin.groups');
+    })->name('groups');
 
-Route::get('/groupinf', function() {
-    return view('groupinf');
-})->name('groupinf');
+    Route::get('/plans', function() {
+        return view('admin.plans');
+    })->name('plans');
+
+    Route::get('/groupinf', function() {
+        return view('admin.groupinf');
+    })->name('groupinf');
+
+});
+
+
