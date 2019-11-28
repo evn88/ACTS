@@ -21,6 +21,7 @@
 <table class="table table-striped table-hover">
     <thead style="background: $dblue;">
         <tr>
+            <th scope="col"></th>
             <th scope="col">Группы</th>
             <th scope="col" class="txt-center">Количество обучающихся</th>
             <th scope="col" class="txt-center">Дата завершения</th>
@@ -29,7 +30,8 @@
     </thead>
     <tbody>
         <tr>
-            <td>Основная</td>
+            <td><i class="fa fa-play" aria-hidden="true"></i></td>
+            <td> Основная</td>
             <td class="txt-center">3</td>
             <td class="txt-center">25.12.2019</td>
             <td class="txt-center">
@@ -48,6 +50,7 @@
             </td>
         </tr>
         <tr>
+            <td><i class="fa fa-pause" aria-hidden="true"></i></td>
             <td>Потенциальный риск</td>
             <td class="txt-center">1</td>
             <td class="txt-center">01.01.2020</td>
@@ -57,11 +60,22 @@
                         <i class="fa fa-bars" aria-hidden="true"></i>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#startGroupModal">Начать
-                            обучение</a>
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#stopGroupModal">Закончить
-                            обучение</a>
-                        <a class="dropdown-item" href="http://acts.local/groupinf">Подробнее о группе</a>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#startGroupModal">
+                            <i class="fa fa-play" aria-hidden="true"></i>&nbsp;&nbsp;
+                            Начать обучение
+                        </a>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#pauseGroupModal">
+                            <i class="fa fa-pause" aria-hidden="true"></i>&nbsp;&nbsp;
+                            Приостановить обучение
+                        </a>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#stopGroupModal">
+                            <i class="fa fa-stop" aria-hidden="true"></i>&nbsp;&nbsp;
+                            Закончить обучение
+                        </a>
+                        <a class="dropdown-item" href="http://acts.local/groupinf">
+                            <i class="fa fa-info" aria-hidden="true"></i>&nbsp;&nbsp;
+                            Подробнее о группе
+                        </a>
                     </div>
                 </div>
             </td>
