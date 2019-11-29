@@ -25,7 +25,14 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+
+    /**
+     *  TODO: Сдалать редирект в разные разделы в зависимости от типа пользователя (user, admin, sa)
+     *  course - раздел для учеников
+     *  admin - администраторы курса
+     *  sa - суперадмин, назначает администраторов, правит настройки системы
+     */
+    protected $redirectTo = '/course';
 
     /**
      * Create a new controller instance.
