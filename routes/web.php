@@ -22,7 +22,16 @@ Auth::routes();
 //     return view($page);
 // });
 
-Auth::routes();
+/*
+ * Закрытая часть для учеников
+ */
+Route::group(['prefix'=>'course','middleware' => ['auth']], function()
+{
+    Route::get('/', function() {
+        return view('course.home');
+    })->name('course.home');
+});
+
 
 /*
  * Админка
@@ -53,3 +62,12 @@ Route::group(['prefix'=>'admin','middleware' => ['auth']], function()
 });
 
 
+/*
+ * Админка для суперадминов
+ */
+Route::group(['prefix'=>'sa','middleware' => ['auth']], function()
+{
+    Route::get('/', function() {
+        return view('sa.home');
+    })->name('sa.home');
+});
