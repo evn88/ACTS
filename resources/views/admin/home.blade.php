@@ -11,12 +11,12 @@
         <h3>Информация о компании</h3>
         <div class="wrap">
             <p class="info-text">Наименование: </p>
-            <p class="underline">ПАО Волгоградоблэлектро</p>
+            <p>ПАО Волгоградоблэлектро</p>
             <a href="#"> <i class="fa fa-pencil fa-fw"></i>Изменить</a>
         </div>
         <div class="wrap">
             <p class="info-text">Администратор: </p>
-            <p class="underline">Вершкова Анна Александровна</p>
+            <p>Вершкова Анна Александровна</p>
             <a href="#"> <i class="fa fa-pencil fa-fw"></i>Изменить</a>
         </div>
     </div>

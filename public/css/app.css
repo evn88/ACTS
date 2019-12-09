@@ -11446,6 +11446,12 @@ h3 {
   margin-bottom: 50px;
 }
 
+h5 {
+  font-weight: 500;
+  margin-bottom: 30px;
+  color: #285677;
+}
+
 p.heading {
   margin-bottom: 50px;
 }
@@ -11517,7 +11523,7 @@ a:hover {
 
 .info_card {
   height: 195px;
-  width: 650px;
+  width: 500px;
 }
 
 .info_card .wrap {
@@ -11527,13 +11533,6 @@ a:hover {
 .info_card .wrap p.info-text {
   font-size: 18px;
   font-weight: 500;
-}
-
-.info_card .wrap p.underline {
-  border-bottom: rgba(0, 0, 0, 0.125) 1px solid;
-  height: 26px;
-  width: 350px;
-  text-align: center;
 }
 
 .logo_card {
@@ -11699,17 +11698,10 @@ a:hover {
 }
 
 .card_plan .row_1 .cell {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
-  justify-content: space-around;
   border: rgba(0, 0, 0, 0.125) 1px solid;
   border-radius: calc(0.25rem - 1px);
   width: 350px;
   height: 250px;
-  padding: 15px;
   text-align: center;
   color: #285677;
   background-color: rgba(0, 0, 0, 0.03);
@@ -11717,22 +11709,142 @@ a:hover {
   transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
 }
 
-.card_plan .row_1 .cell img {
+.card_plan .row_1 .cell a {
+  text-decoration: none;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  -webkit-transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
+  transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
+}
+
+.card_plan .row_1 .cell a img {
   display: block;
   width: 100px;
   height: 100px;
   margin: 0 auto;
 }
 
-.card_plan .row_1 .cell p {
+.card_plan .row_1 .cell a p {
   font-weight: 700;
 }
 
-.card_plan .row_1 .cell:hover {
+.card_plan .row_1 .cell a:hover {
   background-color: #285677;
   color: white;
   -webkit-transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
   transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
+}
+
+.headtxt {
+  margin: 30px 0 50px 0;
+}
+
+.cellinf {
+  border: rgba(0, 0, 0, 0.125) 1px solid;
+  border-radius: calc(0.25rem - 1px);
+  width: 100%;
+  height: auto;
+  padding: 30px;
+  color: #285677;
+  background-color: rgba(0, 0, 0, 0.03);
+  -webkit-transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
+  transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
+}
+
+.cellinf .rectangle {
+  counter-reset: li;
+  list-style: none;
+  padding: 0;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.cellinf .rectangle a.mark {
+  position: relative;
+  display: block;
+  padding: 0.4em 0.4em 0.4em 0.8em;
+  margin: 0.5em 0 0.5em 2.5em;
+  background-color: rgba(0, 0, 0, 0.03);
+  color: #444;
+  text-decoration: none;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  font-weight: 500;
+}
+
+.cellinf .rectangle a.mark:before {
+  content: counter(li);
+  counter-increment: li;
+  position: absolute;
+  color: white;
+  left: -2.5em;
+  top: 50%;
+  margin-top: -1em;
+  background: #00adfa;
+  height: 2em;
+  width: 2em;
+  line-height: 2em;
+  text-align: center;
+  font-weight: bold;
+}
+
+.cellinf .rectangle li ul {
+  padding: 15px 0 15px 60px;
+}
+
+.cellinf .rectangle li ul li {
+  margin-bottom: 10px;
+}
+
+.cellinf .rectangle li ul li a:hover {
+  color: #00adfa;
+}
+
+.row_1.group {
+  -webkit-box-align: baseline;
+          align-items: baseline;
+}
+
+.cellinf.group {
+  width: 780px;
+}
+
+.card_progress.group {
+  width: 300px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+
+.card_progress.group .cell {
+  margin: 0;
+  width: 300px;
+  height: 150px;
+  text-align: left;
+  padding: 25px;
+}
+
+.card_progress.group .cell:first-child {
+  margin-bottom: 20px;
+}
+
+.card_progress.group .cell .date {
+  font-size: 30px;
+}
+
+.card_progress.group .cell:hover {
+  -webkit-transition: none;
+  transition: none;
 }
 
 footer {
