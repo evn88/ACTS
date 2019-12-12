@@ -30,6 +30,16 @@ Route::group(['prefix'=>'course','middleware' => ['auth']], function()
     Route::get('/', function() {
         return view('course.home');
     })->name('course.home');
+
+    Route::get('/plan', function() {
+        return view('course.plan');
+    })->name('course.plan');
+
+    Route::get('/profile', function() {
+        return view('course.profile');
+    })->name('course.profile');
+
+
 });
 
 
@@ -62,15 +72,4 @@ Route::group(['prefix'=>'admin','middleware' => ['auth']], function()
     Route::get('/plansinf', function() {
         return view('admin.plansinf');
     })->name('plansinf');
-});
-
-
-/*
- * Админка для суперадминов
- */
-Route::group(['prefix'=>'sa','middleware' => ['auth']], function()
-{
-    Route::get('/', function() {
-        return view('sa.home');
-    })->name('sa.home');
 });
