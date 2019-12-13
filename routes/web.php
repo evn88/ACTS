@@ -72,4 +72,8 @@ Route::group(['prefix'=>'admin','middleware' => ['auth']], function()
     Route::get('/plansinf', function() {
         return view('admin.plansinf');
     })->name('plansinf');
+
+    Route::get('/reports', function() {
+        return view('admin.reports');
+    })->name('reports');
 });
