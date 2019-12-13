@@ -31,9 +31,17 @@ Route::group(['prefix'=>'course','middleware' => ['auth']], function()
         return view('course.home');
     })->name('course.home');
 
-    Route::get('/plan', function() {
-        return view('course.plan');
-    })->name('course.plan');
+    Route::get('/materials', function() {
+        return view('course.materials');
+    })->name('course.materials');
+
+    Route::get('/tests', function() {
+        return view('course.tests');
+    })->name('course.tests');
+
+    Route::get('/journal', function() {
+        return view('course.journal');
+    })->name('course.journal');
 
     Route::get('/profile', function() {
         return view('course.profile');
@@ -49,31 +57,31 @@ Route::group(['prefix'=>'course','middleware' => ['auth']], function()
 Route::group(['prefix'=>'admin','middleware' => ['auth']], function()
 {
 
-    Route::get('/home', function() {
+    Route::get('/', function() {
         return view('admin.home');
-    })->name('home');
+    })->name('admin.home');
 
     Route::get('/staff', function() {
         return view('admin.staff');
-    })->name('staff');
+    })->name('admin.staff');
 
     Route::get('/groups', function() {
         return view('admin.groups');
-    })->name('groups');
+    })->name('admin.groups');
 
     Route::get('/plans', function() {
         return view('admin.plans');
-    })->name('plans');
+    })->name('admin.plans');
 
     Route::get('/groupinf', function() {
         return view('admin.groupinf');
-    })->name('groupinf');
+    })->name('admin.groupinf');
 
     Route::get('/plansinf', function() {
         return view('admin.plansinf');
-    })->name('plansinf');
+    })->name('admin.plansinf');
 
     Route::get('/reports', function() {
         return view('admin.reports');
-    })->name('reports');
+    })->name('admin.reports');
 });

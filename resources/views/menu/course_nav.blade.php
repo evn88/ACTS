@@ -16,11 +16,16 @@
                     <a class="nav-link" href="{{ route('course.home') }}">Главная</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('course.plan') }}">Учебный план</a>
+                    <a class="nav-link" href="{{ route('course.materials') }}">Учебные материалы</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('course.profile') }}">Профиль пользователя</a>
+                    <a class="nav-link" href="{{ route('course.tests') }}">Тесты</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('course.journal') }}">Журнал</a>
+                </li>
+
+
 
                 <!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -56,6 +61,9 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                        <a class="dropdown-item" href="{{ route('course.profile') }}">Профиль пользователя</a>
+
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}

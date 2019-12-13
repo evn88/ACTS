@@ -44,7 +44,7 @@
                             обучение</a>
                         <a class="dropdown-item" href="#" data-toggle="modal" data-target="#stopGroupModal">Закончить
                             обучение</a>
-                        <a class="dropdown-item" href="{{ route('groupinf') }}">Подробнее о группе</a>
+                        <a class="dropdown-item" href="{{ route('admin.groupinf') }}">Подробнее о группе</a>
                     </div>
                 </div>
             </td>
@@ -72,7 +72,7 @@
                             <i class="fa fa-stop" aria-hidden="true"></i>&nbsp;&nbsp;
                             Закончить обучение
                         </a>
-                        <a class="dropdown-item" href="{{ route('groupinf') }}">
+                        <a class="dropdown-item" href="{{ route('admin.groupinf') }}">
                             <i class="fa fa-info" aria-hidden="true"></i>&nbsp;&nbsp;
                             Подробнее о группе
                         </a>
