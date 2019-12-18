@@ -84,6 +84,8 @@
         </tr>
     </thead>
     <tbody>
+        @foreach ($users as $user)
+
         <tr>
             <th scope="row">
                 <div class="custom-control custom-checkbox">
@@ -91,17 +93,21 @@
                     <label class="custom-control-label" for="customControlInline"></label>
                 </div>
             </th>
-            <td>Вершкова Анна Александровна</td>
+            <td>{{ $user->name }}</td>
             <td>
                 <a href="#" data-toggle="modal" data-target="#addStaffModal">
                     <i class="fa fa-pencil" aria-hidden="true"></i>
                 </a>
             </td>
             <td>Разработчик</td>
-            <td>aniamanson@gmail.com</td>
+            <td>{{ $user->email }}</td>
             <td>Основная</td>
             <td>На обучении</td>
         </tr>
+        @endforeach
+
+
+
         <tr>
             <th scope="row">
                 <div class="custom-control custom-checkbox">
