@@ -99,10 +99,10 @@
                     <i class="fa fa-pencil" aria-hidden="true"></i>
                 </a>
             </td>
-            <td>Разработчик</td>
+            <td>{{ $user->profession }}</td>
             <td>{{ $user->email }}</td>
-            <td>Основная</td>
-            <td>На обучении</td>
+            <td>{{ $user->grou_id }}</td>
+            <td>{{ $user->status }}</td>
         </tr>
         @endforeach
 
