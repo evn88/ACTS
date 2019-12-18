@@ -61,9 +61,13 @@ Route::group(['prefix'=>'admin','middleware' => ['auth']], function()
         return view('admin.home');
     })->name('admin.home');
 
-    Route::get('/staff', function() {
-        return view('admin.staff');
-    })->name('admin.staff');
+    // Route::get('/staff', function() {
+    //     return view('admin.staff');
+    // })->name('admin.staff');
+
+    Route::resource('staff', 'Admin\StaffController', ['names' => [
+        'index' => 'admin.staff'
+    ]]);
 
     Route::get('/groups', function() {
         return view('admin.groups');
