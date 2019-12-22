@@ -42,6 +42,26 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class, 'role_users');
     }
 
+     /**
+     * Checks if User has access to $permissions.
+     */
+    // public function hasAccess(array $permissions)
+    // {
+    //     // check if the permission is available in any role
+    //     foreach ($this->roles as $role) {
+    //         if($role->hasAccess($permissions)) {
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // }
+
+    public function isAdmin() {
+        foreach($this->roles as $role) {
+            return $this->inRole('admin');
+        }
+    }
+
     /**
      * Checks if the user belongs to role.
      */
