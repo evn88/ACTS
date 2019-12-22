@@ -87,12 +87,12 @@
         @foreach ($users as $user)
 
         <tr>
-            <th scope="row">
+            <td scope="row">
                 <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="customControlInline">
+                    <input type="checkbox" class="custom-control-input" id="customControlInline{{$user->id}}">
                     <label class="custom-control-label" for="customControlInline"></label>
                 </div>
-            </th>
+            </td>
             <td>{{ $user->name }}</td>
             <td>
                 <a href="#" data-toggle="modal" data-target="#addStaffModal">
@@ -107,43 +107,17 @@
         @endforeach
 
 
-
+        @if(!$users)
         <tr>
-            <th scope="row">
-                <div class="custom-control custom-checkbox">
+            <td scope="row">
+                {{-- <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="customControlInline">
                     <label class="custom-control-label" for="customControlInline"></label>
-                </div>
-            </th>
-            <td>Вершков Егор Николаевич</td>
-            <td>
-                <a href="#" data-toggle="modal" data-target="#addStaffModal">
-                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                </a>
+                </div> --}}
             </td>
-            <td>Начальник отдела разработки</td>
-            <td>egor@mail.ru</td>
-            <td>Основная</td>
-            <td>Не приступил к обучению</td>
+            <td colspan="6">Нет пользователей</td>
         </tr>
-        <tr>
-            <th scope="row">
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="customControlInline">
-                    <label class="custom-control-label" for="customControlInline"></label>
-                </div>
-            </th>
-            <td>Иванов Иван Иванович</td>
-            <td>
-                <a href="#" data-toggle="modal" data-target="#addStaffModal">
-                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                </a>
-            </td>
-            <td>Бухгалтер</td>
-            <td>ivan@ya.ru</td>
-            <td>Потенциальный риск</td>
-            <td>На обучении</td>
-        </tr>
+        @endif
     </tbody>
 </table>
 
