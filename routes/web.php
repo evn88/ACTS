@@ -54,7 +54,7 @@ Route::group(['prefix'=>'course','middleware' => ['auth']], function()
 /*
  * Админка
  */
-Route::group(['prefix'=>'admin','middleware' => ['auth']], function()
+Route::group(['prefix'=>'admin','middleware' => ['auth','can:all']], function()
 {
 
     Route::get('/', function() {
