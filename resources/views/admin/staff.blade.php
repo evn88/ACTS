@@ -6,6 +6,8 @@
 <p class="heading">В данном разделе вы можете управлять сотрудниками, которые должны проходить обучение:
     добавлять и удалять их, распределять их по учебным группам, редактировать информацию.</p>
 
+<admin-staff-component>загрузка...</admin-staff-component>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light my-3">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
@@ -37,35 +39,6 @@
   </div>
 </nav>
 
-
-<!-- <div class="row_1">
-    <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Введите имя" aria-label="Search">
-        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">
-            <i class="fa fa-search" aria-hidden="true"></i> Поиск</button>
-    </form>
-
-
-    <div class="wrap-staff">
-
-            <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#addStaffModal">Импорт из csv</a>
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Действия
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Переместить в другую группу</a>
-                    <a class="dropdown-item" href="#">Приостановить обучение</a>
-                    <a class="dropdown-item" href="#">Назначить обучение</a>
-                    <a class="dropdown-item" href="#">Удалить</a>
-                </div>
-            </div>
-            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addStaffModal">Пригласить сотрудника</a>
-
-    </div>
-</div> -->
-
 <table class="table table-striped table-hover">
     <thead style="background: $dblue;">
         <tr>
@@ -95,13 +68,13 @@
             </td>
             <td>{{ $user->name }}</td>
             <td>
-                <a href="#" data-toggle="modal" data-target="#addStaffModal">
+                <a href="#" data-toggle="modal" data-target="#addStaffModal{{$user->id}}">
                     <i class="fa fa-pencil" aria-hidden="true"></i>
                 </a>
             </td>
             <td>{{ $user->profession }}</td>
             <td>{{ $user->email }}</td>
-            <td>{{ $user->grou_id }}</td>
+            <td>{{ $user->group_id }}</td>
             <td>{{ $user->status }}</td>
         </tr>
         @endforeach

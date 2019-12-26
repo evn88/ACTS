@@ -96,6 +96,7 @@
 
                 <!-- <div class="title m-b-md">Автоматическая система тренинга кибербезопасности</div> -->
 
+
                 <div class="links">
                     <a href="{{ route('course.home') }}">Перейти к обучению!</a>
                 </div>
