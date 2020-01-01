@@ -49,40 +49,37 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($users as $user)
+                <!-- @foreach ($users as $user) -->
 
-                <tr>
+                <tr v-for="user in users"
+                    v-bind:key="user.id">
                     <td scope="row">
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" id="customControlInline">
                             <label class="custom-control-label" for="customControlInline"></label>
                         </div>
                     </td>
-                    <td></td>
+                    <td>{{ user.name }}</td>
                     <td>
                         <a href="#" data-toggle="modal" data-target="#addStaffModal">
                             <i class="fa fa-pencil" aria-hidden="true"></i>
                         </a>
                     </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{ user.profession }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.group_id }}</td>
+                    <td>{{ user.status }}</td>
                 </tr>
-                @endforeach
+                <!-- @endforeach -->
 
 
-                @if(!$users)
-                <tr>
+                <!-- @if(!$users) -->
+                <tr v-if="!users">
                     <td scope="row">
-                        {{-- <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customControlInline">
-                            <label class="custom-control-label" for="customControlInline"></label>
-                        </div> --}}
                     </td>
                     <td colspan="6">Нет пользователей</td>
                 </tr>
-                @endif
+                <!-- @endif -->
             </tbody>
         </table>
     </div>
@@ -90,8 +87,18 @@
 
 <script>
     export default {
+        data() {
+            return{
+                users: null,
+            }
+        },
         mounted() {
             console.log('Component mounted.')
+            axios.get('/api/user')
+                .then(response => {
+                    console.log('data: ', response.data);
+                    this.users = response.data;
+                });
         }
     }
 </script>

@@ -8,6 +8,7 @@
 
 <admin-staff-component>загрузка...</admin-staff-component>
 
+<!--
 <nav class="navbar navbar-expand-lg navbar-light bg-light my-3">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
@@ -93,6 +94,7 @@
         @endif
     </tbody>
 </table>
+-->
 
 
 <!-- Modal -->
@@ -124,8 +126,8 @@
                     <p class="alert alert-info">На этот e-mail будет выслана информация для подтверждения регистрации сотрудника</p>
 
                     <div class="form-group">
-                        <label for="inputGroup">Учебная группа</label>
-                        <select id="inputGroup" class="form-control">
+                        <label for="inputGroup1">Учебная группа</label>
+                        <select id="inputGroup1" class="form-control">
                             <option selected>Не назначена</option>
                             <option>Основная</option>
                             <option>Потенциальный риск</option>

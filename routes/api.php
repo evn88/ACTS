@@ -15,10 +15,10 @@ use App\User;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
-Route::middleware('auth')->get('/test', function(){
-    return User::all();
+Route::group(['middleware' => ['auth:api','can:all']], function () {
+    Route::get('user', 'API\TestController@index');
 });
