@@ -167,6 +167,8 @@ return [
          */
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Laravel\Passport\PassportServiceProvider::class,
+
 
         /*
          * Application Service Providers...
