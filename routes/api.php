@@ -19,6 +19,6 @@ use App\User;
 //     return $request->user();
 // });
 
-Route::group(['middleware' => ['auth:api','can:all']], function () {
+Route::group(['middleware' => ['auth:api','can:admin']], function () {
     Route::get('user', 'API\TestController@index');
 });

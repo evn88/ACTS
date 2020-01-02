@@ -69,7 +69,9 @@
                 <div class="top-right links">
                     @auth
                     {{ Auth::user()->name }} <span class="caret"></span>
-                        <a href="{{ route('admin.home') }}">Admin Panel</a>
+                        @can('admin')
+                            <a href="{{ route('admin.home') }}">Admin Panel</a>
+                        @endcan
 
                         <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
