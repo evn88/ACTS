@@ -20,5 +20,5 @@ use App\User;
 // });
 
 Route::group(['middleware' => ['auth:api','can:admin']], function () {
-    Route::get('user', 'API\TestController@index');
+    Route::get('user', 'API\UserController@index');
 });
