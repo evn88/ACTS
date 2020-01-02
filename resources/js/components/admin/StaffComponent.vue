@@ -31,73 +31,85 @@
           </div>
         </nav>
 
-        <table class="table table-striped table-hover">
-            <thead style="background: $dblue;">
-                <tr>
-                    <th scope="col" style="width:30px;">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customControlInline">
-                            <label class="custom-control-label" for="customControlInline"></label>
-                        </div>
-                    </th>
-                    <th scope="col">ФИО</th>
-                    <th scope="col" style="width:20px; text-align:left"></th>
-                    <th scope="col">Должность</th>
-                    <th scope="col">Почта</th>
-                    <th scope="col">Группа</th>
-                    <th scope="col">Статус</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- @foreach ($users as $user) -->
+        <section v-if="errored">
+            <p class="alert alert-danger" role="alert"> {{ error }}</p>
+        </section>
+        <section v-else>
+            <table class="table table-striped table-hover">
+                <thead style="background: $dblue;">
+                    <tr>
+                        <th scope="col" style="width:30px;">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customControlInline">
+                                <label class="custom-control-label" for="customControlInline"></label>
+                            </div>
+                        </th>
+                        <th scope="col">ФИО</th>
+                        <th scope="col" style="width:20px; text-align:left"></th>
+                        <th scope="col">Должность</th>
+                        <th scope="col">Почта</th>
+                        <th scope="col">Группа</th>
+                        <th scope="col">Статус</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- @foreach ($users as $user) -->
 
-                <tr v-for="user in users"
-                    v-bind:key="user.id">
-                    <td scope="row">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customControlInline">
-                            <label class="custom-control-label" for="customControlInline"></label>
-                        </div>
-                    </td>
-                    <td>{{ user.name }}</td>
-                    <td>
-                        <a href="#" data-toggle="modal" data-target="#addStaffModal">
-                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                        </a>
-                    </td>
-                    <td>{{ user.profession }}</td>
-                    <td>{{ user.email }}</td>
-                    <td>{{ user.group_id }}</td>
-                    <td>{{ user.status }}</td>
-                </tr>
-                <!-- @endforeach -->
+                    <tr v-for="user in users"
+                        v-bind:key="user.id">
+                        <td scope="row">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customControlInline">
+                                <label class="custom-control-label" for="customControlInline"></label>
+                            </div>
+                        </td>
+                        <td>{{ user.name }}</td>
+                        <td>
+                            <a href="#" data-toggle="modal" data-target="#addStaffModal">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                            </a>
+                        </td>
+                        <td>{{ user.profession }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.group_id }}</td>
+                        <td>{{ user.status }}</td>
+                    </tr>
+                    <!-- @endforeach -->
 
 
-                <!-- @if(!$users) -->
-                <tr v-if="!users">
-                    <td scope="row">
-                    </td>
-                    <td colspan="6">Нет пользователей</td>
-                </tr>
-                <!-- @endif -->
-            </tbody>
-        </table>
+                    <!-- @if(!$users) -->
+                    <tr v-if="!users">
+                        <td scope="row">
+                        </td>
+                        <td colspan="6">Нет пользователей</td>
+                    </tr>
+                    <!-- @endif -->
+                </tbody>
+            </table>
+        </section>
     </div>
 </template>
 
 <script>
+import { STATUS_CODES } from 'http';
     export default {
         data() {
             return{
                 users: null,
+                error: null,
+                errored: false,
             }
         },
         mounted() {
-            console.log('Component mounted.')
+            console.log(STATUS_CODES[403])
             axios.get('/api/user')
                 .then(response => {
-                    console.log('data: ', response.data);
                     this.users = response.data;
+                })
+                .catch(error => {
+                    console.error(error.response);
+                    this.error = error.response.status + ' ' + error.response.statusText + ' | ' + error.response.data.message;
+                    this.errored = true;
                 });
         }
     }
