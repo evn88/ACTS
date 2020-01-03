@@ -126,19 +126,6 @@
                 });
                 // console.log('serach text: ', this.search);
             }
-            // function() {
-            // //console.log(this.search.text);
-            // var inside = this;
-            // this.wonders_data = this.wonders_data_actual.filter(function(wonder) {
-            //     if (
-            //         wonder.place
-            //             .toLowerCase()
-            //             .indexOf(inside.search.text.toLowerCase()) != "-1"
-            //     )
-            //     {
-            //         return wonder;
-            //     }
-            // },
         }
     }
 </script>
