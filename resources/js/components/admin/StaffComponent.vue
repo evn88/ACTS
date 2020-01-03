@@ -4,7 +4,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
             <form class="form-inline my-2 my-lg-0 mr-auto">
-              <input class="form-control mr-sm-2" type="search"  placeholder="Введите имя" aria-label="Search">
+              <input class="form-control mr-sm-2" type="search"  placeholder="Введите имя" aria-label="Search" v-model="search" @input="search_text()">
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
             </form>
 
@@ -63,7 +63,7 @@
                                 <label class="custom-control-label" for="customControlInline"></label>
                             </div>
                         </td>
-                        <td>{{ user.name }}</td>
+                        <td><a href="#" class="" data-toggle="modal" data-target="#addStaffModal">{{ user.name }}</a></td>
                         <td>
                             <a href="#" data-toggle="modal" data-target="#addStaffModal">
                                 <i class="fa fa-pencil" aria-hidden="true"></i>
@@ -91,26 +91,54 @@
 </template>
 
 <script>
-import { STATUS_CODES } from 'http';
+// import { STATUS_CODES } from 'http';
     export default {
         data() {
             return{
                 users: null,
+                usersOriginal: null,
                 error: null,
                 errored: false,
+                search: null,
             }
         },
         mounted() {
-            console.log(STATUS_CODES[403])
             axios.get('/api/user')
                 .then(response => {
-                    this.users = response.data;
+                    this.users = this.usersOriginal = response.data;
                 })
                 .catch(error => {
                     console.error(error.response);
                     this.error = error.response.status + ' ' + error.response.statusText + ' | ' + error.response.data.message;
                     this.errored = true;
                 });
+        },
+        methods: {
+            search_text(){
+                var self = this;
+                this.users = this.usersOriginal.filter(function(users){
+                    if (
+                        users.name.toLowerCase().indexOf(self.search.toLowerCase()) != "-1"
+                    )
+                    {
+                        return users;
+                    }
+                });
+                // console.log('serach text: ', this.search);
+            }
+            // function() {
+            // //console.log(this.search.text);
+            // var inside = this;
+            // this.wonders_data = this.wonders_data_actual.filter(function(wonder) {
+            //     if (
+            //         wonder.place
+            //             .toLowerCase()
+            //             .indexOf(inside.search.text.toLowerCase()) != "-1"
+            //     )
+            //     {
+            //         return wonder;
+            //     }
+            // },
         }
     }
 </script>
