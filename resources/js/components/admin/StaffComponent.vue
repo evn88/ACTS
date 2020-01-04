@@ -3,17 +3,19 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light my-3">
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-            <form class="form-inline my-2 my-lg-0 mr-auto">
-              <input class="form-control mr-sm-2" type="search"  placeholder="Введите имя" aria-label="Search" v-model="search" @input="search_text()">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
-            </form>
 
-            <ul class="navbar-nav">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="form-inline my-2 my-lg-0 mr-auto">
+                  <input class="form-control mr-sm-2" type="search"  placeholder="Введите имя" aria-label="Search" v-model="search" @input="search_text()">
+                </li>
+            </ul>
+
+            <ul class="my-2 my-lg-0">
               <li class="nav-item btn">
-                <a class="nav-link" href="#" data-toggle="modal" data-target="#importStaffModal">Импорт из csv</a>
+                <a class="btn btn-light" href="#" data-toggle="modal" data-target="#importStaffModal">Импорт из csv</a>
               </li>
               <li class="nav-item dropdown btn">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="btn btn-light dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Действия
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -24,7 +26,7 @@
                 </div>
               </li>
               <li class="nav-item btn">
-                <a href="#" class="nav-link" data-toggle="modal" data-target="#addStaffModal">Пригласить сотрудника</a>
+                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addStaffModal">Пригласить сотрудника</a>
               </li>
             </ul>
 
