@@ -9,7 +9,7 @@
 <admin-staff-component>загрузка...</admin-staff-component>
 
 
-<!-- Modal -->
+{{-- <!-- Modal -->
 <div class="modal fade" id="addStaffModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -53,7 +53,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 
 <!-- Modal import -->

@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\User;
 
 class StaffController extends Controller
 {
@@ -16,8 +15,7 @@ class StaffController extends Controller
      */
     public function index()
     {
-        
-        return view('admin.staff', ['users' => User::all()]);
+        return view('admin.staff');
     }
 
     /**

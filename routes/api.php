@@ -21,4 +21,5 @@ use App\User;
 
 Route::group(['middleware' => ['auth:api','can:admin']], function () {
     Route::get('user', 'API\UserController@index');
+    Route::get('user/{id}', 'API\UserController@show')->where(['id'=>'[0-9+]']);
 });

@@ -61,11 +61,11 @@
                         v-bind:key="user.id">
                         <td scope="row">
                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customControlInline">
-                                <label class="custom-control-label" for="customControlInline"></label>
+                                <input type="checkbox" class="custom-control-input" v-bind:id="user.id">
+                                <label class="custom-control-label" v-bind:for="user.id"></label>
                             </div>
                         </td>
-                        <td><a href="#" class="" data-toggle="modal" data-target="#addStaffModal">{{ user.name }}</a></td>
+                        <td><a href="#" class="" data-toggle="modal" data-target="#addStaffModal" @click="showModalUser(user.id)">{{ user.name }}</a></td>
                         <td>
                             <a href="#" data-toggle="modal" data-target="#addStaffModal">
                                 <i class="fa fa-pencil" aria-hidden="true"></i>
@@ -89,18 +89,21 @@
                 </tbody>
             </table>
         </section>
+
+        <admin-staff-modal-component v-bind:uid="uid"></admin-staff-modal-component>
     </div>
 </template>
 
 <script>
     export default {
         data() {
-            return{
+            return {
                 users: null,
                 usersOriginal: null,
                 error: null,
                 errored: false,
                 search: null,
+                uid: null,
             }
         },
         mounted() {
@@ -127,6 +130,14 @@
                             return users;
                         }
                 });
+            },
+            showModalUser (id) {
+                // axios.get('/api/user/'+id)
+                //     .then(response => {
+                //         this.uid = response.data.name;
+                //     })
+                this.uid = id;
+                console.log('staff id: ---> ', id);
             }
         }
     }
