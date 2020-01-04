@@ -132,10 +132,6 @@
                 });
             },
             showModalUser (id) {
-                // axios.get('/api/user/'+id)
-                //     .then(response => {
-                //         this.uid = response.data.name;
-                //     })
                 this.uid = id;
                 console.log('staff id: ---> ', id);
             }
