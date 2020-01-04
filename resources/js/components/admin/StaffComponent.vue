@@ -91,7 +91,6 @@
 </template>
 
 <script>
-// import { STATUS_CODES } from 'http';
     export default {
         data() {
             return{
@@ -117,14 +116,15 @@
             search_text(){
                 var self = this;
                 this.users = this.usersOriginal.filter(function(users){
-                    if (
-                        users.name.toLowerCase().indexOf(self.search.toLowerCase()) != "-1"
-                    )
-                    {
-                        return users;
-                    }
+                        if (
+                            users.name.toLowerCase().indexOf(self.search.toLowerCase()) != "-1" ||
+                            users.profession !== null &&
+                            users.profession.toLowerCase().indexOf(self.search.toLowerCase()) != "-1"
+                        )
+                        {
+                            return users;
+                        }
                 });
-                // console.log('serach text: ', this.search);
             }
         }
     }
