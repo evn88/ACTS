@@ -1,4 +1,4 @@
-@extends('layouts.public')
+@extends('layouts.admin')
 @section('content')
 
 <h1><i class="fa fa-user-circle-o" aria-hidden="true"></i> Отчеты</h1>

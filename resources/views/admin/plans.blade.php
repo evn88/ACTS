@@ -1,4 +1,4 @@
-@extends('layouts.public')
+@extends('layouts.admin')
 @section('content')
 
 <h1><i class="fa fa-book" aria-hidden="true"></i> Учебный план</h1>

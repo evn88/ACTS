@@ -1,4 +1,4 @@
-@extends('layouts.public')
+@extends('layouts.admin')
 @section('content')
 
 <h3 class="headtxt">Пароли и учетные записи</h3>

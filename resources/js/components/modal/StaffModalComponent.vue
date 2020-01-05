@@ -13,7 +13,6 @@
                     </div>
                     <div class="modal-body">
                         <form>
-
                             <div class="form-group">
                                 <label for="formGroupExampleInput">ФИО полностью</label>
                                 <input type="text" class="form-control" id="formGroupExampleInput"

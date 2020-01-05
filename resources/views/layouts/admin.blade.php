@@ -6,7 +6,7 @@
 <body>
     <div id="app">
         <header class="header">
-            @include('menu.public_nav')
+            @include('menu.admin_nav')
         </header>
 
         <main class="container">

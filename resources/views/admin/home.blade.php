@@ -1,4 +1,4 @@
-@extends('layouts.public')
+@extends('layouts.admin')
 @section('content')
 
 <h1><i class="fa fa-home" aria-hidden="true"></i> Главная страница</h1>

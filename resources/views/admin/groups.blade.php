@@ -1,4 +1,4 @@
-@extends('layouts.public')
+@extends('layouts.admin')
 @section('content')
 
 <h1><i class="fa fa-graduation-cap" aria-hidden="true"></i> Учебные группы</h1>
