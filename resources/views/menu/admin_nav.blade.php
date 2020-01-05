@@ -13,7 +13,7 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.home') }}">Главная</a>
+                    <a class="nav-link" href="{{ route('admin.dashboard') }}">Главная</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.staff') }}">Сотрудники</a>
