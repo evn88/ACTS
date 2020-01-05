@@ -5,6 +5,7 @@ namespace App;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
@@ -17,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'profession'
     ];
 
     /**
@@ -43,19 +44,6 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class, 'role_users');
     }
 
-     /**
-     * Checks if User has access to $permissions.
-     */
-    // public function hasAccess(array $permissions)
-    // {
-    //     // check if the permission is available in any role
-    //     foreach ($this->roles as $role) {
-    //         if($role->hasAccess($permissions)) {
-    //             return true;
-    //         }
-    //     }
-    //     return false;
-    // }
 
     public function isAdmin() {
         foreach($this->roles as $role) {

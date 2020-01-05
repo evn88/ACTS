@@ -70,7 +70,7 @@
                     @auth
                     {{ Auth::user()->name }} <span class="caret"></span>
                         @can('admin')
-                            <a href="{{ route('admin.home') }}">Admin Panel</a>
+                            <a href="{{ route('admin.dashboard') }}">Admin Panel</a>
                         @endcan
 
                         <a href="{{ route('logout') }}" onclick="event.preventDefault();

@@ -16,7 +16,7 @@
                     <a class="nav-link" href="{{ route('admin.dashboard') }}">Главная</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.staff') }}">Сотрудники</a>
+                    <a class="nav-link" href="{{ url('/admin/staff') }}">Сотрудники</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.groups') }}">Учебные группы</a>

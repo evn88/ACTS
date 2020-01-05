@@ -13,7 +13,6 @@ class UserController extends Controller
     }
 
     public function show ($id) {
-        // dd(User::find($id)->toJson());
         return User::findOrFail($id)->toJson();
     }
 

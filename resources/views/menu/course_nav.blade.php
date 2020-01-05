@@ -63,7 +63,7 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
                         @can('admin')
-                            <a class="dropdown-item" href="{{ route('admin.home') }}">Admin Panel</a>
+                            <a class="dropdown-item" href="{{ route('admin.dashboard') }}">Admin Panel</a>
                         @endcan
                         <a class="dropdown-item" href="{{ route('course.profile') }}">Профиль пользователя</a>
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

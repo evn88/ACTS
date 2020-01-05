@@ -2,12 +2,41 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 
 class StaffController extends Controller
 {
+    // use RegistersUsers;
+
+    /**
+     * Where to redirect users after registration.
+     *
+     * @var string
+     */
+    protected $redirectTo = '/admin/staff';
+
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'profession' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +44,7 @@ class StaffController extends Controller
      */
     public function index()
     {
-        return view('admin.staff');
+        return view('admin.staff.index');
     }
 
     /**
@@ -25,7 +54,7 @@ class StaffController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.staff.create');
     }
 
     /**
@@ -36,7 +65,23 @@ class StaffController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'group_id' => ['required', 'numeric'],
+        ]);
+
+
+        if ($validator->fails()) {
+            return back()
+              ->withInput()
+              ->withErrors($validator);
+              //TODO не возвращает заполненные данные для полей формы
+        }
+
+        User::create($request->all()+['password'=>Hash::make('12345678')]);
+        return redirect()->route('staff.index')
+                         ->with('success','Сотрудник успешно добавлен');
     }
 
     /**
@@ -58,7 +103,8 @@ class StaffController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('admin.staff.edit', compact('user'));
     }
 
     /**
@@ -70,7 +116,8 @@ class StaffController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+        dd($request);
     }
 
     /**

@@ -26,7 +26,7 @@
                 </div>
               </li>
               <li class="nav-item btn">
-                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addStaffModal">Пригласить сотрудника</a>
+                <a href="/admin/staff/create" class="btn btn-primary">Пригласить сотрудника</a>
               </li>
             </ul>
 
@@ -65,7 +65,7 @@
                                 <label class="custom-control-label" v-bind:for="user.id"></label>
                             </div>
                         </td>
-                        <td><a href="#" class="" data-toggle="modal" data-target="#addStaffModal" @click="showModalUser(user.id)">{{ user.name }}</a></td>
+                        <td><a v-bind:href="'/admin/staff/'+ user.id +'/edit'">{{ user.name }}</a></td>
                         <td>
                             <a href="#" data-toggle="modal" data-target="#addStaffModal">
                                 <i class="fa fa-pencil" aria-hidden="true"></i>
