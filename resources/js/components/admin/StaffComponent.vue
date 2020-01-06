@@ -26,7 +26,7 @@
                 </div>
               </li>
               <li class="nav-item btn">
-                <a href="/admin/staff/create" class="btn btn-primary">Пригласить сотрудника</a>
+                <a href="/admin/staff/create" class="btn btn-primary"><i class="fa fa-plus"></i> Пригласить сотрудника</a>
               </li>
             </ul>
 

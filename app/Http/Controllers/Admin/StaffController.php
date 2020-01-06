@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUser;
+use App\Http\Requests\UpdateUser;
+use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
@@ -63,21 +66,8 @@ class StaffController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUser $request)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'group_id' => ['required', 'numeric'],
-        ]);
-
-
-        if ($validator->fails()) {
-            return back()
-              ->withInput()
-              ->withErrors($validator);
-              //TODO не возвращает заполненные данные для полей формы
-        }
 
         User::create($request->all()+['password'=>Hash::make('12345678')]);
         return redirect()->route('staff.index')
@@ -114,10 +104,13 @@ class StaffController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateUser $request, $id)
     {
-        $user = User::findOrFail($id);
-        dd($request);
+        $user = User::where('id',$id);
+        $user->update($request->all());
+
+        return redirect()->route('staff.index')
+                         ->with('success','Запись обновлена');
     }
 
     /**
