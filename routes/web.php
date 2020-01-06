@@ -62,10 +62,7 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','can:admin']], function(
     })->name('admin.dashboard');
 
     Route::resource('staff', 'Admin\StaffController');
-    // Route::resource('staff', 'Admin\StaffController', ['names' => [
-    //     'index' => 'admin.staff',
-    //     'create' => 'admin.staff.create'
-    // ]]);
+    Route::get('/staff/{id}/delete', 'Admin\StaffController@destroy');
 
     Route::get('/groups', function() {
         return view('admin.groups');

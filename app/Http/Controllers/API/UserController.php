@@ -17,12 +17,23 @@ class UserController extends Controller
     }
 
     public function store (Request $request) {
-        return response('OK', 200);
+        // return response('OK', 200);
     }
 
     public function edit($id)
     {
         //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        return 'delete';
     }
 
 }

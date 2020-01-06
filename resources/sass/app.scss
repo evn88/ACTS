@@ -40,10 +40,13 @@ p.heading {
     justify-content: space-between;
 }
 
+.btn {
+    padding: 10px 25px;
+}
+
 .btn-primary {
     background-color: $dblue;
     border-color: $dblue;
-    padding: 10px 25px;
 }
 
 .btn-primary:hover {
@@ -52,7 +55,6 @@ p.heading {
 }
 
 .btn-secondary {
-    padding: 10px 25px;
     background-color: $lgray;
     color: $dblue;
     border: 1px solid $lgray;
@@ -64,10 +66,6 @@ p.heading {
     border: 1px solid $dblue;
 }
 
-.btn-info {
-    padding: 10px 25px;
-
-}
 
 a {
     color: $dblue;

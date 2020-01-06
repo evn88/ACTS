@@ -14792,10 +14792,13 @@ p.heading {
           justify-content: space-between;
 }
 
+.btn {
+  padding: 10px 25px;
+}
+
 .btn-primary {
   background-color: #285677;
   border-color: #285677;
-  padding: 10px 25px;
 }
 
 .btn-primary:hover {
@@ -14804,7 +14807,6 @@ p.heading {
 }
 
 .btn-secondary {
-  padding: 10px 25px;
   background-color: rgba(0, 0, 0, 0.125);
   color: #285677;
   border: 1px solid rgba(0, 0, 0, 0.125);
@@ -14814,10 +14816,6 @@ p.heading {
   background-color: white;
   color: #285677;
   border: 1px solid #285677;
-}
-
-.btn-info {
-  padding: 10px 25px;
 }
 
 a {

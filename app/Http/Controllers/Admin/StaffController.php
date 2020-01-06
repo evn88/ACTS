@@ -106,8 +106,12 @@ class StaffController extends Controller
      */
     public function update(UpdateUser $request, $id)
     {
-        $user = User::where('id',$id);
-        $user->update($request->all());
+        $user = User::findOrFail($id);
+        $user->name = $request->name;
+        $user->profession = $request->profession;
+        $user->email = $request->email;
+        $user->group_id = $request->group_id;
+        $user->save();
 
         return redirect()->route('staff.index')
                          ->with('success','Запись обновлена');
@@ -121,6 +125,8 @@ class StaffController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::findOrFail($id)->delete();
+        return redirect()->route('staff.index')
+                        ->with('success','Запись удалена');
     }
 }
