@@ -22,7 +22,7 @@
                     <a class="dropdown-item" href="#">Переместить в другую группу</a>
                     <a class="dropdown-item" href="#">Приостановить обучение</a>
                     <a class="dropdown-item" href="#">Назначить обучение</a>
-                    <a class="dropdown-item" href="#">Удалить выделенное</a>
+                    <a class="dropdown-item" href="javascript:;" @click="deleteSelected">Удалить выделенное</a>
                 </div>
               </li>
               <li class="nav-item btn">
@@ -137,6 +137,28 @@
             }
         },
         methods: {
+            deleteSelected: function() {
+                if(this.selected.length > 0){
+                    if(confirm("Do you really want to delete?")){
+                        this.selected.forEach(function(id){
+                            let index = this.users.findIndex(function(item){
+                                return item.id == id;
+                            })
+                            axios.delete('/api/user/'+id+'/delete')
+                            .then(resp => {
+                                this.users.splice(index, 1);
+                            })
+                            .catch(error => {
+                                console.log(error);
+                            })
+                        },this);
+                        this.selected = [];
+
+                    }
+                } else {
+                    alert('Вы не выбрали что удалять');
+                }
+            },
             search_text(){
                 var self = this;
                 this.users = this.usersOriginal.filter(function(users){

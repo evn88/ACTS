@@ -33,7 +33,12 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        return 'delete';
+        $user = User::findOrFail($id);
+        if($user->isAdmin()){
+            return response('Forbidden', 403);
+        }
+        $user->delete();
+        return response('OK', 200);
     }
 
 }
