@@ -22,7 +22,7 @@
                     <a class="dropdown-item" href="#">Переместить в другую группу</a>
                     <a class="dropdown-item" href="#">Приостановить обучение</a>
                     <a class="dropdown-item" href="#">Назначить обучение</a>
-                    <a class="dropdown-item" href="#">Удалить</a>
+                    <a class="dropdown-item" href="#">Удалить выделенное</a>
                 </div>
               </li>
               <li class="nav-item btn">
@@ -42,8 +42,8 @@
                     <tr>
                         <th scope="col" style="width:30px;">
                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customControlInline">
-                                <label class="custom-control-label" for="customControlInline"></label>
+                                <input type="checkbox" class="custom-control-input" id="allUsersCheck" v-model="selectAll">
+                                <label class="custom-control-label" for="allUsersCheck"></label>
                             </div>
                         </th>
                         <th scope="col">ФИО</th>
@@ -61,7 +61,7 @@
                         v-bind:key="user.id">
                         <td scope="row">
                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" v-bind:id="user.id">
+                                <input type="checkbox" class="custom-control-input" v-bind:id="user.id" v-model="selected" :value="user.id" number>
                                 <label class="custom-control-label" v-bind:for="user.id"></label>
                             </div>
                         </td>
@@ -98,6 +98,7 @@
     export default {
         data() {
             return {
+                selected: [],
                 users: null,
                 usersOriginal: null,
                 error: null,
@@ -116,6 +117,24 @@
                     this.error = error.response.status + ' ' + error.response.statusText + ' | ' + error.response.data.message;
                     this.errored = true;
                 });
+        },
+        computed: {
+            selectAll: {
+                get: function(){
+                    this.users ? this.selected.lenght == this.users.lenght : false;
+                    // console.log('get: ', this.users ? this.selected.lenght == this.users.lenght : false);
+                },
+                set: function(value){
+                    // console.log('value in set: ', value);
+                    let selected = [];
+                    if (value) {
+                        this.users.forEach(function(user){
+                            selected.push(user.id);
+                        });
+                    }
+                    this.selected = selected;
+                }
+            }
         },
         methods: {
             search_text(){
