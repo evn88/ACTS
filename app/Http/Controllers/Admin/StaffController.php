@@ -6,11 +6,10 @@ use App\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUser;
 use App\Http\Requests\UpdateUser;
-use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\RegistersUsers;
+// use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+// use Illuminate\Support\Facades\Validator;
 
 
 class StaffController extends Controller
@@ -22,7 +21,7 @@ class StaffController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin/staff';
+    // protected $redirectTo = '/admin/staff';
 
     /**
      * Get a validator for an incoming registration request.
@@ -30,15 +29,15 @@ class StaffController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'profession' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-    }
+    // protected function validator(array $data)
+    // {
+    //     return Validator::make($data, [
+    //         'name' => ['required', 'string', 'max:255'],
+    //         'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+    //         'profession' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+    //         'password' => ['required', 'string', 'min:8', 'confirmed'],
+    //     ]);
+    // }
 
     /**
      * Display a listing of the resource.
@@ -125,7 +124,12 @@ class StaffController extends Controller
      */
     public function destroy($id)
     {
-        User::findOrFail($id)->delete();
+        $user = User::findOrFail($id);
+        if($user->isAdmin()){
+            return redirect()->route('staff.index')
+                        ->with('error','Запись администратора не может быть удалена');
+        }
+        $user->delete();
         return redirect()->route('staff.index')
                         ->with('success','Запись удалена');
     }

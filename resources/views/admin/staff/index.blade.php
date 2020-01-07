@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 
+
 <h1><i class="fa fa-user-circle-o" aria-hidden="true"></i> Сотрудники</h1>
 
 <p class="heading">В данном разделе вы можете управлять сотрудниками, которые должны проходить обучение:

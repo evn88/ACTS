@@ -15,6 +15,11 @@
                     <p>{{ $message }}</p>
                 </div>
             @endif
+            @if ($message = Session::get('error'))
+                <div class="alert alert-danger mt-4">
+                    <p>{{ $message }}</p>
+                </div>
+            @endif
             @yield('content')
         </main>
 
