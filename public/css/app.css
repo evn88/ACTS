@@ -15245,6 +15245,10 @@ p.lesson em {
   color: #00adfa;
 }
 
+.block .row_1 {
+  width: 300px;
+}
+
 ul.lesson {
   font-size: 20px;
   margin-bottom: 50px;

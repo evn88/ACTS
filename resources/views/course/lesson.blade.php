@@ -42,7 +42,10 @@
     <li><span>Почему нельзя использовать пароль от корпоративных учетных записей в других местах</span></li>
 </ul>
 <div class="block">
-    <a href="#" class="btn btn-primary">Следующий урок</a>
+    <div class="row_1">
+        <a href="{{ URL::previous() }}" class="btn btn-secondary">Назад</a>
+        <a href="#" class="btn btn-primary">Следующий урок</a>
+    </div>
 </div>
 
 @endsection
