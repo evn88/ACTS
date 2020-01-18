@@ -10,7 +10,7 @@
 <div class="row_1">
     <div class="card_progress course">
         <div class="cell">
-            <p class="num">2%</p>
+            <div class="chart" data-percent="73">73%</div>
         </div>
         <div class="cell">
             <p class="date">Плановая дата окончания:</p>
