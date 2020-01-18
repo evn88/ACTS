@@ -440,6 +440,7 @@ footer {
         text-align: left;
         padding: 25px;
 
+
         .date {
             font-size: 30px;
         }
@@ -447,6 +448,24 @@ footer {
         .text {
             font-size: 20px;
         }
+
+        .chart {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 40px;
+            line-height: 150px;
+            position: relative;
+            color: $dblue;
+
+            canvas {
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+
     }
 
     .cell:hover {
