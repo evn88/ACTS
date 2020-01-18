@@ -21,3 +21,4 @@ app/Photo.php
 app/Http/Controllers/API/PhotoController.php
 app/Http/Controllers/PhotoController.php
 public/css/app.css
+public/js/app.js
