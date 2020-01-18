@@ -15207,6 +15207,23 @@ footer {
   font-size: 20px;
 }
 
+.course .cell .chart {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 40px;
+  line-height: 150px;
+  position: relative;
+  color: #285677;
+}
+
+.course .cell .chart canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .course .cell:hover {
   background-color: rgba(0, 0, 0, 0.03);
   -webkit-transition: none;

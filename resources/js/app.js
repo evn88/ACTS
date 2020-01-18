@@ -31,7 +31,27 @@ $(function () {
 
 
     $('.chart').easyPieChart({
-        //your options goes here
+        size: 150,
+        barColor: '#00adfa',
+        scaleColor: false,
+        lineWidth: 15,
+        trackColor: 'white',
+        lineCap: 'circle',
+        animate: 2000,
+    });
+
+    $('.count').each(function () {
+        console.log($(this).text());
+        $(this).prop('Counter', 0).animate({
+            Counter: $(this).text()
+        },{
+            duration: 2000,
+            easing: 'swing',
+                step: function (now) {
+                    console.log(Math.ceil(now));
+                $(this).text(Math.ceil(now)+'%');
+            }
+        });
     });
 });
 
