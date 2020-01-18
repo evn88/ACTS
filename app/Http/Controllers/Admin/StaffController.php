@@ -7,9 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUser;
 use App\Http\Requests\UpdateUser;
 use Illuminate\Http\Request;
-// use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
-// use Illuminate\Support\Facades\Validator;
 
 
 class StaffController extends Controller
@@ -23,21 +21,6 @@ class StaffController extends Controller
      */
     // protected $redirectTo = '/admin/staff';
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    // protected function validator(array $data)
-    // {
-    //     return Validator::make($data, [
-    //         'name' => ['required', 'string', 'max:255'],
-    //         'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-    //         'profession' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-    //         'password' => ['required', 'string', 'min:8', 'confirmed'],
-    //     ]);
-    // }
 
     /**
      * Display a listing of the resource.
@@ -61,13 +44,13 @@ class StaffController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     * Создаем пользователя с паролем по умолчанию
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreUser $request)
     {
-
         User::create($request->all()+['password'=>Hash::make('12345678')]);
         return redirect()->route('staff.index')
                          ->with('success','Сотрудник успешно добавлен');
