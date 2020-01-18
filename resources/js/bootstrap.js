@@ -12,6 +12,7 @@ try {
 
     require('bootstrap');
     require('pc-bootstrap4-datetimepicker');
+    require('easy-pie-chart');
 } catch (e) {}
 
 /**

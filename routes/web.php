@@ -35,6 +35,14 @@ Route::group(['prefix'=>'course','middleware' => ['auth']], function()
         return view('course.materials');
     })->name('course.materials');
 
+    Route::get('/plansinf', function() {
+        return view('course.plansinf');
+    })->name('course.plansinf');
+
+    Route::get('/lesson', function() {
+        return view('course.lesson');
+    })->name('course.lesson');
+
     Route::get('/tests', function() {
         return view('course.tests');
     })->name('course.tests');
