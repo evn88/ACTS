@@ -1,7 +1,7 @@
 /node_modules
 
 /public/hot
-/public/storage
+/public/storage !/app/img !/lessons_img
 /storage/*.key
 /vendor
 .env
