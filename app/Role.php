@@ -10,6 +10,8 @@ class Role extends Model
         'name', 'slug'
     ];
 
+    protected $touches = ['users'];
+
     public function users()
     {
         return $this->belongsToMany(User::class, 'role_users');

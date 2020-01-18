@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(RolesSeeder::class);
-        $this->command->info('Таблица ролей загружена...');
+        $this->call(RolesUsersSeeder::class);
+        $this->command->info('Таблица ролей успешно загружена!');
     }
 }

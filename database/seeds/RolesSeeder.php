@@ -12,13 +12,24 @@ class RolesSeeder extends Seeder
      */
     public function run()
     {
-        $author = Role::create([
+        $admin = Role::firstOrCreate([
             'name' => 'Администратор',
             'slug' => 'admin'
         ]);
-        $editor = Role::create([
+        if($admin->wasRecentlyCreated){
+            $this->command->info('Роль администратора создана...');
+        } else {
+            $this->command->info('Роль администратора уже существует, продолжаем...');
+        }
+
+        $student = Role::firstOrCreate([
             'name' => 'Студент',
             'slug' => 'student'
         ]);
+        if($student->wasRecentlyCreated){
+            $this->command->info('Роль студента создана...');
+        } else {
+            $this->command->info('Роль студента уже существует, продолжаем...');
+        }
     }
 }
