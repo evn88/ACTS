@@ -14767,6 +14767,12 @@ h3 {
   margin-bottom: 50px;
 }
 
+h4 {
+  font-weight: 500;
+  margin-bottom: 30px;
+  color: #00adfa;
+}
+
 h5 {
   font-weight: 500;
   margin-bottom: 30px;
@@ -15208,7 +15214,47 @@ footer {
   color: #285677;
 }
 
-p {
+p.lesson {
   font-size: 18px;
+}
+
+p.lesson em {
+  font-weight: bold;
+  color: #00adfa;
+}
+
+.block {
+  width: 700px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+          align-items: center;
+  padding-bottom: 30px;
+}
+
+.block blockquote {
+  font-size: 20px;
+  font-style: italic;
+  text-align: center;
+  color: #00adfa;
+}
+
+ul.lesson {
+  font-size: 20px;
+  margin-bottom: 50px;
+}
+
+ul.lesson li {
+  color: #00adfa;
+}
+
+ul.lesson li span {
+  color: #212529;
 }
 
