@@ -15162,8 +15162,10 @@ a:hover {
 }
 
 .card_progress.group .cell:hover {
+  background-color: rgba(0, 0, 0, 0.03);
   -webkit-transition: none;
   transition: none;
+  color: #285677;
 }
 
 footer {
@@ -15173,5 +15175,40 @@ footer {
   color: white;
   margin-top: 50px;
   padding: 40px 20px;
+}
+
+.course {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+
+.course .cell {
+  width: 300px;
+  text-align: left;
+  padding: 25px;
+}
+
+.course .cell .date {
+  font-size: 30px;
+}
+
+.course .cell .text {
+  font-size: 20px;
+}
+
+.course .cell:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+  -webkit-transition: none;
+  transition: none;
+  color: #285677;
+}
+
+p {
+  font-size: 18px;
 }
 

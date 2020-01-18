@@ -405,7 +405,9 @@ a:hover {
     }
 
     .cell:hover {
+        background-color: rgba(0, 0, 0, 0.03);
         transition: none;
+        color: $dblue;
     }
 }
 
@@ -416,4 +418,40 @@ footer {
     color: white;
     margin-top: 50px;
     padding: 40px 20px;
+}
+
+
+// course
+// home
+
+.course {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .cell {
+        width: 300px;
+        text-align: left;
+        padding: 25px;
+
+        .date {
+            font-size: 30px;
+        }
+
+        .text {
+            font-size: 20px;
+        }
+    }
+
+    .cell:hover {
+        background-color: rgba(0, 0, 0, 0.03);
+        transition: none;
+        color: $dblue;
+    }
+}
+
+//lesson
+
+p {
+    font-size: 18px;
 }
