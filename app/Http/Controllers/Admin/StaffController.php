@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Group;
 use App\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUser;
@@ -39,7 +40,8 @@ class StaffController extends Controller
      */
     public function create()
     {
-        return view('admin.staff.create');
+        $groups = Group::all();
+        return view('admin.staff.create', compact('groups'));
     }
 
     /**
@@ -75,8 +77,11 @@ class StaffController extends Controller
      */
     public function edit($id)
     {
-        $user = User::findOrFail($id);
-        return view('admin.staff.edit', compact('user'));
+        // $user = User::findOrFail($id);
+        $user = User::with('groups')->findOrFail($id);
+        $groups = Group::all();
+
+        return view('admin.staff.edit', compact('user', 'groups'));
     }
 
     /**
@@ -88,11 +93,12 @@ class StaffController extends Controller
      */
     public function update(UpdateUser $request, $id)
     {
+        // dd($request);
         $user = User::findOrFail($id);
         $user->name = $request->name;
         $user->profession = $request->profession;
         $user->email = $request->email;
-        $user->group_id = $request->group_id;
+        $user->groups()->sync($request->group_id);
         $user->save();
 
         return redirect()->route('staff.index')

@@ -38,16 +38,27 @@
          @enderror
     </div>
 
-    @if(!isset($user))
+    @empty($user)
         <p class="alert alert-info">На этот e-mail будет выслана информация для подтверждения регистрации сотрудника</p>
-    @endif
+    @endempty
+
     <div class="form-group">
         <label for="group_id">Учебная группа</label>
         <select id="group_id" name="group_id" class="form-control @error('group_id') is-invalid @enderror">
-            <option value="0" selected>Не назначена</option>
-            <option value="1">Основная</option>
-            <option value="2">Потенциальный риск</option>
+
+            @foreach($groups as $group)
+            @if(isset($user))
+                @if($group->id === $user->groups[0]->id)
+                    <option value="{{ $group->id }}" selected>{{ $group->name }}</option>
+                @else
+                    <option value="{{ $group->id }}">{{ $group->name }}</option>
+                @endif
+            @else
+                <option value="{{ $group->id }}">{{ $group->name }}</option>
+            @endif
+            @endforeach
         </select>
+
         @error('group_id')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
