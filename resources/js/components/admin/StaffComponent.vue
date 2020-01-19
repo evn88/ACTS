@@ -50,7 +50,7 @@
                         <th scope="col" style="width:20px; text-align:left"></th>
                         <th scope="col">Должность</th>
                         <th scope="col">Почта</th>
-                        <th scope="col">Группа</th>
+                        <th scope="col">Группы</th>
                         <th scope="col">Статус</th>
                     </tr>
                 </thead>
@@ -73,7 +73,13 @@
                         </td>
                         <td>{{ user.profession }}</td>
                         <td>{{ user.email }}</td>
-                        <td>{{ user.group_id }}</td>
+                        <td>
+                            <div v-for="group in user.groups" v-bind:key="group.id">
+                                <span class="badge badge-pill badge-light">
+                                    {{ group.name }}
+                                </span>
+                            </div>
+                        </td>
                         <td>{{ user.status }}</td>
                     </tr>
                     <!-- @endforeach -->
