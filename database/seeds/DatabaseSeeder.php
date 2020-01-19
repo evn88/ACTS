@@ -13,6 +13,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(RolesSeeder::class);
         $this->call(RolesUsersSeeder::class);
+        $this->call(GroupsSeeder::class);
+        $this->call(GroupsUsersSeeder::class);
         $this->command->info('Таблица ролей успешно загружена!');
     }
 }
