@@ -518,5 +518,29 @@ ul.lesson {
     }
 }
 
+//test
 
+.test {
+    font-size: 20px;
+    font-weight: 500;
+    color: $dblue;
+}
+
+.jumbotron {
+    padding: 2rem;
+
+    .form-check {
+        font-size: 18px;
+        padding: 0 0 15px 15px;
+
+        input[type="radio"] {
+            width: 18px;
+            height: 18px;
+        }
+
+        label {
+            padding-left: 10px;
+        }
+    }
+}
 

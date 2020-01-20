@@ -15279,3 +15279,27 @@ ul.lesson li span {
   color: #212529;
 }
 
+.test {
+  font-size: 20px;
+  font-weight: 500;
+  color: #285677;
+}
+
+.jumbotron {
+  padding: 2rem;
+}
+
+.jumbotron .form-check {
+  font-size: 18px;
+  padding: 0 0 15px 15px;
+}
+
+.jumbotron .form-check input[type=radio] {
+  width: 18px;
+  height: 18px;
+}
+
+.jumbotron .form-check label {
+  padding-left: 10px;
+}
+
