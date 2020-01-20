@@ -26,7 +26,7 @@
                 </div>
               </li>
               <li class="nav-item btn">
-                <a href="/admin/staff/create" class="btn btn-primary"><i class="fa fa-plus"></i> Пригласить сотрудника</a>
+                <a v-bind:href="path +'/admin/staff/create'" class="btn btn-primary"><i class="fa fa-plus"></i> Пригласить сотрудника</a>
               </li>
             </ul>
 
@@ -50,7 +50,7 @@
                         <th scope="col" style="width:20px; text-align:left"></th>
                         <th scope="col">Должность</th>
                         <th scope="col">Почта</th>
-                        <th scope="col">Группа</th>
+                        <th scope="col">Группы</th>
                         <th scope="col">Статус</th>
                     </tr>
                 </thead>
@@ -65,7 +65,7 @@
                                 <label class="custom-control-label" v-bind:for="user.id"></label>
                             </div>
                         </td>
-                        <td><a v-bind:href="'/admin/staff/'+ user.id +'/edit'">{{ user.name }}</a></td>
+                        <td><a v-bind:href="path +'/admin/staff/'+ user.id +'/edit'">{{ user.name }}</a></td>
                         <td>
                             <a href="#" data-toggle="modal" data-target="#addStaffModal">
                                 <i class="fa fa-pencil" aria-hidden="true"></i>
@@ -73,7 +73,13 @@
                         </td>
                         <td>{{ user.profession }}</td>
                         <td>{{ user.email }}</td>
-                        <td>{{ user.group_id }}</td>
+                        <td>
+                            <div v-for="group in user.groups" v-bind:key="group.id">
+                                <span class="badge badge-pill badge-light">
+                                    {{ group.name }}
+                                </span>
+                            </div>
+                        </td>
                         <td>{{ user.status }}</td>
                     </tr>
                     <!-- @endforeach -->
@@ -105,10 +111,11 @@
                 errored: false,
                 search: null,
                 uid: null,
+                path: process.env.MIX_URL
             }
         },
         mounted() {
-            axios.get('/api/user')
+            axios.get(this.path + '/api/user')
                 .then(response => {
                     this.users = this.usersOriginal = response.data;
                 })
@@ -144,7 +151,7 @@
                             let index = this.users.findIndex(function(item){
                                 return item.id == id;
                             })
-                            axios.delete('/api/user/'+id+'/delete')
+                            axios.delete(this.path + '/api/user/'+id+'/delete')
                             .then(resp => {
                                 this.users.splice(index, 1);
                             })

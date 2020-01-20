@@ -21,7 +21,7 @@ class User extends Authenticatable
         'name', 'email', 'password', 'profession'
     ];
 
-    protected $touches = ['roles'];
+    protected $touches = ['roles','groups'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -44,6 +44,11 @@ class User extends Authenticatable
     public function roles()
     {
         return $this->belongsToMany(Role::class, 'role_users');
+    }
+
+    public function groups()
+    {
+        return $this->belongsToMany(Group::class, 'group_user');
     }
 
 

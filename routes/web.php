@@ -11,6 +11,8 @@
 |
 */
 
+use App\Role;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -72,9 +74,11 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','can:admin']], function(
     Route::resource('staff', 'Admin\StaffController');
     Route::get('/staff/{id}/delete', 'Admin\StaffController@destroy');
 
-    Route::get('/groups', function() {
-        return view('admin.groups');
-    })->name('admin.groups');
+    Route::resource('groups', 'Admin\GroupController');
+
+    // Route::get('/groups', function() {
+    //     return view('admin.groups');
+    // })->name('admin.groups');
 
     Route::get('/plans', function() {
         return view('admin.plans');

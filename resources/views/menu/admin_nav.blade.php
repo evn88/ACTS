@@ -19,7 +19,7 @@
                     <a class="nav-link" href="{{ url('/admin/staff') }}">Сотрудники</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.groups') }}">Учебные группы</a>
+                    <a class="nav-link" href="{{ url('/admin/groups') }}">Учебные группы</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.plans') }}">Учебный план</a>
@@ -61,6 +61,8 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('course.home') }}">Пользовательская часть</a>
+
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                             {{ __('Выход') }}
@@ -69,6 +71,7 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
+
                     </div>
                 </li>
                 @endguest
