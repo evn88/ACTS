@@ -3,6 +3,7 @@
 /public/js
 /public/fonts
 /public/hot
+/public/mix-manifest.json
 /public/storage !/app/img !/lessons_img
 /storage/*.key
 /vendor
