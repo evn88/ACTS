@@ -1,5 +1,7 @@
 /node_modules
-
+/public/css
+/public/js
+/public/fonts
 /public/hot
 /public/storage !/app/img !/lessons_img
 /storage/*.key
@@ -16,6 +18,3 @@ yarn-error.log
 
 _ide_helper.php
 .phpstorm.meta.php
-
-public/css/app.css
-public/js/app.js
