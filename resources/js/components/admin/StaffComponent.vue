@@ -55,7 +55,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- @foreach ($users as $user) -->
 
                     <tr v-for="user in users"
                         v-bind:key="user.id">
@@ -82,16 +81,13 @@
                         </td>
                         <td>{{ user.status }}</td>
                     </tr>
-                    <!-- @endforeach -->
 
-
-                    <!-- @if(!$users) -->
                     <tr v-if="!users">
                         <td scope="row">
                         </td>
                         <td colspan="6">Нет пользователей</td>
                     </tr>
-                    <!-- @endif -->
+
                 </tbody>
             </table>
         </section>
@@ -129,10 +125,8 @@
             selectAll: {
                 get: function(){
                     this.users ? this.selected.lenght == this.users.lenght : false;
-                    // console.log('get: ', this.users ? this.selected.lenght == this.users.lenght : false);
                 },
                 set: function(value){
-                    // console.log('value in set: ', value);
                     let selected = [];
                     if (value) {
                         this.users.forEach(function(user){
