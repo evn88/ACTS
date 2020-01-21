@@ -53,7 +53,9 @@ class StaffController extends Controller
      */
     public function store(StoreUser $request)
     {
-        User::create($request->all()+['password'=>Hash::make('12345678')]);
+        $user = User::create($request->all()+['password'=>Hash::make('12345678')]);
+        $user->groups()->sync($request->group_id);
+        $user->save();
         return redirect()->route('staff.index')
                          ->with('success','Сотрудник успешно добавлен');
     }
