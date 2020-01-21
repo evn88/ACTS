@@ -14,4 +14,9 @@ class Group extends Model
     {
         return $this->belongsToMany(User::class, 'group_user');
     }
+
+    public function usersCount()
+    {
+        return $this->users()->count();
+    }
 }
