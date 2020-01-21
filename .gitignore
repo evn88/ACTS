@@ -1,6 +1,5 @@
 /node_modules
 /public/hot
-/public/mix-manifest.json
 /public/storage !/app/img !/lessons_img
 /storage/*.key
 /vendor
@@ -17,3 +16,6 @@ yarn-error.log
 _ide_helper.php
 .phpstorm.meta.php
 public/mix-manifest.json
+public/css
+public/js
+public/fonts
