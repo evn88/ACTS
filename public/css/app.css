@@ -15307,7 +15307,33 @@ h1.catchpage {
   text-align: center;
 }
 
-.catch {
-  margin-bottom: 30px;
+ul.lesson.catch {
+  margin-bottom: 0px;
+}
+
+.catching {
+  background-color: #285677;
+}
+
+.catching h4 {
+  color: white;
+}
+
+.catching ul {
+  color: white;
+}
+
+.catching ul li span {
+  color: white;
+}
+
+.block.catch {
+  text-align: center;
+  font-style: italic;
+}
+
+.row_1.catch {
+  font-size: 20px;
+  color: #285677;
 }
 
