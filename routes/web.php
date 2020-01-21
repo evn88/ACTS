@@ -60,6 +60,9 @@ Route::group(['prefix'=>'course','middleware' => ['auth']], function()
 
 });
 
+Route::get('/catchpage', function() {
+    return view('catchpages.template1');
+})->name('catchpages.template1');
 
 /*
  * Админка
