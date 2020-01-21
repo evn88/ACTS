@@ -25,11 +25,38 @@
     и так далее. Украв пароль, мошенники смогут действовать от вашего лица — например, рассылать сообщения вашим
     коллегам и контрагентам, чтобы получить доступ к их аккаунтам, деньгам или важной информации.
 </p>
-<h4>Что должно было вас насторожить?</h4>
-<ul type="square" class="lesson catch">
-    <li><span>Кнопка и ссылка с просьбой ввести пароль в письме</span></li>
-    <li><span>Неправдоподобное обоснование того, почему вам нужно это сделать</span></li>
-</ul>
+<div class="row py-3"></div>
+<div class="jumbotron catching">
+    <h4>Что должно было вас насторожить?</h4>
+    <hr class="my-4">
+    <ul type="square" class="lesson catch">
+        <li><span>Кнопка и ссылка с просьбой ввести пароль в письме</span></li>
+        <li><span>Неправдоподобное обоснование того, почему вам нужно это сделать</span></li>
+    </ul>
+</div>
+<div class="block catch">
+    <img src="{{ asset('storage/img/warn.png') }}" alt="">
+    <div class="row py-2"></div>
+    <h4>Это нужно запомнить!</h4>
+    <p class="test">Если злоумышленники получат доступ к вашим личным данным или конфиденциальной информации,
+        это может привести к:
+    </p>
+</div>
+<div class="row_1 catch">
+    <div class="item">
+        <img src="{{ asset('storage/img/.png') }}" alt="">
+        <p>Финансовым потерям</p>
+    </div>
+    <div class="item">
+        <img src="{{ asset('storage/img/.png') }}" alt="">
+        <p>Подрыву репутации</p>
+    </div>
+    <div class="item">
+        <img src="{{ asset('storage/img/.png') }}" alt="">
+       <p>Хищению важной информации</p>
+    </div>
+</div>
+
 
 
 

@@ -548,6 +548,32 @@ ul.lesson {
 h1.catchpage {
     text-align: center;
 }
-.catch {
-    margin-bottom: 30px;
+ul.lesson.catch {
+    margin-bottom: 0px;
+}
+
+.catching {
+    background-color: $dblue;
+
+    h4 {
+        color: white;
+    }
+
+    ul {
+        color: white;
+        li span{
+            color: white;
+        }
+    }
+
+}
+
+.block.catch {
+    text-align: center;
+    font-style: italic;
+}
+
+.row_1.catch {
+    font-size: 20px;
+    color: $dblue;
 }
