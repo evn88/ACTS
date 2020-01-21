@@ -51,6 +51,11 @@ class User extends Authenticatable
         return $this->belongsToMany(Group::class, 'group_user');
     }
 
+    public function inGroup($groupId)
+    {
+        return $this->groups()->where('id', $groupId)->count() == 1;
+    }
+
 
     public function isAdmin() {
         foreach($this->roles as $role) {

@@ -42,13 +42,14 @@
         <p class="alert alert-info">На этот e-mail будет выслана информация для подтверждения регистрации сотрудника</p>
     @endempty
 
+
     <div class="form-group">
         <label for="group_id">Учебная группа</label>
         <select id="group_id" name="group_id" class="form-control @error('group_id') is-invalid @enderror">
 
             @foreach($groups as $group)
             @if(isset($user))
-                @if($group->id === $user->groups[0]->id)
+                @if($user->inGroup($group->id))
                     <option value="{{ $group->id }}" selected>{{ $group->name }}</option>
                 @else
                     <option value="{{ $group->id }}">{{ $group->name }}</option>

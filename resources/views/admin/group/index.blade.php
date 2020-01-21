@@ -19,7 +19,7 @@
 </div>
 
 <table class="table table-striped table-hover">
-    <thead style="background: $dblue;">
+    <thead>
         <tr>
             <th scope="col"></th>
             <th scope="col">Группы</th>
@@ -29,31 +29,12 @@
         </tr>
     </thead>
     <tbody>
+        @foreach($groups as $group)
         <tr>
-            <td><i class="fa fa-play" aria-hidden="true"></i></td>
-            <td> Основная</td>
-            <td class="txt-center">3</td>
-            <td class="txt-center">25.12.2019</td>
-            <td class="txt-center">
-                <div class="dropdown dropleft">
-                    <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-bars" aria-hidden="true"></i>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#startGroupModal">Начать
-                            обучение</a>
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#stopGroupModal">Закончить
-                            обучение</a>
-                        <a class="dropdown-item" href="{{ route('admin.groupinf') }}">Подробнее о группе</a>
-                    </div>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td><i class="fa fa-pause" aria-hidden="true"></i></td>
-            <td>Потенциальный риск</td>
-            <td class="txt-center">1</td>
-            <td class="txt-center">01.01.2020</td>
+            <td><i class="fa fa-stop" aria-hidden="true"></i></td>
+            <td><a href="{{ route('admin.groupinf') }}"> {{ $group->name }}</a></td>
+            <td class="txt-center">{{ $group->usersCount() }}</td>
+            <td class="txt-center">{{ $group->date_end }}</td>
             <td class="txt-center">
                 <div class="dropdown dropleft">
                     <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -80,6 +61,7 @@
                 </div>
             </td>
         </tr>
+        @endforeach
     </tbody>
 </table>
 

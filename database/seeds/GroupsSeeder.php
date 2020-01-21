@@ -8,7 +8,7 @@ class GroupsSeeder extends Seeder
     public function run()
     {
         $group = Group::firstOrCreate([
-            'name' => 'Базовая',
+            'name' => 'Основная',
             'date_start' => null,
             'date_end' => null,
             'status' => 'stopped',
