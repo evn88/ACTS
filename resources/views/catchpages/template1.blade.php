@@ -35,8 +35,7 @@
     </ul>
 </div>
 <div class="block catch">
-    <img src="{{ asset('storage/img/warn.png') }}" alt="">
-    <div class="row py-2"></div>
+    <div class="row py-3"></div>
     <h4>Это нужно запомнить!</h4>
     <p class="test">Если злоумышленники получат доступ к вашим личным данным или конфиденциальной информации,
         это может привести к:
@@ -44,19 +43,39 @@
 </div>
 <div class="row_1 catch">
     <div class="item">
-        <img src="{{ asset('storage/img/.png') }}" alt="">
+        <img src="{{ asset('storage/img/money.png') }}" alt="">
         <p>Финансовым потерям</p>
     </div>
     <div class="item">
-        <img src="{{ asset('storage/img/.png') }}" alt="">
+        <img src="{{ asset('storage/img/fraud.png') }}" alt="">
         <p>Подрыву репутации</p>
     </div>
     <div class="item">
-        <img src="{{ asset('storage/img/.png') }}" alt="">
+        <img src="{{ asset('storage/img/doc.png') }}" alt="">
        <p>Хищению важной информации</p>
     </div>
 </div>
-
+<div class="row py-5"></div>
+<h3 class="fishing">Что нужно делать, если вы получили фишинговое письмо?</h3>
+<div class="row_1">
+    <div class="card_progress fishing">
+        <div class="cell">
+            <p class="text">Не нажимать на активные элементы внутри письма и не сохранять файлы из него</p>
+        </div>
+        <div class="cell">
+            <p class="text">Сообщить о получении письма в отдел безопасности вашей компании</p>
+        </div>
+        <div class="cell">
+            <p class="text">Удалить это письмо</p>
+        </div>
+    </div>
+</div>
+<div class="row py-4"></div>
+<div class="block catch">
+    <p class="test">Нажмите на кнопку, чтобы подтвердить, что Вы ознакомились с приведенными выше рекомендациями</p>
+    <div class="row py-2"></div>
+    <a href="#" class="btn btn-primary">Подтверждаю</a>
+</div>
 
 
 
