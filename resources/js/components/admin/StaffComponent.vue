@@ -79,7 +79,7 @@
                                 </span>
                             </div>
                         </td>
-                        <td>{{ user.status }}</td>
+                        <td>{{ user.status_id }}</td>
                     </tr>
 
                     <tr v-if="!users">
