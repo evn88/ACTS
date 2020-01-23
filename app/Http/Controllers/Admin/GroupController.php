@@ -73,6 +73,12 @@ class GroupController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $group = Group::findOrFail($id);
+        $group->name = $request->name;
+        $group->date_start = $request->date_start;
+        $group->date_end = $request->date_end;
+        $group->save();
+
         return redirect()->route('groups.index')
                          ->with('success','Запись обновлена');
     }
