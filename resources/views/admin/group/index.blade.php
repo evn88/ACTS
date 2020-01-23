@@ -8,7 +8,7 @@
 
 <div class="row_1">
     <div class="left">
-        <a href="#" class="btn btn-info" data-toggle="modal" data-target="#newGroupModal">Новая группа</a>
+        <a href="{{ route('groups.create') }}" class="btn btn-info">Новая группа</a>
     </div>
     <div class="right">
         <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#startGroupModal">Начать обучение</a>
@@ -139,63 +139,6 @@
         </div>
     </div>
 </div>
-
-<div class="modal fade" id="newGroupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Новая группа</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Чтобы создать новую группу, введите название и отметьте необходимые темы для изучения.
-                </p>
-                <form>
-                    <div class="form-group">
-                        <label for="formGroupNameInput">Название группы</label>
-                        <input type="text" class="form-control" id="formGroupNameInput" placeholder="Новая группа">
-                    </div>
-                    <div class="form-group">
-                        <label for="formGroupThemeInput">Темы для изучения</label>
-                        <div class="custom-control custom-checkbox my-1 mr-sm-2">
-                            <input type="checkbox" class="custom-control-input" id="educLog">
-                            <label class="custom-control-label" for="educLog">Пароли и учетные записи</label>
-                        </div>
-                        <div class="custom-control custom-checkbox my-1 mr-sm-2">
-                            <input type="checkbox" class="custom-control-input" id="educMail">
-                            <label class="custom-control-label" for="educMail">Почта</label>
-                        </div>
-                        <div class="custom-control custom-checkbox my-1 mr-sm-2">
-                            <input type="checkbox" class="custom-control-input" id="educWeb">
-                            <label class="custom-control-label" for="educWeb">Веб-сайты</label>
-                        </div>
-                        <div class="custom-control custom-checkbox my-1 mr-sm-2">
-                            <input type="checkbox" class="custom-control-input" id="educSocial">
-                            <label class="custom-control-label" for="educSocial">Соцсети и мессенджеры</label>
-                        </div>
-                        <div class="custom-control custom-checkbox my-1 mr-sm-2">
-                            <input type="checkbox" class="custom-control-input" id="educPC">
-                            <label class="custom-control-label" for="educPC">Безопасность ПК</label>
-                        </div>
-                        <div class="custom-control custom-checkbox my-1 mr-sm-2">
-                            <input type="checkbox" class="custom-control-input" id="educMobil">
-                            <label class="custom-control-label" for="educMobil">Безопасность мобильных
-                                устройств</label>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-                <button type="button" class="btn btn-primary">Создать</button>
-            </div>
-        </div>
-    </div>
-</div>
-
 
 
 @endsection

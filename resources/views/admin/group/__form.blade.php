@@ -1,69 +1,62 @@
     @csrf
     <div class="form-group">
-        <label for="name">ФИО полностью</label>
-        <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror"
-                value="{{ old('name') ?? $user->name ?? '' }}" >
+        <label for="name">Название группы</label>
+        <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') ?? $user->name ?? '' }}">
         @error('name')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-         @enderror
-    </div>
-
-    <div class="form-group">
-        <label for="profession">Должность</label>
-        <input
-            type="text"
-            name="profession"
-            id="profession"
-            class="form-control @error('profession') is-invalid @enderror"
-            value="{{ old('profession') ?? $user->profession ?? '' }}"
-        >
-        @error('profession')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-         @enderror
-    </div>
-
-    <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" class="form-control @error('email') is-invalid @enderror"
-        value="{{ old('email') ?? $user->email ?? '' }}"
-         >
-         @error('email')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-         @enderror
-    </div>
-
-    @if(!isset($user))
-        <p class="alert alert-info">На этот e-mail будет выслана информация для подтверждения регистрации сотрудника</p>
-    @endif
-    <div class="form-group">
-        <label for="group_id">Учебная группа</label>
-        <select id="group_id" name="group_id" class="form-control @error('group_id') is-invalid @enderror">
-            <option value="0" selected>Не назначена</option>
-            <option value="1">Основная</option>
-            <option value="2">Потенциальный риск</option>
-        </select>
-        @error('group_id')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
         @enderror
     </div>
+
+    <div class="form-group">
+        <label for="date_start">Период обучения группы</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Дата начала</span>
+            </div>
+            <input type="text" name="date_start" class="form-control">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Дата окончания</span>
+            </div>
+            <input type="text" name="date_end" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="formGroupThemeInput">Темы для изучения</label>
+        <div class="custom-control custom-checkbox my-1 mr-sm-2">
+            <input type="checkbox" class="custom-control-input" id="educLog">
+            <label class="custom-control-label" for="educLog">Пароли и учетные записи</label>
+        </div>
+        <div class="custom-control custom-checkbox my-1 mr-sm-2">
+            <input type="checkbox" class="custom-control-input" id="educMail">
+            <label class="custom-control-label" for="educMail">Почта</label>
+        </div>
+        <div class="custom-control custom-checkbox my-1 mr-sm-2">
+            <input type="checkbox" class="custom-control-input" id="educWeb">
+            <label class="custom-control-label" for="educWeb">Веб-сайты</label>
+        </div>
+        <div class="custom-control custom-checkbox my-1 mr-sm-2">
+            <input type="checkbox" class="custom-control-input" id="educSocial">
+            <label class="custom-control-label" for="educSocial">Соцсети и мессенджеры</label>
+        </div>
+        <div class="custom-control custom-checkbox my-1 mr-sm-2">
+            <input type="checkbox" class="custom-control-input" id="educPC">
+            <label class="custom-control-label" for="educPC">Безопасность ПК</label>
+        </div>
+        <div class="custom-control custom-checkbox my-1 mr-sm-2">
+            <input type="checkbox" class="custom-control-input" id="educMobil">
+            <label class="custom-control-label" for="educMobil">Безопасность мобильных
+                устройств</label>
+        </div>
+    </div>
+
     <div class="form-group">
         <a href="{{ URL::previous() }}" class="btn btn-secondary">Назад</a>
 
         @if(isset($user))
-        <a href="{{ url('admin/staff/'.$user->id.'/delete') }}" class="btn btn-secondary"><i class="fa fa-trash" aria-hidden="true"></i></a>
-        {{-- <form action="{{ url('admin/staff/'.$user->id) }}" method="DELETE" class="clearfix">
-            @csrf
-            {{ method_field('DELETE') }}
-            <button type="submit" class="btn btn-secondary"><i class="fa fa-trash" aria-hidden="true"></i></button>
-        </form> --}}
+        <a href="{{ url('admin/groups/'.$user->id.'/delete') }}" class="btn btn-secondary"><i class="fa fa-trash" aria-hidden="true"></i></a>
         @endif
 
         <button type="submit" class="btn btn-primary float-right">Сохранить</button>

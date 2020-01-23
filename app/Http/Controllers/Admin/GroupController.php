@@ -26,7 +26,8 @@ class GroupController extends Controller
      */
     public function create()
     {
-        //
+        // $groups = Group::all();
+        return view('admin.group.create');
     }
 
     /**
