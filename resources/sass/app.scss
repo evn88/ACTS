@@ -265,6 +265,23 @@ a:hover {
     }
 }
 
+//group form
+
+.row_2 {
+
+
+    .col:last-child {
+        margin-left: 100px;
+    }
+
+    .input-group {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100px;
+    }
+}
+
 //plans
 
 .card_plan {
