@@ -2,7 +2,7 @@
     <div class="row row_2">
         <div class="col-6">
             <div class="form-group">
-                <label for="name">Название группы</label>
+                <label for="name">Название группы:</label>
                 <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') ?? $user->name ?? '' }}">
                 @error('name')
                 <span class="invalid-feedback" role="alert">
@@ -12,23 +12,29 @@
             </div>
 
             <div class="form-group">
-                <label for="date_start">Период обучения группы</label>
+                <p>Период обучения группы:</p>
                 <div class="input-group">
-                    <div class="wrap">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="">Дата начала</span>
+                    <div class="form-group">
+                        <label for="inputGroup">Укажите дату начала</label>
+                        <div class="input-group datetimepicker2" id="datetimepicker2">
+                            <input type="text" class="form-control datetimepicker2" />
+                            <span class="input-group-addon">
+                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                            </span>
                         </div>
-                        <input type="text" name="date_start" class="form-control">
                     </div>
-                    <div class="wrap">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="">Дата окончания</span>
+                    <div class="form-group">
+                        <label for="inputGroup">Укажите дату окончания</label>
+                        <div class="input-group datetimepicker2" id="datetimepicker2">
+                            <input type="text" class="form-control datetimepicker2" />
+                            <span class="input-group-addon">
+                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                            </span>
                         </div>
-                        <input type="text" name="date_end" class="form-control">
                     </div>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group butt">
                 <a href="{{ URL::previous() }}" class="btn btn-secondary">Назад</a>
 
                 @if(isset($user))
