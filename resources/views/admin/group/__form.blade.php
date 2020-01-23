@@ -1,7 +1,7 @@
     @csrf
     <div class="form-group">
         <label for="name">Название группы</label>
-        <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') ?? $user->name ?? '' }}">
+        <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') ?? $groups->name ?? '' }}">
         @error('name')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -15,11 +15,28 @@
             <div class="input-group-prepend">
                 <span class="input-group-text" id="">Дата начала</span>
             </div>
-            <input type="text" name="date_start" class="form-control">
+            <input type="text" name="date_start"
+                class="form-control @error('date_start') is-invalid @enderror"
+                value="{{ old('date_start') ?? $groups->date_start ?? '' }}">
+
+            @error('date_start')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+
             <div class="input-group-prepend">
                 <span class="input-group-text" id="">Дата окончания</span>
             </div>
-            <input type="text" name="date_end" class="form-control">
+            <input type="text" name="date_end"
+                class="form-control @error('date_end') is-invalid @enderror"
+                value="{{ old('date_end') ?? $groups->date_end ?? '' }}">
+
+            @error('date_start')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
         </div>
     </div>
 

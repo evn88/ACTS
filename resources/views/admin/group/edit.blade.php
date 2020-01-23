@@ -9,7 +9,7 @@
     <div class="card-body">
         @include('errors.form')
 
-        <form action="{{ route('group.update',$user->id) }}" method="POST">
+        <form action="{{ route('groups.update', $groups->id) }}" method="POST">
             @method('PUT')
             @include('admin.group.__form')
         </form>

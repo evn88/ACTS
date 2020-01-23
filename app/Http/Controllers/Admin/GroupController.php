@@ -38,7 +38,7 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -60,7 +60,8 @@ class GroupController extends Controller
      */
     public function edit($id)
     {
-        //
+        $groups = Group::findOrFail($id);
+        return view('admin.group.edit', compact('groups'));
     }
 
     /**
@@ -72,7 +73,8 @@ class GroupController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return redirect()->route('groups.index')
+                         ->with('success','Запись обновлена');
     }
 
     /**

@@ -9,6 +9,7 @@
 <div class="row_1">
     <div class="left">
         <a href="{{ route('groups.create') }}" class="btn btn-info">Новая группа</a>
+        <a href="{{ route('admin.groupinf') }}"  class="btn btn-outline-primary"> Temp button</a>
     </div>
     <div class="right">
         <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#startGroupModal">Начать обучение</a>
@@ -32,7 +33,7 @@
         @foreach($groups as $group)
         <tr>
             <td><i class="fa fa-stop" aria-hidden="true"></i></td>
-            <td><a href="{{ route('admin.groupinf') }}"> {{ $group->name }}</a></td>
+            <td><a href="{{ route('groups.edit', $group->id) }}"> {{ $group->name }}</a></td>
             <td class="txt-center">{{ $group->usersCount() }}</td>
             <td class="txt-center">{{ $group->date_end }}</td>
             <td class="txt-center">
