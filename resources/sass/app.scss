@@ -269,7 +269,6 @@ a:hover {
 
 .row_2 {
 
-
     .col:last-child {
         margin-left: 100px;
     }
@@ -285,12 +284,16 @@ a:hover {
         justify-content: space-between;
 
     }
+}
+
+.row {
 
     .butt {
         display: flex;
         justify-content: space-between;
-        width: 250px;
+        width: 260px;
         margin-top: 20px;
+        padding-left: 15px;
     }
 }
 
