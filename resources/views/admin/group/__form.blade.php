@@ -3,7 +3,7 @@
         <div class="col-6">
             <div class="form-group">
                 <label for="name">Название группы:</label>
-                <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') ?? $user->name ?? '' }}">
+                <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') ?? $groups->name ?? '' }}">
                 @error('name')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -17,20 +17,30 @@
                     <div class="form-group">
                         <label for="inputGroup">Укажите дату начала</label>
                         <div class="input-group datetimepicker2" id="datetimepicker2">
-                            <input type="text" class="form-control datetimepicker2" />
+                            <input type="text" name="date_start" class="form-control datetimepicker2 @error('date_start') is-invalid @enderror" value="{{ old('date_start') ?? $groups->date_start ?? '' }}">
                             <span class="input-group-addon">
                                 <i class="fa fa-calendar" aria-hidden="true"></i>
                             </span>
                         </div>
+                        @error('date_start')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="inputGroup">Укажите дату окончания</label>
                         <div class="input-group datetimepicker2" id="datetimepicker2">
-                            <input type="text" class="form-control datetimepicker2" />
+                            <input type="text" name="date_end" class="form-control datetimepicker2 @error('date_end') is-invalid @enderror" value="{{ old('date_end') ?? $groups->date_end ?? '' }}">
                             <span class="input-group-addon">
                                 <i class="fa fa-calendar" aria-hidden="true"></i>
                             </span>
                         </div>
+                        @error('date_end')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                 </div>
             </div>
