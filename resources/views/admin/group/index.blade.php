@@ -19,14 +19,16 @@
 
 </div>
 
-<table class="table table-striped table-hover">
-    <thead>
+<table class="table table-hover">
+    <thead class="thead-dark">
         <tr>
             <th scope="col"></th>
             <th scope="col">Группы</th>
+            <th scope="col" class="txt-center" width="200px">Темы</th>
             <th scope="col" class="txt-center">Количество обучающихся</th>
+            <th scope="col" class="txt-center">Дата старта</th>
             <th scope="col" class="txt-center">Дата завершения</th>
-            <th scope="col" class="txt-center">Действия</th>
+            <th scope="col" class="txt-center" width="50px"></th>
         </tr>
     </thead>
     <tbody>
@@ -34,7 +36,16 @@
         <tr>
             <td><i class="fa fa-stop" aria-hidden="true"></i></td>
             <td><a href="{{ route('groups.edit', $group->id) }}"> {{ $group->name }}</a></td>
+            <td class="txt-left" >
+                <span class="badge badge-pill badge-light">Пароли и учетные записи</span>
+                <span class="badge badge-pill badge-light">Почта</span>
+                <span class="badge badge-pill badge-light">Веб-сайты</span>
+                <span class="badge badge-pill badge-light">Соцсети и мессенджеры</span>
+                <span class="badge badge-pill badge-light">Безопасность ПК</span>
+                <span class="badge badge-pill badge-light">Безопасность мобильных устройств</span>
+            </td>
             <td class="txt-center">{{ $group->usersCount() }}</td>
+            <td class="txt-center">{{ $group->date_start }}</td>
             <td class="txt-center">{{ $group->date_end }}</td>
             <td class="txt-center">
                 <div class="dropdown dropleft">
