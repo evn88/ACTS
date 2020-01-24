@@ -8,7 +8,7 @@ use Illuminate\Support\Carbon;
 class Group extends Model
 {
     protected $fillable = [
-        'name', 'date_start', 'date_emd', 'status'
+        'name', 'date_start', 'date_end', 'status'
     ];
 
     public function setDateStartAttribute($value)
