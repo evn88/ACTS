@@ -38,7 +38,11 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
+        $group = Group::create($request->all());
+        $group->save();
 
+        return redirect()->route('groups.index')
+                         ->with('success','Группа успешно добавлена');
     }
 
     /**
