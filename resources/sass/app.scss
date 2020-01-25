@@ -94,9 +94,6 @@ a:hover {
 }
 
 
-
-
-
 .info_card {
     height: 195px;
     width: 500px;
@@ -298,6 +295,9 @@ a:hover {
 }
 
 //plans
+h3.plans {
+    margin-bottom: 0;
+}
 
 .card_plan {
     display: flex;

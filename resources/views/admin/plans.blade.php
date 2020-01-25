@@ -5,8 +5,10 @@
 <p class="heading">В данном разделе вы можете ознакомиться со всеми темами для изучения, входящими в учебный план,
             а также с их подробным содержанием.
 </p>
-<h3>Темы для изучения</h3>
-
+<h3 class="plans">Темы для изучения</h3>
+<div class="row_1 justify-content-end">
+    <button class="btn btn-primary">Создать новую тему</button>
+</div>
 <div class="row_1">
     <div class="card_plan">
         <div class="row_1">
