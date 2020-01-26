@@ -80,8 +80,12 @@
         <div class="form-group butt">
             <a href="{{ URL::previous() }}" class="btn btn-secondary">Назад</a>
 
-            @if(isset($user))
-            <a href="{{ url('admin/groups/'.$user->id.'/delete') }}" class="btn btn-secondary"><i class="fa fa-trash" aria-hidden="true"></i></a>
+            @if(isset($groups))
+                <!-- <a href="{{ url('admin/groups/'.$groups->id.'/delete') }}" class="btn btn-secondary"><i class="fa fa-trash" aria-hidden="true"></i></a> -->
+
+                {{ Form::open(['route' => ['groups.destroy', $groups->id], 'method' => 'DELETE']) }}
+                <button type="submit"  class="btn btn-secondary"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                {{ Form::close() }}
             @endif
 
             <button type="submit" class="btn btn-primary float-right">Сохранить</button>

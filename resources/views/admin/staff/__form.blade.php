@@ -71,11 +71,6 @@
 
         @if(isset($user))
         <a href="{{ url('admin/staff/'.$user->id.'/delete') }}" class="btn btn-secondary"><i class="fa fa-trash" aria-hidden="true"></i></a>
-        {{-- <form action="{{ url('admin/staff/'.$user->id) }}" method="DELETE" class="clearfix">
-            @csrf
-            {{ method_field('DELETE') }}
-            <button type="submit" class="btn btn-secondary"><i class="fa fa-trash" aria-hidden="true"></i></button>
-        </form> --}}
         @endif
 
         <button type="submit" class="btn btn-primary float-right">Сохранить</button>

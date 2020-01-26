@@ -29,7 +29,7 @@
             </div>
         </div>
         <table class="table table-striped table-hover">
-            <thead style="background: $dblue;">
+            <thead style="background: $dblue">
                 <tr>
                     <th scope="col" style="width:30px;">
                         <div class="custom-control custom-checkbox">
@@ -88,7 +88,7 @@
     </div>
 </div>
 
-<h3  class="headtxt">Темы для изучения</h3>
+<h3>Темы для изучения</h3>
 
 <div class="row_1">
     <div class="card_plan">

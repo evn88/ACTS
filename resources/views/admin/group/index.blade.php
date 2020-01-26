@@ -69,7 +69,7 @@
                             <i class="fa fa-info" aria-hidden="true"></i>&nbsp;&nbsp;
                             Подробнее о группе
                         </a>
-                    <a class="dropdown-item" href="javascript:;" data-toggle="modal" data-target="#deleteConfirm" data-id="{{ $group->id }}">Удалить запись</a>
+                    <a class="dropdown-item" href="javascript:;" data-toggle="modal" data-target="#deleteConfirm" data-route="{{ route('groups.destroy', $group->id) }}">Удалить запись</a>
                     </div>
                 </div>
             </td>
@@ -91,20 +91,18 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p>Уверены что хотите удалить запись?</p>
-                <form method="POST">
-                    <div class="row">
-                        <div class="col">
-                            <button type="button" class="btn btn-secondary btn-block btn-lg" data-dismiss="modal">Нет</button>
-                        </div>
-                        <div class="col">
-                            <button type="submit" class="btn btn-primary  btn-block btn-lg">Да</button>
-                        </div>
-                    </div>
-                </form>
+                <p><b>Уверены что хотите удалить запись?</b></p>
+                <p class="alert alert-info">Пользователи которые были закреплены за этой группой станут "свободными" и их нужно будет заново привязать к другой группе для обучения</p>
             </div>
             <div class="modal-footer">
-                <div class="ckeditor"></div>
+                <button type="button" data-dismiss="modal" class="btn btn-secondary">Нет</button>
+            <form id="deleteForm" method="POST" accept-charset="UTF-8">
+                <input name="_method" type="hidden" value="DELETE">
+                @csrf
+                <button type="submit" class="btn btn-primary">Да</button>
+            </form>
+
+
             </div>
         </div>
     </div>
