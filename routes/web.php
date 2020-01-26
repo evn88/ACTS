@@ -78,14 +78,15 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','can:admin']], function(
     Route::get('/staff/{id}/delete', 'Admin\StaffController@destroy');
 
     Route::resource('groups', 'Admin\GroupController');
+    Route::resource('plans', 'Admin\PlansController');
 
     // Route::get('/groups', function() {
     //     return view('admin.groups');
     // })->name('admin.groups');
 
-    Route::get('/plans', function() {
-        return view('admin.plans');
-    })->name('admin.plans');
+    // Route::get('/plans', function() {
+    //     return view('admin.plans');
+    // })->name('admin.plans');
 
     Route::get('/groupinf', function() {
         return view('admin.groupinf');
@@ -94,6 +95,8 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','can:admin']], function(
     Route::get('/plansinf', function() {
         return view('admin.plansinf');
     })->name('admin.plansinf');
+
+
 
     Route::get('/reports', function() {
         return view('admin.reports');
