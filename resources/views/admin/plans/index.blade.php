@@ -7,7 +7,7 @@
 </p>
 <h3 class="plans">Темы для изучения</h3>
 <div class="row_1 justify-content-end">
-    <button class="btn btn-primary">Создать новую тему</button>
+    <a href="{{ route('plans.create') }}" class="btn btn-primary">Создать новую тему</a>
 </div>
 <div class="row_1">
     <div class="card_plan">

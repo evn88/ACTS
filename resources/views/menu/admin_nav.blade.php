@@ -22,7 +22,7 @@
                     <a class="nav-link" href="{{ url('/admin/groups') }}">Учебные группы</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.plans') }}">Учебный план</a>
+                    <a class="nav-link" href="{{ url('/admin/plans') }}">Учебный план</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.reports') }}">Отчеты</a>
