@@ -13,6 +13,9 @@ try {
     require('bootstrap');
     require('pc-bootstrap4-datetimepicker');
     require('easy-pie-chart/dist/jquery.easypiechart');
+    window.ClassicEditor = require('@ckeditor/ckeditor5-build-classic');
+    // window.BasicStyles = require('@ckeditor/ckeditor5-basic-styles');
+
 } catch (e) {}
 
 /**

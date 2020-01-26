@@ -69,6 +69,7 @@
                             <i class="fa fa-info" aria-hidden="true"></i>&nbsp;&nbsp;
                             Подробнее о группе
                         </a>
+                    <a class="dropdown-item" href="javascript:;" data-toggle="modal" data-target="#deleteConfirm" data-id="{{ $group->id }}">Удалить запись</a>
                     </div>
                 </div>
             </td>
@@ -77,6 +78,37 @@
     </tbody>
 </table>
 
+
+<!-- Delete Confirm Modal-->
+<div class="modal fade" id="deleteConfirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Удаление записи</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Уверены что хотите удалить запись?</p>
+                <form method="POST">
+                    <div class="row">
+                        <div class="col">
+                            <button type="button" class="btn btn-secondary btn-block btn-lg" data-dismiss="modal">Нет</button>
+                        </div>
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary  btn-block btn-lg">Да</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="ckeditor"></div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="startGroupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -151,6 +183,7 @@
         </div>
     </div>
 </div>
+
 
 
 @endsection
