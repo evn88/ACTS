@@ -4,9 +4,9 @@
 <h3 class="headtxt">Пароли и учетные записи</h3>
 <div class="row_1 justify-content-end">
     <div class="right plans-right">
-        <a href="{{ route('lessons.create') }}" class="btn btn-primary">Создать урок</a>
-        <a class="btn btn-secondary">Создать тест</a>
-        <a class="btn btn-info">Создать атаку</a>
+        <button class="btn btn-primary">Создать урок</button>
+        <button class="btn btn-secondary">Создать тест</button>
+        <button class="btn btn-info">Создать атаку</button>
     </div>
 </div>
 <div class="card_plan">
@@ -16,9 +16,7 @@
             <ol class="rectangle">
                 <li><a class="mark" href="#">Список уроков</a>
                     <ul>
-                        <li><a href="{{ route('lessons.edit', 1) }}">Для чего нужно беспокоиться о безопасности паролей</a>
-                            <a href="javascript:;" data-toggle="modal" data-target="#deleteConfirm"
-                                data-route="{{ route('lessons.destroy', 1) }}"><i class="fa fa-trash-o" aria-hidden="true"></i></a></li>
+                        <li><a href="">Для чего нужно беспокоиться о безопасности паролей</a><a href=""><i class="fa fa-trash-o" aria-hidden="true"></i></a></li>
                         <li><a href="">Как придумать сложный пароль</a><a href=""><i class="fa fa-trash-o" aria-hidden="true"></i></a></li>
                         <li><a href="">Как хранить пароли</a><a href=""><i class="fa fa-trash-o" aria-hidden="true"></i></a></li>
                         <li><a href="">Можно ли давать свои пароли третьим лицам</a><a href=""><i class="fa fa-trash-o" aria-hidden="true"></i></a></li>
@@ -42,6 +40,5 @@
     </div>
 </div>
 
-@include('admin.modal.confirm_delete')
 
 @endsection

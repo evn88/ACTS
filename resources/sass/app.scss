@@ -424,6 +424,26 @@ h3.plans {
     }
 }
 
+//lessons
+
+.mar {
+    margin: 30px 0 50px 0;
+}
+
+.row_2.lesson {
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+
+    textarea {
+        padding: 15px;
+    }
+}
+
+.butt.lesson {
+    padding-left: 15px;
+}
+
 //groupinf
 
 .row_1.group {

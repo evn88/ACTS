@@ -79,6 +79,7 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','can:admin']], function(
 
     Route::resource('groups', 'Admin\GroupController');
     Route::resource('plans', 'Admin\PlansController');
+    Route::resource('lessons', 'Admin\LessonsController');
 
     // Route::get('/groups', function() {
     //     return view('admin.groups');
