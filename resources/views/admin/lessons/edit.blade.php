@@ -1,17 +1,17 @@
 @extends('layouts.admin')
 @section('content')
 
-<h1><i class="fa fa-graduation-cap" aria-hidden="true"></i> Учебные группы</h1>
+<h3 class="headtxt mar">Пароли и учетные записи</h3>
 
 
 <div class="card">
-    <h5 class="card-header">Редактирование сотрудника</h5>
+    <h5 class="card-header">Редактирование урока</h5>
     <div class="card-body">
         @include('errors.form')
 
-        <form action="{{ route('groups.update', $groups->id) }}" method="POST">
+        <form action="{{ route('lessons.update', 1) }}" method="POST">
             @method('PUT')
-            @include('admin.group.__form')
+            @include('admin.lessons.__form')
         </form>
     </div>
   </div>
