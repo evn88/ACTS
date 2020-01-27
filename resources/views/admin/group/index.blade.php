@@ -9,7 +9,6 @@
 <div class="row_1">
     <div class="left">
         <a href="{{ route('groups.create') }}" class="btn btn-info">Новая группа</a>
-        <a href="{{ route('admin.groupinf') }}"  class="btn btn-outline-primary"> Temp button</a>
     </div>
     <div class="right">
         <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#startGroupModal">Начать обучение</a>
@@ -133,8 +132,8 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputGroup">Выберите группу</label>
-                        <select id="inputGroup" class="form-control">
+                        <label for="inputGroup1">Выберите группу</label>
+                        <select id="inputGroup1" class="form-control">
                             <option selected>Не назначена</option>
                             <option>Основная</option>
                             <option>Потенциальный риск</option>
@@ -165,8 +164,8 @@
                 </p>
                 <form>
                     <div class="form-group">
-                        <label for="inputGroup">Выберите группу</label>
-                        <select id="inputGroup" class="form-control">
+                        <label for="inputGroup2">Выберите группу</label>
+                        <select id="inputGroup2" class="form-control">
                             <option selected>Не назначена</option>
                             <option>Основная</option>
                             <option>Потенциальный риск</option>

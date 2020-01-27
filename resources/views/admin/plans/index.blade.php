@@ -13,7 +13,7 @@
     <div class="card_plan">
         <div class="row_1">
             <div class="cell">
-                <a href="{{ route('admin.plansinf') }}">
+                <a href="{{ route('plans.show', 1) }}">
                     <img src="{{ asset('storage/img/web.png') }}" alt="">
                     <p class="text">Пароли<br>и учетные записи</p>
                 </a>
