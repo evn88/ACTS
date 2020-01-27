@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Group;
+use App\Plan;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -15,7 +15,7 @@ class PlansController extends Controller
      */
     public function index()
     {
-        $plans = Group::all();
+        $plans = Plan::all();
         return view('admin.plans.index', compact('plans'));
     }
 
@@ -38,7 +38,7 @@ class PlansController extends Controller
      */
     public function store(Request $request)
     {
-        $plans = Group::create($request->all());
+        $plans = Plan::create($request->all());
         $plans->save();
 
         return redirect()->route('plans.index')
@@ -64,7 +64,7 @@ class PlansController extends Controller
      */
     public function edit($id)
     {
-        $plans = Group::findOrFail($id);
+        $plans = Plan::findOrFail($id);
         return view('admin.plans.edit', compact('plans'));
     }
 
@@ -77,7 +77,7 @@ class PlansController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $plans = Group::findOrFail($id);
+        $plans = Plan::findOrFail($id);
         $plans->name = $request->name;
         $plans->date_start = $request->date_start;
         $plans->date_end = $request->date_end;
@@ -95,7 +95,7 @@ class PlansController extends Controller
      */
     public function destroy($id)
     {
-        $plans = Group::findOrFail($id);
+        $plans = Plan::findOrFail($id);
         $plans->delete();
         return redirect()->route('plans.index')
                         ->with('success','Запись удалена');
