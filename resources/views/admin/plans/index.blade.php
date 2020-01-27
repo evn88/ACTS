@@ -11,7 +11,6 @@
 </div>
 <div class="row_1">
     <div class="card_plan">
-        <div class="row_1">
         @foreach($plans as $plan)
             <div class="cell">
                 <a href="{{ route('plans.show', $plan->id) }}">
@@ -20,27 +19,6 @@
                 </a>
             </div>
         @endforeach
-        </div>
-        <div class="row_1">
-            <div class="cell">
-                <a href="{{ route('admin.plansinf') }}">
-                <img src="{{ asset('storage/img/sm.png') }}" alt="">
-                    <p class="text">Соц.сети<br>и мессенджеры</p>
-                </a>
-            </div>
-            <div class="cell">
-                <a href="{{ route('admin.plansinf') }}">
-                <img src="{{ asset('storage/img/pc.png') }}" alt="">
-                    <p class="text">Безопасность<br>ПК</p>
-                </a>
-            </div>
-            <div class="cell">
-                <a href="{{ route('admin.plansinf') }}">
-                <img src="{{ asset('storage/img/key.png') }}" alt="">
-                    <p class="text">Безопасность<br>мобильных устройств</p>
-                </a>
-            </div>
-        </div>
     </div>
 </div>
 
