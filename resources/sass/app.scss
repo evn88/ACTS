@@ -302,10 +302,15 @@ h3.plans {
 
 .card_plan {
     display: flex;
-    width: 100%;
+    width: inherit;
     justify-content: space-between;
     flex-wrap: wrap;
     align-content: space-between;
+
+    .row_1 {
+        width: 100%;
+    }
+
     .cell {
         border: $lgray 1px solid;
         border-radius: calc(0.25rem - 1px);
