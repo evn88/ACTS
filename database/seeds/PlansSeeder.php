@@ -15,27 +15,27 @@ class PlansSeeder extends Seeder
         $plans =  [
             [
                 'name' => 'Пароли и учетные записи',
-                'img' => 'storage/img/web.png',
+                'img' => 'img/web.png',
             ],
             [
                 'name' => 'Электронная почта',
-                'img' => 'storage/img/mail.png',
+                'img' => 'img/mail.png',
             ],
             [
                 'name' => 'Веб-сайты',
-                'img' => 'storage/img/search.png',
+                'img' => 'img/search.png',
             ],
             [
                 'name' => 'Соц.сети и мессенджеры',
-                'img' => 'storage/img/sm.png',
+                'img' => 'img/sm.png',
             ],
             [
                 'name' => 'Безопасность ПК',
-                'img' => 'storage/img/pc.png',
+                'img' => 'img/pc.png',
             ],
             [
                 'name' => 'Безопасность мобильных устройств',
-                'img' => 'storage/img/key.png',
+                'img' => 'img/key.png',
             ]
         ];
 

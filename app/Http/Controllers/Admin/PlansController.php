@@ -40,7 +40,7 @@ class PlansController extends Controller
     public function store(Request $request)
     {
         // dd($request);
-        $path = $request->file('img_file')->store('img', 'public');
+        $path = $request->file('img_file')->store('img/plans', 'public');
 
 
         $plans = Plan::create($request->all()+['img'=>$path]);
