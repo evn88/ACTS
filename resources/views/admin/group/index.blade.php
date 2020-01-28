@@ -36,12 +36,9 @@
             <td><i class="fa fa-stop" aria-hidden="true"></i></td>
             <td><a href="{{ route('groups.edit', $group->id) }}"> {{ $group->name }}</a></td>
             <td class="txt-left" >
-                <span class="badge badge-pill badge-light">Пароли и учетные записи</span>
-                <span class="badge badge-pill badge-light">Почта</span>
-                <span class="badge badge-pill badge-light">Веб-сайты</span>
-                <span class="badge badge-pill badge-light">Соцсети и мессенджеры</span>
-                <span class="badge badge-pill badge-light">Безопасность ПК</span>
-                <span class="badge badge-pill badge-light">Безопасность мобильных устройств</span>
+                @foreach($group->plans as $plan)
+                    <span class="badge badge-pill badge-light">{{ $plan->name }}</span>
+                @endforeach
             </td>
             <td class="txt-center">{{ $group->usersCount() }}</td>
             <td class="txt-center">{{ $group->date_start }}</td>

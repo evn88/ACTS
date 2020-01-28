@@ -43,7 +43,6 @@ class Group extends Model
     }
 
 
-
     public function users()
     {
         return $this->belongsToMany(User::class, 'group_user');
@@ -52,5 +51,15 @@ class Group extends Model
     public function usersCount()
     {
         return $this->users()->count();
+    }
+
+    public function plans()
+    {
+        return $this->belongsToMany(Plan::class, 'group_plan');
+    }
+
+    public function inPlan($id)
+    {
+        return $this->plans()->where('id', $id)->count() == 1;
     }
 }

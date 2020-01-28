@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Group;
 use App\Http\Controllers\Controller;
+use App\Plan;
 use Illuminate\Http\Request;
 
 class GroupController extends Controller
@@ -27,7 +28,8 @@ class GroupController extends Controller
     public function create()
     {
         // $groups = Group::all();
-        return view('admin.group.create');
+        $plans = Plan::all();
+        return view('admin.group.create', compact('plans'));
     }
 
     /**
@@ -39,6 +41,8 @@ class GroupController extends Controller
     public function store(Request $request)
     {
         $group = Group::create($request->all());
+        $group->plans()->sync($request->plans);
+        // $user->groups()->sync($request->group_id);
         $group->save();
 
         return redirect()->route('groups.index')
@@ -64,8 +68,9 @@ class GroupController extends Controller
      */
     public function edit($id)
     {
+        $plans = Plan::all();
         $groups = Group::findOrFail($id);
-        return view('admin.group.edit', compact('groups'));
+        return view('admin.group.edit', compact('groups', 'plans'));
     }
 
     /**
@@ -81,6 +86,7 @@ class GroupController extends Controller
         $group->name = $request->name;
         $group->date_start = $request->date_start;
         $group->date_end = $request->date_end;
+        $group->plans()->sync($request->plans);
         $group->save();
 
         return redirect()->route('groups.index')

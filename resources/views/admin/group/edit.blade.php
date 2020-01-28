@@ -13,6 +13,7 @@
             @method('PUT')
             @include('admin.group.__form')
         </form>
+        @include('admin.modal.confirm_delete')
     </div>
   </div>
 

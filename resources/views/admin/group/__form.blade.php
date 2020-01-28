@@ -3,7 +3,10 @@
         <div class="col-6">
             <div class="form-group">
                 <label for="name">Название группы:</label>
-                <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') ?? $groups->name ?? '' }}" required>
+                <input type="text" name="name" id="name"
+                    class="form-control @error('name') is-invalid @enderror"
+                    value="{{ old('name') ?? $groups->name ?? '' }}" required
+                >
                 @error('name')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -17,7 +20,10 @@
                     <div class="form-group">
                         <label for="inputGroup">Укажите дату начала</label>
                         <div class="input-group datetimepicker2" id="datetimepicker2">
-                            <input type="text" name="date_start" class="form-control datetimepicker2 @error('date_start') is-invalid @enderror" value="{{ old('date_start') ?? $groups->date_start ?? '' }}">
+                            <input type="text" name="date_start"
+                                class="form-control datetimepicker2 @error('date_start') is-invalid @enderror"
+                                value="{{ old('date_start') ?? $groups->date_start ?? '' }}"
+                            >
                             <span class="input-group-addon">
                                 <i class="fa fa-calendar" aria-hidden="true"></i>
                             </span>
@@ -31,7 +37,10 @@
                     <div class="form-group">
                         <label for="inputGroup">Укажите дату окончания</label>
                         <div class="input-group datetimepicker2" id="datetimepicker2">
-                            <input type="text" name="date_end" class="form-control datetimepicker2 @error('date_end') is-invalid @enderror" value="{{ old('date_end') ?? $groups->date_end ?? '' }}">
+                            <input type="text" name="date_end"
+                                class="form-control datetimepicker2 @error('date_end') is-invalid @enderror"
+                                value="{{ old('date_end') ?? $groups->date_end ?? '' }}"
+                            >
                             <span class="input-group-addon">
                                 <i class="fa fa-calendar" aria-hidden="true"></i>
                             </span>
@@ -48,46 +57,38 @@
         <div class="col">
             <div class="form-group">
                 <label for="formGroupThemeInput">Темы для изучения</label>
+                @foreach($plans as $plan)
                 <div class="custom-control custom-checkbox my-1 mr-sm-2">
-                    <input type="checkbox" class="custom-control-input" id="educLog">
-                    <label class="custom-control-label" for="educLog">Пароли и учетные записи</label>
+                    <input type="checkbox" name="plans[]" class="custom-control-input" id="plan-{{ $plan->id }}"
+                        value="{{ $plan->id }}"
+                        @if(isset($groups) && $groups->inPlan($plan->id))
+                            checked
+                        @endif
+                    >
+                    <label class="custom-control-label" for="plan-{{ $plan->id }}">{{ $plan->name }}</label>
                 </div>
-                <div class="custom-control custom-checkbox my-1 mr-sm-2">
-                    <input type="checkbox" class="custom-control-input" id="educMail">
-                    <label class="custom-control-label" for="educMail">Почта</label>
-                </div>
-                <div class="custom-control custom-checkbox my-1 mr-sm-2">
-                    <input type="checkbox" class="custom-control-input" id="educWeb">
-                    <label class="custom-control-label" for="educWeb">Веб-сайты</label>
-                </div>
-                <div class="custom-control custom-checkbox my-1 mr-sm-2">
-                    <input type="checkbox" class="custom-control-input" id="educSocial">
-                    <label class="custom-control-label" for="educSocial">Соцсети и мессенджеры</label>
-                </div>
-                <div class="custom-control custom-checkbox my-1 mr-sm-2">
-                    <input type="checkbox" class="custom-control-input" id="educPC">
-                    <label class="custom-control-label" for="educPC">Безопасность ПК</label>
-                </div>
-                <div class="custom-control custom-checkbox my-1 mr-sm-2">
-                    <input type="checkbox" class="custom-control-input" id="educMobil">
-                    <label class="custom-control-label" for="educMobil">Безопасность мобильных
-                        устройств</label>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="form-group butt">
-            <a href="{{ URL::previous() }}" class="btn btn-secondary">Назад</a>
+        <div class="col">
+            <div class="form-group butt">
+                <a href="{{ URL::previous() }}" class="btn btn-secondary">Назад</a>
+                <button type="submit" class="btn btn-primary float-right">Сохранить</button>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group butt">
+                @if(isset($groups))
+                    <a class="btn btn-secondary" href="javascript:;"
+                        data-toggle="modal"
+                        data-target="#deleteConfirm"
+                        data-route="{{ route('groups.destroy', $groups->id) }}">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </a>
 
-            @if(isset($groups))
-                <!-- <a href="{{ url('admin/groups/'.$groups->id.'/delete') }}" class="btn btn-secondary"><i class="fa fa-trash" aria-hidden="true"></i></a> -->
-
-                {{ Form::open(['route' => ['groups.destroy', $groups->id], 'method' => 'DELETE']) }}
-                <button type="submit"  class="btn btn-secondary"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                {{ Form::close() }}
-            @endif
-
-            <button type="submit" class="btn btn-primary float-right">Сохранить</button>
+                @endif
+            </div>
         </div>
     </div>
