@@ -16,6 +16,9 @@ class PlansController extends Controller
      */
     public function index()
     {
+        // $p = Plan::findOrFail('11')->lessons;
+        // dd($p);
+        // dd(Plan::find(12)->get());
         $plans = Plan::all();
         return view('admin.plans.index', compact('plans'));
     }

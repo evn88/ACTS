@@ -13,8 +13,11 @@ class CreateLessonsTable extends Migration
     public function up()
     {
         Schema::create('lessons', function (Blueprint $table) {
-            $table->increments('id');
-            
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('plan_id');
+            $table->foreign('plan_id')->references('id')->on('plans');
+            $table->string('name');
+            $table->text('lesson_text');
             $table->timestamps();
         });
     }

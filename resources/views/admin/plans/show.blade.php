@@ -16,14 +16,18 @@
             <ol class="rectangle">
                 <li><a class="mark" href="#">Список уроков</a>
                     <ul>
-                        <li><a href="{{ route('lessons.edit', 1) }}">Для чего нужно беспокоиться о безопасности паролей</a>
+                        @if(isset($plan))
+                        @foreach($plan->lessons as $lesson)
+                        <li><a href="{{ route('lessons.edit', $lesson->id) }}">{{ $lesson->name }}</a>
                             <a href="javascript:;"
                                 data-toggle="modal"
                                 data-target="#deleteConfirm"
-                                data-route="{{ route('lessons.destroy', 1) }}">
+                                data-route="{{ route('lessons.destroy', $lesson->id) }}">
                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                             </a>
                         </li>
+                        @endforeach
+                        @endif
                         <li><a href="">Как придумать сложный пароль</a><a href=""><i class="fa fa-trash-o" aria-hidden="true"></i></a></li>
                         <li><a href="">Как хранить пароли</a><a href=""><i class="fa fa-trash-o" aria-hidden="true"></i></a></li>
                         <li><a href="">Можно ли давать свои пароли третьим лицам</a><a href=""><i class="fa fa-trash-o" aria-hidden="true"></i></a></li>
