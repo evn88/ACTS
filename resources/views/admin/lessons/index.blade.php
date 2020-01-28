@@ -68,7 +68,13 @@
                             <i class="fa fa-info" aria-hidden="true"></i>&nbsp;&nbsp;
                             Подробнее о группе
                         </a>
-                    <a class="dropdown-item" href="javascript:;" data-toggle="modal" data-target="#deleteConfirm" data-route="{{ route('groups.destroy', $group->id) }}">Удалить запись</a>
+                    <a class="dropdown-item" href="javascript:;"
+                        data-toggle="modal"
+                        data-target="#deleteConfirm"
+                        data-route="{{ route('groups.destroy', $group->id) }}"
+                    >
+                        Удалить запись
+                    </a>
                     </div>
                 </div>
             </td>

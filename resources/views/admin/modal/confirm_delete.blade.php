@@ -10,7 +10,7 @@
             </div>
             <div class="modal-body">
                 <p><b>Уверены что хотите удалить запись?</b></p>
-                <p class="alert alert-info">Пользователи которые были закреплены за этой группой станут "свободными" и их нужно будет заново привязать к другой группе для обучения</p>
+                <p id="confirmDeleteInfo" class="alert alert-info"></p>
             </div>
             <div class="modal-footer">
                 <button type="button" data-dismiss="modal" class="btn btn-secondary">Нет</button>
