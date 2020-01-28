@@ -53,7 +53,8 @@ class PlansController extends Controller
      */
     public function show($id)
     {
-        return view('admin.plans.show');
+        $plan = Plan::findOrFail($id);
+        return view('admin.plans.show', compact('plan'));
     }
 
     /**

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 
-<h3 class="headtxt">Пароли и учетные записи</h3>
+<h3 class="headtxt">{{ $plan->name }}</h3>
 <div class="row_1 justify-content-end">
     <div class="right plans-right">
         <a href="{{ route('lessons.create') }}" class="btn btn-primary">Создать урок</a>
@@ -17,8 +17,13 @@
                 <li><a class="mark" href="#">Список уроков</a>
                     <ul>
                         <li><a href="{{ route('lessons.edit', 1) }}">Для чего нужно беспокоиться о безопасности паролей</a>
-                            <a href="javascript:;" data-toggle="modal" data-target="#deleteConfirm"
-                                data-route="{{ route('lessons.destroy', 1) }}"><i class="fa fa-trash-o" aria-hidden="true"></i></a></li>
+                            <a href="javascript:;"
+                                data-toggle="modal"
+                                data-target="#deleteConfirm"
+                                data-route="{{ route('lessons.destroy', 1) }}">
+                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                            </a>
+                        </li>
                         <li><a href="">Как придумать сложный пароль</a><a href=""><i class="fa fa-trash-o" aria-hidden="true"></i></a></li>
                         <li><a href="">Как хранить пароли</a><a href=""><i class="fa fa-trash-o" aria-hidden="true"></i></a></li>
                         <li><a href="">Можно ли давать свои пароли третьим лицам</a><a href=""><i class="fa fa-trash-o" aria-hidden="true"></i></a></li>
