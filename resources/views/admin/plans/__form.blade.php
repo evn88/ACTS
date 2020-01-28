@@ -1,9 +1,10 @@
     @csrf
+    <input type="hidden" name="id" value="{{ ($plans->id) ?? $plans->id ?? '' }}">
     <div class="row row_2">
         <div class="col-6">
             <div class="form-group">
                 <label for="name">Название темы:</label>
-                <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') ?? $planss->name ?? '' }}" required>
+                <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') ?? $plans->name ?? '' }}" required>
                 @error('name')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -14,8 +15,8 @@
             <div class="form-group">
                 <p>Иконка для темы:</p>
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="inputGroupFile02">
-                    <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+                    <input type="file" name="img_file" class="custom-file-input" id="inputGroupFile02">
+                    <label class="custom-file-label" for="inputGroupFile02"></label>
                 </div>
             </div>
         </div>

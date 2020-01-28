@@ -9,7 +9,7 @@
     <div class="card-body">
         @include('errors.form')
 
-        <form action="{{ url('/admin/plans') }}" method="POST">
+        <form action="{{ url('/admin/plans') }}" method="POST" enctype="multipart/form-data">
             @include('admin.plans.__form')
         </form>
     </div>

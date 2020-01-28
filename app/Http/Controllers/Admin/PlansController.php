@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Plan;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PlansController extends Controller
 {
@@ -26,7 +27,7 @@ class PlansController extends Controller
      */
     public function create()
     {
-        // $groups = Group::all();
+
         return view('admin.plans.create');
     }
 
@@ -38,7 +39,12 @@ class PlansController extends Controller
      */
     public function store(Request $request)
     {
-        $plans = Plan::create($request->all());
+        // dd($request);
+        $path = $request->file('img_file')->store('img', 'public');
+
+
+        $plans = Plan::create($request->all()+['img'=>$path]);
+
         $plans->save();
 
         return redirect()->route('plans.index')

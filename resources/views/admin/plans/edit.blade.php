@@ -9,7 +9,7 @@
     <div class="card-body">
         @include('errors.form')
 
-        <form action="{{ route('plans.update', $plans->id) }}" method="POST">
+        <form action="{{ route('plans.update', $plans->id) }}" method="POST" enctype="multipart/form-data">
             @method('PUT')
             @include('admin.plans.__form')
         </form>

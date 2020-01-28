@@ -14,7 +14,7 @@
         @foreach($plans as $plan)
             <div class="cell">
                 <a href="{{ route('plans.show', $plan->id) }}">
-                    <img src="{{ asset($plan->img) }}" alt="{{ $plan->name }}">
+                    <img src="{{ asset('storage/'.$plan->img) }}" alt="{{ $plan->name }}">
                     <p class="text">{{ $plan->name }}</p>
                 </a>
             </div>
