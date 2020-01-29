@@ -51,7 +51,7 @@
                                 <a href="javascript:;"
                                     data-toggle="modal"
                                     data-target="#deleteConfirm"
-                                    data-route="{{ route('lessons.destroy', $test->id) }}">
+                                    data-route="{{ route('tests.destroy', $test->id) }}">
                                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                                 </a>
                             </li>
@@ -71,7 +71,7 @@
                                 <a href="javascript:;"
                                     data-toggle="modal"
                                     data-target="#deleteConfirm"
-                                    data-route="{{ route('lessons.destroy', $attack->id) }}">
+                                    data-route="{{ route('attacks.destroy', $attack->id) }}">
                                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                                 </a>
                             </li>
