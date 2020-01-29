@@ -44,7 +44,7 @@
 
                 <li><a class="mark" href="#">Тест</a>
                     <ul>
-                        @if($plan->lessons->count())
+                        @if($plan->tests->count())
 
                             @foreach($plan->tests as $test)
                             <li><a href="">{{ $test->name }}</a>
@@ -64,7 +64,7 @@
                 </li>
                 <li><a class="mark" href="#">Имитация атаки</a>
                     <ul>
-                        @if($plan->lessons->count())
+                        @if($plan->attacks->count())
 
                             @foreach($plan->attacks as $attack)
                             <li><a href="">{{ $attack->name }}</a>
