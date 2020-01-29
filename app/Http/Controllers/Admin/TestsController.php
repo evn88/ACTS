@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Lesson;
 use App\Plan;
+use App\Test;
 
 class TestsController extends Controller
 {
@@ -27,7 +28,7 @@ class TestsController extends Controller
     public function create($plans_id)
     {
         $plan = Plan::findOrFail($plans_id);
-        return view('admin.lessons.create', compact('plan'));
+        return view('admin.tests.create', compact('plan'));
     }
 
     /**
@@ -38,7 +39,7 @@ class TestsController extends Controller
      */
     public function store(Request $request)
     {
-        $lesson = Lesson::create($request->all());
+        $lesson = Test::create($request->all());
         $lesson->save();
 
         return redirect()->route('plans.show', $request->plan_id)
@@ -53,7 +54,7 @@ class TestsController extends Controller
      */
     public function show($id)
     {
-        return view('admin.lessons.show');
+        return view('admin.tests.show');
     }
 
     /**
@@ -64,7 +65,7 @@ class TestsController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.lessons.edit');
+        return view('admin.tests.edit');
     }
 
     /**
@@ -87,6 +88,10 @@ class TestsController extends Controller
      */
     public function destroy($id)
     {
-        dd($id);
+        $test = Test::findOrFail($id);
+        $test->delete();
+
+        return redirect()->route('plans.show', $test->plan_id)
+                        ->with('success','Тест удален');
     }
 }

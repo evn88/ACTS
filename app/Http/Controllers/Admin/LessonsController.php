@@ -87,6 +87,10 @@ class LessonsController extends Controller
      */
     public function destroy($id)
     {
-        dd($id);
+        $lesson = Lesson::findOrFail($id);
+        $lesson->delete();
+
+        return redirect()->route('plans.show', $lesson->plan_id)
+                        ->with('success','Урок удален');
     }
 }

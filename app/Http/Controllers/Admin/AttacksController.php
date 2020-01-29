@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Attack;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Lesson;
@@ -87,6 +88,10 @@ class AttacksController extends Controller
      */
     public function destroy($id)
     {
-        dd($id);
+        $attack = Attack::findOrFail($id);
+        $attack->delete();
+
+        return redirect()->route('plans.show', $attack->plan_id)
+                        ->with('success','Шаблон атаки удален');
     }
 }
