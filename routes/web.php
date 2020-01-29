@@ -80,6 +80,8 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','can:admin']], function(
     Route::resource('groups', 'Admin\GroupController');
     Route::resource('plans', 'Admin\PlansController');
     Route::resource('lessons', 'Admin\LessonsController');
+    Route::resource('tests', 'Admin\TestsController');
+    Route::resource('attacks', 'Admin\AttacksController');
     Route::get('lessons/create/{lesson}', 'Admin\LessonsController@create')->name('lessons.create');
 
 

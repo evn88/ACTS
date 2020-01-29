@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Lesson;
 use App\Plan;
 
-class LessonsController extends Controller
+class TestsController extends Controller
 {
     /**
      * Display a listing of the resource.
