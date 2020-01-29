@@ -20,4 +20,12 @@ class Plan extends Model
     {
         return $this->hasMany('App\Lesson');
     }
+    public function tests()
+    {
+        return $this->hasMany('App\Test');
+    }
+    public function attacks()
+    {
+        return $this->hasMany('App\Attack');
+    }
 }

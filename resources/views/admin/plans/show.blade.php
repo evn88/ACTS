@@ -4,7 +4,7 @@
 <h3 class="headtxt">{{ $plan->name }}</h3>
 <div class="row_1 justify-content-end">
     <div class="right plans-right">
-        <a href="{{ route('lessons.create') }}" class="btn btn-primary">Создать урок</a>
+        <a href="{{ route('lessons.create', $plan->id, 'test') }}" class="btn btn-primary">Создать урок</a>
         <a class="btn btn-secondary">Создать тест</a>
         <a class="btn btn-info">Создать атаку</a>
     </div>
@@ -16,34 +16,63 @@
             <ol class="rectangle">
                 <li><a class="mark" href="#">Список уроков</a>
                     <ul>
-                        @if(isset($plan))
-                        @foreach($plan->lessons as $lesson)
-                        <li><a href="{{ route('lessons.edit', $lesson->id) }}">{{ $lesson->name }}</a>
-                            <a href="javascript:;"
-                                data-toggle="modal"
-                                data-target="#deleteConfirm"
-                                data-route="{{ route('lessons.destroy', $lesson->id) }}">
-                                <i class="fa fa-trash-o" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        @endforeach
+                        @if($plan->lessons->count())
+
+                            @foreach($plan->lessons as $lesson)
+                            <li><a href="{{ route('lessons.edit', $lesson->id) }}">{{ $lesson->name }}</a>
+                                <a href="javascript:;"
+                                    data-toggle="modal"
+                                    data-target="#deleteConfirm"
+                                    data-route="{{ route('lessons.destroy', $lesson->id) }}">
+                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            @endforeach
+
+                        @else
+                            <li><a href="#">Уроков еще нет</a></li>
                         @endif
-                        <li><a href="">Как придумать сложный пароль</a><a href=""><i class="fa fa-trash-o" aria-hidden="true"></i></a></li>
-                        <li><a href="">Как хранить пароли</a><a href=""><i class="fa fa-trash-o" aria-hidden="true"></i></a></li>
-                        <li><a href="">Можно ли давать свои пароли третьим лицам</a><a href=""><i class="fa fa-trash-o" aria-hidden="true"></i></a></li>
-                        <li><a href="">Что делать, если пароль взломали?</a><a href=""><i class="fa fa-trash-o" aria-hidden="true"></i></a></li>
-                        <li><a href="">Почему нужны разные пароли для личных и корпоративных аккаунтов?</a><a href=""><i class="fa fa-trash-o" aria-hidden="true"></i></a></li>
                     </ul>
                 </li>
 
                 <li><a class="mark" href="#">Тест</a>
                     <ul>
-                        <li><a href="">Проверка знаний по теме</a><a href=""><i class="fa fa-trash-o" aria-hidden="true"></i></a></li>
+                        @if($plan->lessons->count())
+
+                            @foreach($plan->tests as $test)
+                            <li><a href="">{{ $test->name }}</a>
+                                <a href="javascript:;"
+                                    data-toggle="modal"
+                                    data-target="#deleteConfirm"
+                                    data-route="{{ route('lessons.destroy', $test->id) }}">
+                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            @endforeach
+
+                        @else
+                            <li><a href="#">Тестов еще нет</a></li>
+                        @endif
                     </ul>
                 </li>
                 <li><a class="mark" href="#">Имитация атаки</a>
                     <ul>
-                        <li><a href="">Кто-то пытается взломать ваш аккаунт! Необходимо сменить пароль</a><a href=""><i class="fa fa-trash-o" aria-hidden="true"></i></a></li>
+                        @if($plan->lessons->count())
+
+                            @foreach($plan->attacks as $attack)
+                            <li><a href="">{{ $attack->name }}</a>
+                                <a href="javascript:;"
+                                    data-toggle="modal"
+                                    data-target="#deleteConfirm"
+                                    data-route="{{ route('lessons.destroy', $attack->id) }}">
+                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            @endforeach
+
+                        @else
+                            <li><a href="#">Шаблонов атаки еще нет</a></li>
+                        @endif
                     </ul>
                 </li>
             </ol>

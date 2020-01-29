@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Lesson;
 use Illuminate\Http\Request;
+use App\Plan;
 
 class LessonsController extends Controller
 {
@@ -22,9 +24,10 @@ class LessonsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($plans_id)
     {
-        return view('admin.lessons.create');
+        $plan = Plan::findOrFail($plans_id);
+        return view('admin.lessons.create', compact('plan'));
     }
 
     /**
@@ -35,7 +38,11 @@ class LessonsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $lesson = Lesson::create($request->all());
+        $lesson->save();
+
+        return redirect()->route('plans.show', $request->plan_id)
+                ->with('success','Урок успешно добавлен');
     }
 
     /**

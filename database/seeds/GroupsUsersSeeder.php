@@ -13,7 +13,7 @@ class GroupsUsersSeeder extends Seeder
      */
     public function run()
     {
-        $group = Group::where('name','Базовая')->firstOrFail();
+        $group = Group::where('name','Основная')->firstOrFail();
         $user = User::where('name', 'Администратор')->firstOrFail();
         if($user->count() > 0 & $user->groups->count() == 0){
             $user->groups()->attach($group->id);
