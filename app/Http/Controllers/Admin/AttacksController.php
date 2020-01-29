@@ -28,7 +28,7 @@ class AttacksController extends Controller
     public function create($plans_id)
     {
         $plan = Plan::findOrFail($plans_id);
-        return view('admin.lessons.create', compact('plan'));
+        return view('admin.attacks.create', compact('plan'));
     }
 
     /**
@@ -39,11 +39,11 @@ class AttacksController extends Controller
      */
     public function store(Request $request)
     {
-        $lesson = Lesson::create($request->all());
-        $lesson->save();
+        $attack = Attack::create($request->all());
+        $attack->save();
 
         return redirect()->route('plans.show', $request->plan_id)
-                ->with('success','Урок успешно добавлен');
+                ->with('success','Шаблон фишинговой атаки успешно добавлен');
     }
 
     /**
@@ -54,7 +54,7 @@ class AttacksController extends Controller
      */
     public function show($id)
     {
-        return view('admin.lessons.show');
+        return view('admin.attacks.show');
     }
 
     /**
@@ -65,7 +65,7 @@ class AttacksController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.lessons.edit');
+        return view('admin.attacks.edit');
     }
 
     /**
@@ -92,6 +92,6 @@ class AttacksController extends Controller
         $attack->delete();
 
         return redirect()->route('plans.show', $attack->plan_id)
-                        ->with('success','Шаблон атаки удален');
+                        ->with('success','Шаблон фишинговой атаки удален');
     }
 }

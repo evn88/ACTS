@@ -4,7 +4,7 @@
             <label for="name">Название урока:</label>
             <input type="text" name="name" id="name"
                 class="form-control @error('name') is-invalid @enderror"
-                value="{{ old('name') ?? $lessons->name ?? '' }}"
+                value="{{ old('name') ?? $groups->name ?? '' }}"
                 required
             >
             @error('name')
@@ -16,13 +16,7 @@
         <div class="form-group">
             <p>Текст урока:</p>
             <div class="input-group">
-                <textarea
-                rows="20"
-                name="lesson_text"
-                placeholder="Напишите текст урока здесь"
-                class="form-control @error('lesson_text') is-invalid @enderror"
-                value="{{ old('lesson_text') ?? $lessons->lesson_text ?? '' }}"
-                required></textarea>
+                <textarea class="form-control" rows="20" name="lesson_text" placeholder="Напишите текст урока здесь" required></textarea>
             </div>
         </div>
     </div>
