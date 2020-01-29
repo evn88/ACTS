@@ -4,10 +4,17 @@
 <h3 class="headtxt">{{ $plan->name }}</h3>
 <div class="row_1 justify-content-end">
     <div class="right plans-right">
-        <a href="{{ route('lessons.create', $plan->id, 'test') }}" class="btn btn-primary">Создать урок</a>
-        <a class="btn btn-secondary">Создать тест</a>
-        <a class="btn btn-info">Создать атаку</a>
+        <a href="{{ route('lessons.create', $plan->id) }}" class="btn btn-primary">Создать урок</a>
+        <a href="{{ route('tests.create', $plan->id) }}" class="btn btn-secondary">Создать тест</a>
+        <a href="{{ route('attacks.create', $plan->id) }}" class="btn btn-info">Создать атаку</a>
     </div>
+    <a href="javascript:;"
+    class="btn btn-danger"
+    data-toggle="modal"
+    data-target="#deleteConfirm"
+    data-route="{{ route('plans.destroy', $plan->id) }}">
+    <i class="fa fa-trash-o" aria-hidden="true"></i>Удалить учебный план
+    </a>
 </div>
 <div class="card_plan">
     <div class="row_1">

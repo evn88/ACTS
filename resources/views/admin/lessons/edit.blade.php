@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 
-<h3 class="headtxt mar">Пароли и учетные записи</h3>
+<h3 class="headtxt mar">{{$plan->name}}</h3>
 
 
 <div class="card">
@@ -9,7 +9,7 @@
     <div class="card-body">
         @include('errors.form')
 
-        <form action="{{ route('lessons.update', 1) }}" method="POST">
+        <form action="{{ route('lessons.update', $lesson->id) }}" method="POST">
             @method('PUT')
             @include('admin.lessons.__form')
         </form>

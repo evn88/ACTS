@@ -103,7 +103,8 @@ class PlansController extends Controller
     public function destroy($id)
     {
         $plans = Plan::findOrFail($id);
-        $plans->delete();
+        $del = Storage::delete('public/'.$plans->img);
+        if($del) $plans->delete();
         return redirect()->route('plans.index')
                         ->with('success','Запись удалена');
     }
