@@ -80,14 +80,8 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','can:admin']], function(
     Route::resource('groups', 'Admin\GroupController');
     Route::resource('plans', 'Admin\PlansController');
     Route::resource('lessons', 'Admin\LessonsController');
+    Route::get('lessons/create/{lesson}', 'Admin\LessonsController@create')->name('lessons.create');
 
-    // Route::get('/groups', function() {
-    //     return view('admin.groups');
-    // })->name('admin.groups');
-
-    // Route::get('/plans', function() {
-    //     return view('admin.plans');
-    // })->name('admin.plans');
 
     Route::get('/groupinf', function() {
         return view('admin.groupinf');

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 
-<h3 class="headtxt mar">Пароли и учетные записи</h3>
+<h3 class="headtxt mar">{{$plan->name}}</h3>
 
 
 <div class="card">
@@ -10,6 +10,7 @@
         @include('errors.form')
 
         <form action="{{ url('/admin/lessons') }}" method="POST">
+            <input type="hidden" name="plan_id" value="{{$plan->id}}">
             @include('admin.lessons.__form')
         </form>
     </div>
