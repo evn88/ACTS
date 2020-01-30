@@ -17,12 +17,12 @@
             <p>Шаблон письма:</p>
             <div class="input-group">
                 <textarea
+                id="ckeditor"
                 rows="20"
                 name="mail_template"
                 placeholder="Напишите текст шаблона здесь"
                 class="form-control @error('mail_template') is-invalid @enderror"
-                value="{{ old('mail_template') ?? $attacks->mail_template ?? '' }}"
-                required></textarea>
+                >{{ old('mail_template') ?? $attacks->mail_template ?? '' }}</textarea>
             </div>
         </div>
     </div>

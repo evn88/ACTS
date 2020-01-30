@@ -5,13 +5,13 @@
 
 
 <div class="card">
-    <h5 class="card-header">Редактирование урока</h5>
+    <h5 class="card-header">Редактирование шаблона атаки</h5>
     <div class="card-body">
         @include('errors.form')
 
-        <form action="{{ route('lessons.update', $lesson->id) }}" method="POST">
+        <form action="{{ route('attacks.update', $attacks->id) }}" method="POST">
             @method('PUT')
-            @include('admin.lessons.__form')
+            @include('admin.attacks.__form')
         </form>
     </div>
   </div>

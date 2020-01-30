@@ -38,7 +38,7 @@
                             @endforeach
 
                         @else
-                            <li><a href="#">Уроков еще нет</a></li>
+                            <li>Уроков еще нет. <a href="{{ route('lessons.create', $plan->id) }}">Создать новый урок?</a></li>
                         @endif
                     </ul>
                 </li>
@@ -48,7 +48,7 @@
                         @if($plan->tests->count())
 
                             @foreach($plan->tests as $test)
-                            <li><a href="">{{ $test->name }}</a>
+                            <li><a href="{{ route('tests.edit', $test->id) }}">{{ $test->name }}</a>
                                 <a href="javascript:;"
                                     data-toggle="modal"
                                     data-target="#deleteConfirm"
@@ -59,7 +59,7 @@
                             @endforeach
 
                         @else
-                            <li><a href="#">Тестов еще нет</a></li>
+                            <li>Тестов еще нет. <a href="{{ route('tests.create', $plan->id) }}">Создать тест?</a></li>
                         @endif
                     </ul>
                 </li>
@@ -68,7 +68,7 @@
                         @if($plan->attacks->count())
 
                             @foreach($plan->attacks as $attack)
-                            <li><a href="">{{ $attack->name }}</a>
+                            <li><a href="{{ route('attacks.edit', $attack->id) }}">{{ $attack->name }}</a>
                                 <a href="javascript:;"
                                     data-toggle="modal"
                                     data-target="#deleteConfirm"
@@ -79,7 +79,7 @@
                             @endforeach
 
                         @else
-                            <li><a href="#">Шаблонов атаки еще нет</a></li>
+                            <li>Шаблонов атаки еще нет. <a href="{{ route('attacks.create', $plan->id) }}">Создать новый шаблон?</a></li>
                         @endif
                     </ul>
                 </li>

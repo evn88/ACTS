@@ -65,7 +65,10 @@ class AttacksController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.attacks.edit');
+        $attacks = Attack::findOrFail($id);
+        $plan = Plan::findOrFail($attacks->plan_id);
+
+        return view('admin.attacks.edit', compact('plan', 'attacks'));
     }
 
     /**
@@ -77,7 +80,13 @@ class AttacksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $attack = Attack::find($id);
+        $attack->name = $request->name;
+        $attack->mail_template = $request->mail_template;
+        $attack->save();
+
+        return redirect()->route('plans.show', $attack->plan_id)
+                ->with('success','Урок успешно добавлен');
     }
 
     /**
