@@ -10,6 +10,14 @@
     position: static;
 }
 
+// .ck .ck-reset .ck-editor .ck-rounded-corners {
+.ck-editor .ck-rounded-corners {
+    box-sizing: border-box;
+    width: auto;
+    height: auto;
+    position: static;
+}
+
 main.container {
     min-height: calc(100vh - 100px);
 }

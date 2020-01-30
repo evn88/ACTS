@@ -64,7 +64,10 @@ class LessonsController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.lessons.edit');
+        $lessons = Lesson::findOrFail($id);
+        $plan = Plan::findOrFail($lessons->plan_id);
+
+        return view('admin.lessons.edit', compact('plan','lessons'));
     }
 
     /**
@@ -76,7 +79,13 @@ class LessonsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $lesson = Lesson::find($id);
+        $lesson->name = $request->name;
+        $lesson->lesson_text = $request->lesson_text;
+        $lesson->save();
+
+        return redirect()->route('plans.show', $lesson->plan_id)
+                ->with('success','Урок успешно добавлен');
     }
 
     /**

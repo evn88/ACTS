@@ -56,7 +56,6 @@ $(function () {
 
     $('#deleteConfirm').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget); // Button that triggered the modal
-        var id = button.data('id'); // Extract info from data-* attributes
         var route = button.data('route'); // Extract info from data-* attributes
         var info = button.data('info'); // Extract info from data-* attributes
         // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
@@ -69,6 +68,23 @@ $(function () {
             $("#confirmDeleteInfo").remove();
         }
     });
+
+    ClassicEditor
+        .create(document.querySelector('#ckeditor'),  {
+            ckfinder: {
+                uploadUrl: process.env.MIX_URL + '/ckfinder/connector?command=QuickUpload&type=Files&responseType=json'
+            },
+            language: "ru",
+            locale: 'ru'
+            })
+        .then(editor => {
+                window.ck = editor
+                console.log(editor);
+                editor.ui.view.editable.editableElement.style.lineWidth = '1200px';
+            } )
+            .catch( error => {
+                console.error( error );
+            } );
 
 });
 

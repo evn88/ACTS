@@ -14,4 +14,11 @@ class Lesson extends Model
     {
         return $this->belongsTo(Plan::class);
     }
+
+    public function setLessonTextAttribute($value)
+    {
+        if($value){
+            $this->attributes['lesson_text'] = str_replace( '&', '&amp;', $value );
+        }
+    }
 }
