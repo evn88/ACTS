@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "ckfinder/ckfinder-laravel-package": "v3.5.1.2",
         "doctrine/dbal": "^2.10",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.2",
@@ -70,7 +71,9 @@
             "@php artisan ide-helper:meta",
             "@php artisan cache:clear",
             "@php artisan storage:link",
-            "@php artisan passport:keys"
+            "@php artisan passport:keys",
+            "@php artisan ckfinder:download",
+            "@php artisan vendor:publish --tag=ckfinder"
         ]
     }
 }
