@@ -19,7 +19,7 @@
 </div>
 
 <table class="table table-hover">
-    <thead class="thead-dark">
+    <thead class="thead-light">
         <tr>
             <th scope="col"></th>
             <th scope="col">Группы</th>
