@@ -37,5 +37,5 @@
 
 ## Copyright and License
 
-ACTS was written by Vershkovs A & E for the Laravel framework and is released under the GNU AGPLv3 License.
+ACTS is written by Vershkovs E & A on the Laravel framework and is released under the GNU AGPLv3 License. 
 See the LICENSE file for details.
