@@ -16,12 +16,18 @@ window.Vue = require('vue');
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-// const files = require.context('./', true, /\.vue$/i);
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
+// const admin = require.context('./', true, /\.vue$/i);
+// console.log(admin.keys());
+// console.log(admin.keys().map(function (e) {
+//     console.log(e.split(['/']))
+//     if(e.split('/').inArray(''))
+//     console.log(e.split(['/']).pop().split('.')[0])
+// }));
+// admin.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('admin-staff-component', require('./components/admin/StaffComponent.vue').default);
 Vue.component('admin-staff-modal-component', require('./components/modal/StaffModalComponent.vue').default);
+Vue.component('admin-add-test-component', require('./components/admin/AddTestComponent.vue').default);
 
 //Инициализация Bootstrap DateTimePicker
 $(function () {
@@ -68,23 +74,6 @@ $(function () {
             $("#confirmDeleteInfo").remove();
         }
     });
-
-    ClassicEditor
-        .create(document.querySelector('#ckeditor'),  {
-            ckfinder: {
-                uploadUrl: process.env.MIX_URL + '/ckfinder/connector?command=QuickUpload&type=Files&responseType=json'
-            },
-            language: "ru",
-            locale: 'ru'
-            })
-        .then(editor => {
-                window.ck = editor
-                console.log(editor);
-                editor.ui.view.editable.editableElement.style.lineWidth = '1200px';
-            } )
-            .catch( error => {
-                console.error( error );
-            } );
 
 });
 

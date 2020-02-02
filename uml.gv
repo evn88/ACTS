@@ -1,0 +1,712 @@
+digraph G {
+    overlap = false;
+    node [fontname="Verdana", fontsize="8", shape="none", margin="0", fillcolor="#FEFECE", style="filled"];
+    edge [fontname="Verdana", fontsize="8"];
+    subgraph cluster_0 {
+            label="App";
+            "App\\Attack" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>Attack</b></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left"># fillable</td></tr>
+</table></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+plans()</td></tr>
+</table></td></tr>
+</table>
+>];
+            "App\\Group" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>Group</b></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left"># fillable</td></tr>
+</table></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+setDateStartAttribute()</td></tr>
+<tr><td align="left">+setDateEndAttribute()</td></tr>
+<tr><td align="left">+getDateStartAttribute()</td></tr>
+<tr><td align="left">+getDateEndAttribute()</td></tr>
+<tr><td align="left">+users()</td></tr>
+<tr><td align="left">+usersCount()</td></tr>
+<tr><td align="left">+plans()</td></tr>
+<tr><td align="left">+inPlan()</td></tr>
+</table></td></tr>
+</table>
+>];
+            "App\\Lesson" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>Lesson</b></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left"># fillable</td></tr>
+</table></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+plans()</td></tr>
+<tr><td align="left">+setLessonTextAttribute()</td></tr>
+</table></td></tr>
+</table>
+>];
+            "App\\Plan" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>Plan</b></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left"># fillable</td></tr>
+</table></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+groups()</td></tr>
+<tr><td align="left">+lessons()</td></tr>
+<tr><td align="left">+tests()</td></tr>
+<tr><td align="left">+attacks()</td></tr>
+</table></td></tr>
+</table>
+>];
+            "App\\Role" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>Role</b></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left"># fillable</td></tr>
+<tr><td align="left"># touches</td></tr>
+</table></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+users()</td></tr>
+</table></td></tr>
+</table>
+>];
+            "App\\Test" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>Test</b></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left"># fillable</td></tr>
+</table></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+plans()</td></tr>
+</table></td></tr>
+</table>
+>];
+            "App\\User" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>User</b></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left"># fillable</td></tr>
+<tr><td align="left"># touches</td></tr>
+<tr><td align="left"># hidden</td></tr>
+<tr><td align="left"># casts</td></tr>
+</table></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+roles()</td></tr>
+<tr><td align="left">+groups()</td></tr>
+<tr><td align="left">+inGroup()</td></tr>
+<tr><td align="left">+isAdmin()</td></tr>
+<tr><td align="left">+inRole()</td></tr>
+</table></td></tr>
+</table>
+>];
+    }
+    subgraph cluster_1 {
+            label="Illuminate\\Database\\Eloquent";
+            "Illuminate\\Database\\Eloquent\\Model" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>Model</b></td></tr>
+<tr><td> </td></tr>
+<tr><td> </td></tr>
+</table>
+>];
+            bgcolor="#EB937F";
+    }
+    subgraph cluster_2 {
+            label="Illuminate\\Foundation\\Auth";
+            "Illuminate\\Foundation\\Auth\\User" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>User</b></td></tr>
+<tr><td> </td></tr>
+<tr><td> </td></tr>
+</table>
+>];
+            bgcolor="#EB937F";
+    }
+    subgraph cluster_3 {
+            label="App\\Console";
+            "App\\Console\\Kernel" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>Kernel</b></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left"># commands</td></tr>
+</table></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">#schedule()</td></tr>
+<tr><td align="left">#commands()</td></tr>
+</table></td></tr>
+</table>
+>];
+    }
+    subgraph cluster_4 {
+            label="Illuminate\\Foundation\\Console";
+            "Illuminate\\Foundation\\Console\\Kernel" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>Kernel</b></td></tr>
+<tr><td> </td></tr>
+<tr><td> </td></tr>
+</table>
+>];
+            bgcolor="#EB937F";
+    }
+    subgraph cluster_5 {
+            label="App\\Exceptions";
+            "App\\Exceptions\\Handler" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>Handler</b></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left"># dontReport</td></tr>
+<tr><td align="left"># dontFlash</td></tr>
+</table></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+report()</td></tr>
+<tr><td align="left">+render()</td></tr>
+</table></td></tr>
+</table>
+>];
+    }
+    subgraph cluster_6 {
+            label="Illuminate\\Foundation\\Exceptions";
+            "Illuminate\\Foundation\\Exceptions\\Handler" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>Handler</b></td></tr>
+<tr><td> </td></tr>
+<tr><td> </td></tr>
+</table>
+>];
+            bgcolor="#EB937F";
+    }
+    subgraph cluster_7 {
+            label="App\\Http\\Controllers\\Admin";
+            "App\\Http\\Controllers\\Admin\\AttacksController" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>AttacksController</b></td></tr>
+<tr><td> </td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+index()</td></tr>
+<tr><td align="left">+create()</td></tr>
+<tr><td align="left">+store()</td></tr>
+<tr><td align="left">+show()</td></tr>
+<tr><td align="left">+edit()</td></tr>
+<tr><td align="left">+update()</td></tr>
+<tr><td align="left">+destroy()</td></tr>
+</table></td></tr>
+</table>
+>];
+            "App\\Http\\Controllers\\Admin\\GroupController"
+[label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>GroupController</b></td></tr>
+<tr><td> </td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+index()</td></tr>
+<tr><td align="left">+create()</td></tr>
+<tr><td align="left">+store()</td></tr>
+<tr><td align="left">+show()</td></tr>
+<tr><td align="left">+edit()</td></tr>
+<tr><td align="left">+update()</td></tr>
+<tr><td align="left">+destroy()</td></tr>
+</table></td></tr>
+</table>
+>];
+            "App\\Http\\Controllers\\Admin\\LessonsController" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>LessonsController</b></td></tr>
+<tr><td> </td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+index()</td></tr>
+<tr><td align="left">+create()</td></tr>
+<tr><td align="left">+store()</td></tr>
+<tr><td align="left">+show()</td></tr>
+<tr><td align="left">+edit()</td></tr>
+<tr><td align="left">+update()</td></tr>
+<tr><td align="left">+destroy()</td></tr>
+</table></td></tr>
+</table>
+>];
+            "App\\Http\\Controllers\\Admin\\PlansController"
+[label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>PlansController</b></td></tr>
+<tr><td> </td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+index()</td></tr>
+<tr><td align="left">+create()</td></tr>
+<tr><td align="left">+store()</td></tr>
+<tr><td align="left">+show()</td></tr>
+<tr><td align="left">+edit()</td></tr>
+<tr><td align="left">+update()</td></tr>
+<tr><td align="left">+destroy()</td></tr>
+</table></td></tr>
+</table>
+>];
+            "App\\Http\\Controllers\\Admin\\StaffController"
+[label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>StaffController</b></td></tr>
+<tr><td> </td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+index()</td></tr>
+<tr><td align="left">+create()</td></tr>
+<tr><td align="left">+store()</td></tr>
+<tr><td align="left">+show()</td></tr>
+<tr><td align="left">+edit()</td></tr>
+<tr><td align="left">+update()</td></tr>
+<tr><td align="left">+destroy()</td></tr>
+</table></td></tr>
+</table>
+>];
+            "App\\Http\\Controllers\\Admin\\TestsController"
+[label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>TestsController</b></td></tr>
+<tr><td> </td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+index()</td></tr>
+<tr><td align="left">+create()</td></tr>
+<tr><td align="left">+store()</td></tr>
+<tr><td align="left">+show()</td></tr>
+<tr><td align="left">+edit()</td></tr>
+<tr><td align="left">+update()</td></tr>
+<tr><td align="left">+destroy()</td></tr>
+</table></td></tr>
+</table>
+>];
+    }
+    subgraph cluster_8 {
+            label="App\\Http\\Controllers";
+            "App\\Http\\Controllers\\Controller" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>Controller</b></td></tr>
+<tr><td> </td></tr>
+<tr><td> </td></tr>
+</table>
+>];
+            "App\\Http\\Controllers\\HomeController" [label=<<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>HomeController</b></td></tr>
+<tr><td> </td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+__construct()</td></tr>
+<tr><td align="left">+index()</td></tr>
+</table></td></tr>
+</table>
+>];
+    }
+    subgraph cluster_9 {
+            label="Illuminate\\Routing";
+            "Illuminate\\Routing\\Controller" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>Controller</b></td></tr>
+<tr><td> </td></tr>
+<tr><td> </td></tr>
+</table>
+>];
+            bgcolor="#EB937F";
+    }
+    subgraph cluster_10 {
+            label="App\\Http\\Controllers\\API";
+            "App\\Http\\Controllers\\API\\UserController" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>UserController</b></td></tr>
+<tr><td> </td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+index()</td></tr>
+<tr><td align="left">+show()</td></tr>
+<tr><td align="left">+store()</td></tr>
+<tr><td align="left">+edit()</td></tr>
+<tr><td align="left">+destroy()</td></tr>
+</table></td></tr>
+</table>
+>];
+    }
+    subgraph cluster_11 {
+            label="App\\Http\\Controllers\\Auth";
+            "App\\Http\\Controllers\\Auth\\ConfirmPasswordController" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>ConfirmPasswordController</b></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left"># redirectTo</td></tr>
+</table></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+__construct()</td></tr>
+</table></td></tr>
+</table>
+>];
+            "App\\Http\\Controllers\\Auth\\ForgotPasswordController" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>ForgotPasswordController</b></td></tr>
+<tr><td> </td></tr>
+<tr><td> </td></tr>
+</table>
+>];
+            "App\\Http\\Controllers\\Auth\\LoginController" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>LoginController</b></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left"># redirectTo</td></tr>
+</table></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+__construct()</td></tr>
+</table></td></tr>
+</table>
+>];
+            "App\\Http\\Controllers\\Auth\\RegisterController" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>RegisterController</b></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left"># redirectTo</td></tr>
+</table></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+__construct()</td></tr>
+<tr><td align="left">#validator()</td></tr>
+<tr><td align="left">#create()</td></tr>
+</table></td></tr>
+</table>
+>];
+            "App\\Http\\Controllers\\Auth\\ResetPasswordController" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>ResetPasswordController</b></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left"># redirectTo</td></tr>
+</table></td></tr>
+<tr><td> </td></tr>
+</table>
+>];
+            "App\\Http\\Controllers\\Auth\\VerificationController" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>VerificationController</b></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left"># redirectTo</td></tr>
+</table></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+__construct()</td></tr>
+</table></td></tr>
+</table>
+>];
+    }
+    subgraph cluster_12 {
+            label="App\\Http";
+            "App\\Http\\Kernel" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>Kernel</b></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left"># middleware</td></tr>
+<tr><td align="left"># middlewareGroups</td></tr>
+<tr><td align="left"># routeMiddleware</td></tr>
+<tr><td align="left"># middlewarePriority</td></tr>
+</table></td></tr>
+<tr><td> </td></tr>
+</table>
+>];
+    }
+    subgraph cluster_13 {
+            label="Illuminate\\Foundation\\Http";
+            "Illuminate\\Foundation\\Http\\Kernel" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>Kernel</b></td></tr>
+<tr><td> </td></tr>
+<tr><td> </td></tr>
+</table>
+>];
+            "Illuminate\\Foundation\\Http\\FormRequest" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>FormRequest</b></td></tr>
+<tr><td> </td></tr>
+<tr><td> </td></tr>
+</table>
+>];
+            bgcolor="#EB937F";
+    }
+    subgraph cluster_14 {
+            label="App\\Http\\Middleware";
+            "App\\Http\\Middleware\\Authenticate" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>Authenticate</b></td></tr>
+<tr><td> </td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">#redirectTo()</td></tr>
+</table></td></tr>
+</table>
+>];
+            "App\\Http\\Middleware\\CheckForMaintenanceMode"
+[label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>CheckForMaintenanceMode</b></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left"># except</td></tr>
+</table></td></tr>
+<tr><td> </td></tr>
+</table>
+>];
+            "App\\Http\\Middleware\\CustomCKFinderAuth" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>CustomCKFinderAuth</b></td></tr>
+<tr><td> </td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+handle()</td></tr>
+</table></td></tr>
+</table>
+>];
+            "App\\Http\\Middleware\\EncryptCookies" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>EncryptCookies</b></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left"># except</td></tr>
+</table></td></tr>
+<tr><td> </td></tr>
+</table>
+>];
+            "App\\Http\\Middleware\\RedirectIfAuthenticated"
+[label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>RedirectIfAuthenticated</b></td></tr>
+<tr><td> </td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+handle()</td></tr>
+</table></td></tr>
+</table>
+>];
+            "App\\Http\\Middleware\\TrimStrings" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>TrimStrings</b></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left"># except</td></tr>
+</table></td></tr>
+<tr><td> </td></tr>
+</table>
+>];
+            "App\\Http\\Middleware\\TrustProxies" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>TrustProxies</b></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left"># proxies</td></tr>
+<tr><td align="left"># headers</td></tr>
+</table></td></tr>
+<tr><td> </td></tr>
+</table>
+>];
+            "App\\Http\\Middleware\\VerifyCsrfToken" [label=<<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>VerifyCsrfToken</b></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left"># addHttpCookie</td></tr>
+<tr><td align="left"># except</td></tr>
+</table></td></tr>
+<tr><td> </td></tr>
+</table>
+>];
+    }
+    subgraph cluster_15 {
+            label="Illuminate\\Auth\\Middleware";
+            "Illuminate\\Auth\\Middleware\\Authenticate" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>Authenticate</b></td></tr>
+<tr><td> </td></tr>
+<tr><td> </td></tr>
+</table>
+>];
+            bgcolor="#EB937F";
+    }
+    subgraph cluster_16 {
+            label="Illuminate\\Foundation\\Http\\Middleware";                "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>CheckForMaintenanceMode</b></td></tr>
+<tr><td> </td></tr>
+<tr><td> </td></tr>
+</table>
+>];
+            "Illuminate\\Foundation\\Http\\Middleware\\TrimStrings" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>TrimStrings</b></td></tr>
+<tr><td> </td></tr>
+<tr><td> </td></tr>
+</table>
+>];
+            "Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>VerifyCsrfToken</b></td></tr>
+<tr><td> </td></tr>
+<tr><td> </td></tr>
+</table>
+>];
+            bgcolor="#EB937F";
+    }
+    subgraph cluster_17 {
+            label="Illuminate\\Cookie\\Middleware";
+            "Illuminate\\Cookie\\Middleware\\EncryptCookies"
+[label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>EncryptCookies</b></td></tr>
+<tr><td> </td></tr>
+<tr><td> </td></tr>
+</table>
+>];
+            bgcolor="#EB937F";
+    }
+    subgraph cluster_18 {
+            label="Fideloper\\Proxy";
+            "Fideloper\\Proxy\\TrustProxies" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>TrustProxies</b></td></tr>
+<tr><td> </td></tr>
+<tr><td> </td></tr>
+</table>
+>];
+            bgcolor="#EB937F";
+    }
+    subgraph cluster_19 {
+            label="App\\Http\\Requests";
+            "App\\Http\\Requests\\StoreUser" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>StoreUser</b></td></tr>
+<tr><td> </td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+authorize()</td></tr>
+<tr><td align="left">+rules()</td></tr>
+<tr><td align="left">+messages()</td></tr>
+</table></td></tr>
+</table>
+>];
+            "App\\Http\\Requests\\UpdateUser" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>UpdateUser</b></td></tr>
+<tr><td> </td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+authorize()</td></tr>
+<tr><td align="left">+rules()</td></tr>
+<tr><td align="left">+messages()</td></tr>
+</table></td></tr>
+</table>
+>];
+    }
+    subgraph cluster_20 {
+            label="App\\Providers";
+            "App\\Providers\\AppServiceProvider" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>AppServiceProvider</b></td></tr>
+<tr><td> </td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+register()</td></tr>
+<tr><td align="left">+boot()</td></tr>
+</table></td></tr>
+</table>
+>];
+            "App\\Providers\\AuthServiceProvider" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>AuthServiceProvider</b></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left"># policies</td></tr>
+</table></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+boot()</td></tr>
+</table></td></tr>
+</table>
+>];
+            "App\\Providers\\BroadcastServiceProvider" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>BroadcastServiceProvider</b></td></tr>
+<tr><td> </td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+boot()</td></tr>
+</table></td></tr>
+</table>
+>];
+            "App\\Providers\\EventServiceProvider" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>EventServiceProvider</b></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left"># listen</td></tr>
+</table></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+boot()</td></tr>
+</table></td></tr>
+</table>
+>];
+            "App\\Providers\\RouteServiceProvider" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>RouteServiceProvider</b></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left"># namespace</td></tr>
+</table></td></tr>
+<tr><td><table border="0" cellspacing="0" cellpadding="2">
+<tr><td align="left">+boot()</td></tr>
+<tr><td align="left">+map()</td></tr>
+<tr><td align="left">#mapWebRoutes()</td></tr>
+<tr><td align="left">#mapApiRoutes()</td></tr>
+</table></td></tr>
+</table>
+>];
+    }
+    subgraph cluster_21 {
+            label="Illuminate\\Support";
+            "Illuminate\\Support\\ServiceProvider" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>ServiceProvider</b></td></tr>
+<tr><td> </td></tr>
+<tr><td> </td></tr>
+</table>
+>];
+            bgcolor="#EB937F";
+    }
+    subgraph cluster_22 {
+            label="Illuminate\\Foundation\\Support\\Providers";
+            "Illuminate\\Foundation\\Support\\Providers\\AuthServiceProvider" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>AuthServiceProvider</b></td></tr>
+<tr><td> </td></tr>
+<tr><td> </td></tr>
+</table>
+>];
+            "Illuminate\\Foundation\\Support\\Providers\\EventServiceProvider" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>EventServiceProvider</b></td></tr>
+<tr><td> </td></tr>
+<tr><td> </td></tr>
+</table>
+>];
+            "Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider" [label=<
+<table border="0" cellborder="1" cellspacing="0">
+<tr><td align="center">&lt;&lt; <font color="black"><i>class</i></font> &gt;&gt;<br/><b>RouteServiceProvider</b></td></tr>
+<tr><td> </td></tr>
+<tr><td> </td></tr>
+</table>
+>];
+            bgcolor="#EB937F";
+    }
+    "App\\Attack" -> "Illuminate\\Database\\Eloquent\\Model";        "App\\Group" -> "Illuminate\\Database\\Eloquent\\Model";
+    "App\\Lesson" -> "Illuminate\\Database\\Eloquent\\Model";        "App\\Plan" -> "Illuminate\\Database\\Eloquent\\Model";
+    "App\\Role" -> "Illuminate\\Database\\Eloquent\\Model";
+    "App\\Test" -> "Illuminate\\Database\\Eloquent\\Model";
+    "App\\User" -> "Illuminate\\Foundation\\Auth\\User";
+    "App\\Console\\Kernel" -> "Illuminate\\Foundation\\Console\\Kernel";
+    "App\\Exceptions\\Handler" -> "Illuminate\\Foundation\\Exceptions\\Handler";
+    "App\\Http\\Controllers\\Controller" -> "Illuminate\\Routing\\Controller";
+    "App\\Http\\Controllers\\Admin\\AttacksController" -> "App\\Http\\Controllers\\Controller";
+    "App\\Http\\Controllers\\Admin\\GroupController" -> "App\\Http\\Controllers\\Controller";
+    "App\\Http\\Controllers\\Admin\\LessonsController" -> "App\\Http\\Controllers\\Controller";
+    "App\\Http\\Controllers\\Admin\\PlansController" -> "App\\Http\\Controllers\\Controller";
+    "App\\Http\\Controllers\\Admin\\StaffController" -> "App\\Http\\Controllers\\Controller";
+    "App\\Http\\Controllers\\Admin\\TestsController" -> "App\\Http\\Controllers\\Controller";
+    "App\\Http\\Controllers\\API\\UserController" -> "App\\Http\\Controllers\\Controller";
+    "App\\Http\\Controllers\\Auth\\ConfirmPasswordController" -> "App\\Http\\Controllers\\Controller";
+    "App\\Http\\Controllers\\Auth\\ForgotPasswordController"
+-> "App\\Http\\Controllers\\Controller";
+    "App\\Http\\Controllers\\Auth\\LoginController" -> "App\\Http\\Controllers\\Controller";
+    "App\\Http\\Controllers\\Auth\\RegisterController" -> "App\\Http\\Controllers\\Controller";
+    "App\\Http\\Controllers\\Auth\\ResetPasswordController" -> "App\\Http\\Controllers\\Controller";
+    "App\\Http\\Controllers\\Auth\\VerificationController" -> "App\\Http\\Controllers\\Controller";
+    "App\\Http\\Controllers\\HomeController" -> "App\\Http\\Controllers\\Controller";
+    "App\\Http\\Kernel" -> "Illuminate\\Foundation\\Http\\Kernel";
+    "App\\Http\\Middleware\\Authenticate" -> "Illuminate\\Auth\\Middleware\\Authenticate";
+    "App\\Http\\Middleware\\CheckForMaintenanceMode" -> "Illuminate\\Foundation\\Http\\Middleware\\CheckForMaintenanceMode";
+    "App\\Http\\Middleware\\EncryptCookies" -> "Illuminate\\Cookie\\Middleware\\EncryptCookies";
+    "App\\Http\\Middleware\\TrimStrings" -> "Illuminate\\Foundation\\Http\\Middleware\\TrimStrings";
+    "App\\Http\\Middleware\\TrustProxies" -> "Fideloper\\Proxy\\TrustProxies";
+    "App\\Http\\Middleware\\VerifyCsrfToken" -> "Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken";
+    "App\\Http\\Requests\\StoreUser" -> "Illuminate\\Foundation\\Http\\FormRequest";
+    "App\\Http\\Requests\\UpdateUser" -> "Illuminate\\Foundation\\Http\\FormRequest";
+    "App\\Providers\\AppServiceProvider" -> "Illuminate\\Support\\ServiceProvider";
+    "App\\Providers\\AuthServiceProvider" -> "Illuminate\\Foundation\\Support\\Providers\\AuthServiceProvider";
+    "App\\Providers\\BroadcastServiceProvider" -> "Illuminate\\Support\\ServiceProvider";
+    "App\\Providers\\EventServiceProvider" -> "Illuminate\\Foundation\\Support\\Providers\\EventServiceProvider";
+    "App\\Providers\\RouteServiceProvider" -> "Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider";
+}

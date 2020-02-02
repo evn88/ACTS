@@ -5,13 +5,13 @@
 
 
 <div class="card">
-    <h5 class="card-header">Добавить новый урок</h5>
+    <h5 class="card-header">Добавить новый вопрос</h5>
     <div class="card-body">
         @include('errors.form')
 
-        <form action="{{ url('/admin/lessons') }}" method="POST">
+        <form action="{{ url('/admin/tests') }}" method="POST">
             <input type="hidden" name="plan_id" value="{{$plan->id}}">
-            @include('admin.lessons.__form')
+            @include('admin.tests.__form')
         </form>
     </div>
   </div>
