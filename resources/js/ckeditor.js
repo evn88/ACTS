@@ -4,12 +4,11 @@ $(function () {
             ckfinder: {
                 uploadUrl: process.env.MIX_URL + '/ckfinder/connector?command=QuickUpload&type=Files&responseType=json'
             },
+            language: 'ru',
 
         })
         .then(editor => {
-                // window.ck = editor
-                // console.log(editor);
-                // editor.ui.view.editable.editableElement.style.lineWidth = '1200px';
+            // editor.ui.view.editable.editableElement.style.height = '500px';
         } )
         .catch( error => {
             // console.error( error );

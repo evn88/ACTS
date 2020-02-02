@@ -2,7 +2,7 @@
 <div class="row row_2 lesson">
 
         <div class="form-group">
-                <ckeditor :editor="editor" v-model="question" :config="editorConfig">Загрузка...</ckeditor>
+                <ckeditor :editor="editor" v-model="question" :config="editorConfig"></ckeditor>
         </div>
 
 
@@ -52,7 +52,10 @@ export default {
                 editor: ClassicEditor,
                 editorConfig: {
                     placeholder: 'Напишите текст вопроса здесь',
-                    language: 'ru'
+                    language: 'ru',
+                    ckfinder: {
+                        uploadUrl: process.env.MIX_URL + '/ckfinder/connector?command=QuickUpload&type=Files&responseType=json'
+                    },
                 },
                 selected: [],
                 answers: [

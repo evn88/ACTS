@@ -2,6 +2,11 @@
 @import 'variables';
 
 
+.ck-editor__editable_inline {
+    min-height: 300px;
+}
+
+
 main.container {
     min-height: calc(100vh - 100px);
 }

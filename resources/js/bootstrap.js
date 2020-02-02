@@ -14,6 +14,7 @@ try {
     require('pc-bootstrap4-datetimepicker');
     require('easy-pie-chart/dist/jquery.easypiechart');
     ClassicEditor = require('@ckeditor/ckeditor5-build-classic/build/ckeditor');
+    require('@ckeditor/ckeditor5-build-classic/build/translations/ru');
     CKEditor = require('@ckeditor/ckeditor5-vue/dist/ckeditor');
     // window.BasicStyles = require('@ckeditor/ckeditor5-basic-styles');
 
