@@ -2,19 +2,11 @@
 <div class="row row_2 lesson">
 
         <div class="form-group">
-            <div class="input-group">
                 <ckeditor :editor="editor" v-model="question" :config="editorConfig">Загрузка...</ckeditor>
-                <!-- <textarea id="ckeditor" class="form-control" name="question" placeholder="Напишите текст вопроса здесь" v-model="question">{{ question }}</textarea> -->
-            </div>
-
-
-            <span class="invalid-feedback" role="alert">
-                <strong></strong>
-            </span>
-
         </div>
 
-        <div class="form-group clearfix">
+
+        <div class="form-group ">
             <a href="javascript:;" id="addAnswer" class="btn btn-primary" v-on:click="addAnswer">Добавить ответ</a>
         </div>
         <p class="form-text text-muted">Напишите ответы и отметьте один или несколько правильных ответов</p>
@@ -29,7 +21,7 @@
                     <label class="custom-control-label" v-bind:for="answer.id"></label>
                   </div>
                 </div>
-                <input type="text" class="form-control" v-model="answer.text">
+                <input type="text" class="form-control" v-model="answer.text" placeholder="Текст ответа">
                 <div class="input-group-append">
                     <a href="#" class="btn btn-outline-secondary" v-on:click="removeAnswer(id)"><i class="fa fa-trash" aria-hidden="true"></i></a>
                 </div>

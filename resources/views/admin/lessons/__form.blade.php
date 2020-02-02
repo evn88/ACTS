@@ -15,16 +15,14 @@
         </div>
         <div class="form-group">
             <p>Текст урока:</p>
-            <div class="input-group">
+
                 <textarea
                 id="ckeditor"
-                rows="20"
-                width="100%"
                 name="lesson_text"
                 placeholder="Напишите текст урока здесь"
                 class="form-control @error('lesson_text') is-invalid @enderror"
                 >{{ old('lesson_text') ?? $lessons->lesson_text ?? '' }}</textarea>
-            </div>
+
         </div>
     </div>
     <div class="row">
