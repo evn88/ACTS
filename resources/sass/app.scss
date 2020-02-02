@@ -618,10 +618,19 @@ ul.lesson {
         width: 50px;
         padding: 8px;
 
+        .custom-control-input {
+            width: 100%;
+            height: 100%;
+        }
+
         label {
             padding: 0;
         }
         label:before {
+            top: 7px;
+            left: -8px;
+        }
+        label:after {
             top: 7px;
             left: -8px;
         }
