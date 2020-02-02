@@ -41,6 +41,7 @@
 
 <script>
 let nextAnswerId = 1
+const formData = new FormData();
 
 export default {
         components: {
@@ -83,7 +84,17 @@ export default {
                 Vue.delete(this.selected, id);
             },
             submitForm: function() {
-                console.info(this.answers, this.question)
+                formData.append('question', JSON.stringify(this.question))
+                formData.append('answers', JSON.stringify(this.answers))
+                formData.append('trueAnswers', JSON.stringify(this.selected))
+
+                        console.info(JSON.stringify(formData))
+                axios
+                    .post( this.path + '/api/test/add-new-test', formData)
+                    .then(response => {
+                        console.log('response: ', response)
+                    })
+
             }
         }
 }
