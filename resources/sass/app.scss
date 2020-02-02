@@ -613,6 +613,21 @@ ul.lesson {
         }
     }
 }
+.input-group-prepend.check{
+    .input-group-text.custom-control.custom-checkbox {
+        width: 50px;
+        padding: 8px;
+
+        label {
+            padding: 0;
+        }
+        label:before {
+            top: 7px;
+            left: -8px;
+        }
+    }
+
+}
 
 //catchpages
 h1.catchpage {
