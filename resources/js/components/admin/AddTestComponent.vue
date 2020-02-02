@@ -3,7 +3,7 @@
 
         <div class="form-group">
             <div class="input-group">
-                <ckeditor :editor="editor" v-model="editorData" :config="editorConfig"></ckeditor>
+                <ckeditor :editor="editor" v-model="question" :config="editorConfig">Загрузка...</ckeditor>
                 <!-- <textarea id="ckeditor" class="form-control" name="question" placeholder="Напишите текст вопроса здесь" v-model="question">{{ question }}</textarea> -->
             </div>
 
@@ -17,7 +17,7 @@
         <div class="form-group clearfix">
             <a href="javascript:;" id="addAnswer" class="btn btn-primary" v-on:click="addAnswer">Добавить ответ</a>
         </div>
-
+        <p class="form-text text-muted">Напишите ответы и отметьте один или несколько правильных ответов</p>
         <div class="form-group">
             <div class="input-group mb-3 input-group-lg"
                 v-for="(answer, id) in answers"
@@ -58,20 +58,16 @@ export default {
         data() {
             return {
                 editor: ClassicEditor,
-                editorData: '<p>Напишите текст вопроса здесь</p>',
                 editorConfig: {
-                    // The configuration of the editor.
+                    placeholder: 'Напишите текст вопроса здесь',
+                    language: 'ru'
                 },
                 selected: [],
                 answers: [
                     {
 					    id: nextAnswerId++,
-					    text: 'Learn Vue'
-				    },
-                    {
-					    id: nextAnswerId++,
-					    text: 'Test Vue'
-				    },
+					    text: ''
+				    }
                 ],
                 question: null,
                 error: null,
@@ -89,9 +85,10 @@ export default {
             },
              removeAnswer: function (id) {
                 Vue.delete(this.answers, id);
+                Vue.delete(this.selected, id);
             },
             submitForm: function() {
-                console.info(this.answers)
+                console.info(this.answers, this.question)
             }
         }
 }
