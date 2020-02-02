@@ -22,7 +22,7 @@
                 v-for="(answer, id) in answers"
                 v-bind:key="answer.id">
 
-                <div class="input-group-prepend">
+                <div class="input-group-prepend check">
                   <div class="input-group-text custom-control custom-checkbox">
                     <input class="custom-control-input" type="checkbox" v-bind:id="answer.id" v-model="selected" :value="answer.id" number>
                     <label class="custom-control-label" v-bind:for="answer.id"></label>
