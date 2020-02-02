@@ -3,7 +3,8 @@
 
         <div class="form-group">
             <div class="input-group">
-                <textarea id="ckeditor" class="form-control" name="question" placeholder="Напишите текст вопроса здесь"></textarea>
+                <ckeditor :editor="editor" v-model="editorData" :config="editorConfig"></ckeditor>
+                <!-- <textarea id="ckeditor" class="form-control" name="question" placeholder="Напишите текст вопроса здесь" v-model="question">{{ question }}</textarea> -->
             </div>
 
 
@@ -35,6 +36,13 @@
 
             </div>
         </div>
+
+        <div class="row">
+            <div class="form-group butt lesson">
+                <a href="" class="btn btn-secondary">Назад</a>
+                <button type="submit" v-on:click.prevent="submitForm" class="btn btn-primary float-right">Сохранить</button>
+            </div>
+        </div>
 </div>
 
 </template>
@@ -43,8 +51,17 @@
 let nextAnswerId = 1
 
 export default {
+        components: {
+            // Use the <ckeditor> component in this view.
+            ckeditor: CKEditor.component
+        },
         data() {
             return {
+                editor: ClassicEditor,
+                editorData: '<p>Напишите текст вопроса здесь</p>',
+                editorConfig: {
+                    // The configuration of the editor.
+                },
                 selected: [],
                 answers: [
                     {
@@ -56,7 +73,7 @@ export default {
 					    text: 'Test Vue'
 				    },
                 ],
-                questions: null,
+                question: null,
                 error: null,
                 errored: false,
                 uid: null,
@@ -73,6 +90,9 @@ export default {
              removeAnswer: function (id) {
                 Vue.delete(this.answers, id);
             },
+            submitForm: function() {
+                console.info(this.answers)
+            }
         }
 }
 </script>
