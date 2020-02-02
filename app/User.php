@@ -17,6 +17,7 @@ class User extends Authenticatable
      *
      * @var array
      */
+    //TODO: Удалить из видимости пароль
     protected $fillable = [
         'name', 'email', 'password', 'profession'
     ];

@@ -26,7 +26,7 @@ class TestController extends Controller
         $test->plan_id = $request->plan_id;
         $test->name = substr(strip_tags($question), 0, 100).'...';
         $test->question = $question;
-        $test->answer = json_encode($answers);
+        $test->answer = $request->answers;
         $test->trueAnswer = json_encode($trueAnswers);
         $test->save();
 

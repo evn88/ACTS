@@ -29,13 +29,9 @@ Auth::routes();
  */
 Route::group(['prefix'=>'course','middleware' => ['auth']], function()
 {
-    Route::get('/', function() {
-        return view('course.home');
-    })->name('course.home');
+    Route::get('/', 'Course\HomeController@index')->name('course.home');
 
-    Route::get('/materials', function() {
-        return view('course.materials');
-    })->name('course.materials');
+    Route::get('/materials', 'Course\MaterialsController@index')->name('course.materials');
 
     Route::get('/plansinf', function() {
         return view('course.plansinf');
