@@ -48,7 +48,7 @@
                         @if($plan->tests->count())
 
                             @foreach($plan->tests as $test)
-                            <li><a href="{{ route('tests.edit', $test->id) }}">{{ $test->question }}</a>
+                            <li><a href="{{ route('tests.edit', $test->id) }}">{{ $test->name }}</a>
                                 <a href="javascript:;"
                                     data-toggle="modal"
                                     data-target="#deleteConfirm"

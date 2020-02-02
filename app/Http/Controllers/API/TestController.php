@@ -18,19 +18,16 @@ class TestController extends Controller
 
     public function store (Request $request) {
 
-        // $lesson = Test::create($request->all());
-        // $lesson->save();
-
-
         $answers = json_decode($request->answers, true);
         $question = json_decode($request->question, true);
         $trueAnswers = json_decode($request->trueAnswers, true);
 
         $test = new Test;
-        $test->plan_id = 7;
-        $test->name = 'test';
+        $test->plan_id = $request->plan_id;
+        $test->name = substr(strip_tags($question), 0, 100).'...';
         $test->question = $question;
         $test->answer = json_encode($answers);
+        $test->trueAnswer = json_encode($trueAnswers);
         $test->save();
 
         return response([$answers,$question,$trueAnswers], 200);

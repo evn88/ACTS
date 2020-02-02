@@ -48,6 +48,7 @@ export default {
             // Use the <ckeditor> component in this view.
             ckeditor: CKEditor.component
         },
+        props: ['planId'],
         data() {
             return {
                 editor: ClassicEditor,
@@ -87,12 +88,13 @@ export default {
                 formData.append('question', JSON.stringify(this.question))
                 formData.append('answers', JSON.stringify(this.answers))
                 formData.append('trueAnswers', JSON.stringify(this.selected))
+                formData.append('plan_id', this.planId)
 
-                        console.info(JSON.stringify(formData))
                 axios
                     .post( this.path + '/api/test/add-new-test', formData)
                     .then(response => {
                         console.log('response: ', response)
+                        window.location = this.path + "/admin/plans/"+ this.planId
                     })
 
             }
