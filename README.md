@@ -14,17 +14,17 @@
 9. <code>php artisan db:seed</code>
 10. Приложение использует очереди и Supervisor https://laravel.ru/docs/v5/queues
 11. Установите Supervisor <code>sudo apt-get install supervisor</code>
-12. Файлы настроек Supervisor обычно находятся в папке /etc/supervisor/conf.d. Там вы можете создать любое количество файлов с настройками, по которым Supervisor поймёт, как отслеживать ваши процессы. Для работы аукциона, создадим файл laravel-worker-auction.conf, который запускает и наблюдает за процессом queue:work:
+12. Файлы настроек Supervisor обычно находятся в папке /etc/supervisor/conf.d. Там вы можете создать любое количество файлов с настройками, по которым Supervisor поймёт, как отслеживать ваши процессы. Для работы аукциона, создадим файл laravel-worker-acts.conf, который запускает и наблюдает за процессом queue:work:
 <pre>
-   [program:laravel-worker-auction]
+   [program:laravel-worker-acts]
     process_name=%(program_name)s_%(process_num)02d
-    command=php /var/www/[ПУТЬ ДО ПРИЛОЖЕНИЯ]/technosale/artisan queue:work --sleep=3 --tries=3 --daemon
+    command=php /var/www/[ПУТЬ ДО ПРИЛОЖЕНИЯ]/artisan queue:work --sleep=3 --tries=3 --daemon
     autostart=true
     autorestart=true
     user=www-data
     numprocs=4
     redirect_stderr=true
-    stdout_logfile=/var/www/[ПУТЬ ДО ПРИЛОЖЕНИЯ]/technosale/storage/logs/worker.log
+    stdout_logfile=/var/www/[ПУТЬ ДО ПРИЛОЖЕНИЯ]/storage/logs/worker.log
 </pre>
 Подробнее о Supervisor читайте в его [документации](http://supervisord.org/index.html).
 
@@ -37,5 +37,5 @@
 
 ## Copyright and License
 
-ACTS is written by Vershkovs E & A on the Laravel framework and is released under the GNU AGPLv3 License. 
+ACTS is written by Vershkovs E & A on the Laravel framework and is released under the GNU AGPLv3 License.
 See the LICENSE file for details.
