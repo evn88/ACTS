@@ -25,11 +25,9 @@
                 <li><a class="mark" href="#">Тест</a>
                     <ul>
                         @if($plans->tests->count())
-
-                            @foreach($plans->tests as $test)
-                                <li><a href="{{ route('tests.edit', $test->id) }}">{{ $test->name }}</a>
-                                </li>
-                            @endforeach
+                            <p>Нажимая кнопку "Начать тестирование" вы соглашаетесь начать тестирование, отменить это действие нельзя.</p>
+                            <p>Тест содержит {{ $plans->tests->count() }} вопроса(-ов)</p>
+                            <a href="#" class="btn btn-primary">Начать тестирование</a>
 
                         @else
                             <li>Тестов нет.</li>
