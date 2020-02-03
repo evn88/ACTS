@@ -15,7 +15,6 @@
         </div>
         <div class="form-group">
             <p>Шаблон письма:</p>
-            <div class="input-group">
                 <textarea
                 id="ckeditor"
                 rows="20"
@@ -23,7 +22,6 @@
                 placeholder="Напишите текст шаблона здесь"
                 class="form-control @error('mail_template') is-invalid @enderror"
                 >{{ old('mail_template') ?? $attacks->mail_template ?? '' }}</textarea>
-            </div>
         </div>
     </div>
     <div class="row">

@@ -88,6 +88,7 @@
     </div>
 </div>
 
+<a href="{{ route('plans.index') }}" class="btn btn-secondary">Назад</a>
 @include('admin.modal.confirm_delete')
 
 @endsection

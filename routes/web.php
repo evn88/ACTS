@@ -10,12 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
-use App\Role;
 
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/catchpage', function() {
+    return view('catchpages.template1');
+})->name('catchpages.template1');
 
 
 /*
@@ -24,7 +27,6 @@ Route::get('/', function () {
 Route::group(['prefix'=>'course','middleware' => ['auth']], function()
 {
     Route::get('/', 'Course\HomeController@index')->name('course.home');
-
     Route::get('/materials', 'Course\MaterialsController@index')->name('course.materials');
     Route::get('/plans/{plan}', 'Course\PlansController@show')->name('course.plans');
     Route::get('/lessons/{id}', 'Course\LessonsController@show')->name('course.lessons');
@@ -42,16 +44,12 @@ Route::group(['prefix'=>'course','middleware' => ['auth']], function()
     })->name('course.profile');
 });
 
-Route::get('/catchpage', function() {
-    return view('catchpages.template1');
-})->name('catchpages.template1');
 
 /*
  * Админка
  */
 Route::group(['prefix'=>'admin','middleware' => ['auth','can:admin']], function()
 {
-
     Route::get('/', function() {
         return view('admin.dashboard');
     })->name('admin.dashboard');
@@ -69,19 +67,9 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','can:admin']], function(
     Route::get('attacks/create/{attacks}', 'Admin\AttacksController@create')->name('attacks.create');
 
 
-    Route::get('/groupinf', function() {
-        return view('admin.groupinf');
-    })->name('admin.groupinf');
-
-    Route::get('/plansinf', function() {
-        return view('admin.plansinf');
-    })->name('admin.plansinf');
-
-
-
     Route::get('/reports', function() {
         return view('admin.reports');
     })->name('admin.reports');
 });
 
-Auth::routes();
+
