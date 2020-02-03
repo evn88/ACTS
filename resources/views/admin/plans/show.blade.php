@@ -5,7 +5,7 @@
 <div class="row_1">
     <div class="left plans-btn">
         <a href="{{ route('lessons.create', $plan->id) }}" class="btn btn-primary">Создать урок</a>
-        <a href="{{ route('tests.create', $plan->id) }}" class="btn btn-secondary">Создать тест</a>
+        <a href="{{ route('tests.create', $plan->id) }}" class="btn btn-secondary">Создать вопрос</a>
         <a href="{{ route('attacks.create', $plan->id) }}" class="btn btn-info">Создать атаку</a>
     </div>
     <div class="right"><a href="javascript:;"

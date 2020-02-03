@@ -21,7 +21,6 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="#">Переместить в другую группу</a>
                     <a class="dropdown-item" href="#">Приостановить обучение</a>
-                    <a class="dropdown-item" href="#">Назначить обучение</a>
                     <a class="dropdown-item" href="javascript:;" @click="deleteSelected">Удалить выделенное</a>
                 </div>
               </li>
@@ -47,7 +46,6 @@
                             </div>
                         </th>
                         <th scope="col">ФИО</th>
-                        <th scope="col" style="width:20px; text-align:left"></th>
                         <th scope="col">Должность</th>
                         <th scope="col">Почта</th>
                         <th scope="col">Группы</th>
@@ -65,11 +63,6 @@
                             </div>
                         </td>
                         <td><a v-bind:href="path +'/admin/staff/'+ user.id +'/edit'">{{ user.name }}</a></td>
-                        <td>
-                            <a href="#" data-toggle="modal" data-target="#addStaffModal">
-                                <i class="fa fa-pencil" aria-hidden="true"></i>
-                            </a>
-                        </td>
                         <td>{{ user.profession }}</td>
                         <td>{{ user.email }}</td>
                         <td>
@@ -87,7 +80,6 @@
                         </td>
                         <td colspan="6">Нет пользователей</td>
                     </tr>
-
                 </tbody>
             </table>
         </section>
