@@ -295,6 +295,10 @@ a:hover {
 
 .row {
 
+    .col.group_edit {
+        display: flex;
+    }
+
     .butt {
         display: flex;
         justify-content: space-between;

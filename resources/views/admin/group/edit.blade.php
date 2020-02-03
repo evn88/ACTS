@@ -5,7 +5,7 @@
 
 
 <div class="card">
-    <h5 class="card-header">Редактирование сотрудника</h5>
+    <h5 class="card-header">Редактирование группы</h5>
     <div class="card-body">
         @include('errors.form')
 

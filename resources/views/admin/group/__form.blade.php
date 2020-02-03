@@ -72,13 +72,11 @@
         </div>
     </div>
     <div class="row">
-        <div class="col">
+        <div class="col group_edit">
             <div class="form-group butt">
                 <a href="{{ URL::previous() }}" class="btn btn-secondary">Назад</a>
                 <button type="submit" class="btn btn-primary float-right">Сохранить</button>
             </div>
-        </div>
-        <div class="col">
             <div class="form-group butt">
                 @if(isset($groups))
                     <a class="btn btn-secondary" href="javascript:;"
@@ -89,7 +87,6 @@
                         станут `свободными` и их нужно будет заново привязать к другой группе для обучения">
                         <i class="fa fa-trash" aria-hidden="true"></i>
                     </a>
-
                 @endif
             </div>
         </div>
