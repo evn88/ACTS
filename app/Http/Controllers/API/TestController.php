@@ -18,19 +18,19 @@ class TestController extends Controller
 
     public function store (Request $request) {
 
-        $answers = json_decode($request->answers, true);
-        $question = json_decode($request->question, true);
-        $trueAnswers = json_decode($request->trueAnswers, true);
-
         $test = new Test;
         $test->plan_id = $request->plan_id;
-        $test->name = substr(strip_tags($question), 0, 100).'...';
-        $test->question = $question;
+        $test->name = substr(strip_tags($request->question), 0, 100).'...';
+        $test->question = $request->question;
         $test->answer = $request->answers;
-        $test->trueAnswer = json_encode($trueAnswers);
+        $test->trueAnswer = $request->trueAnswers;
         $test->save();
 
-        return response([$answers,$question,$trueAnswers], 200);
+        if($test){
+            return response('OK', 200);
+        } else {
+            return response('error', 500);
+        }
     }
 
     public function edit($id)
@@ -41,8 +41,9 @@ class TestController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy($id)
     {
