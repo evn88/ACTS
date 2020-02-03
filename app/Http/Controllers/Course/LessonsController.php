@@ -11,7 +11,8 @@ class LessonsController extends Controller
     public function show($id)
     {
         $lesson = Lesson::findOrFail($id);
-
-        return view('course.lesson', compact('lesson'));
+        $next = Lesson::where('id', '>', $id)->where('plan_id', '=', $lesson->plan_id)->min('id');
+        $plan_id = $lesson->plan_id;
+        return view('course.lesson', compact('lesson', 'next', 'plan_id'));
     }
 }

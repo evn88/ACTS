@@ -5,10 +5,20 @@
 
 {!! $lesson->lesson_text !!}
 
+@if(!$next)
+    <p class="alert alert-info">Поздравляем! Вы успешно закончили обучение по теме, теперь пора проверить усвоенный материал.</p>
+@endif
+
+
 <div class="block">
     <div class="row_1">
         <a href="{{ URL::previous() }}" class="btn btn-secondary">Назад</a>
-        <a href="#" class="btn btn-primary">Следующий урок</a>
+        @if($next)
+            <a href="{{ route('course.lessons', $next) }}" class="btn btn-primary">Следующий урок</a>
+        @else
+            <a href="{{ route('course.plans', $plan_id)  }}" class="btn btn-primary">Перейти к тестированию</a>
+        @endif
+
     </div>
 </div>
 
