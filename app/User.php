@@ -22,7 +22,7 @@ class User extends Authenticatable
         'name', 'email', 'password', 'profession'
     ];
 
-    protected $touches = ['roles','groups'];
+//    protected $touches = ['roles','groups'];
 
     /**
      * The attributes that should be hidden for arrays.
