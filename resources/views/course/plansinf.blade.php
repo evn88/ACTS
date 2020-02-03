@@ -1,7 +1,7 @@
 @extends('layouts.course')
 @section('content')
 
-<h3 class="headtxt">Пароли и учетные записи</h3>
+    <h3 class="headtxt">{{ $plans->name }}</h3>
 
 <div class="card_plan">
     <div class="row_1">
@@ -10,25 +10,33 @@
             <ol class="rectangle">
                 <li><a class="mark" href="#">Список уроков</a>
                     <ul>
-                        <li><a href="{{ route('course.lesson') }}">Для чего нужно беспокоиться о безопасности паролей</a></li>
-                        <li><a href="">Как придумать сложный пароль</li>
-                        <li><a href="">Как хранить пароли</li>
-                        <li><a href="">Можно ли давать свои пароли третьим лицам</li>
-                        <li><a href="">Что делать, если пароль взломали?</li>
-                        <li><a href="">Почему нужны разные пароли для личных и корпоративных аккаунтов?</li>
+                        @if($plans->lessons->count())
+
+                            @foreach($plans->lessons as $lesson)
+                                <li><a href="{{ route('lessons.edit', $lesson->id) }}">{{ $lesson->name }}</a></li>
+                            @endforeach
+
+                        @else
+                            <li>Уроков нет. </li>
+                        @endif
                     </ul>
                 </li>
 
                 <li><a class="mark" href="#">Тест</a>
                     <ul>
-                        <li><a href="">Проверка знаний по теме</a></li>
+                        @if($plans->tests->count())
+
+                            @foreach($plans->tests as $test)
+                                <li><a href="{{ route('tests.edit', $test->id) }}">{{ $test->name }}</a>
+                                </li>
+                            @endforeach
+
+                        @else
+                            <li>Тестов нет.</li>
+                        @endif
                     </ul>
                 </li>
-                <li><a class="mark" href="#">Имитация атаки</a>
-                    <ul>
-                        <li><a href="">Кто-то пытается взломать ваш аккаунт! Необходимо сменить пароль</a></li>
-                    </ul>
-                </li>
+
             </ol>
         </div>
     </div>

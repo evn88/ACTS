@@ -13,7 +13,7 @@
             @if($plans->plans->count() > 0)
                 @foreach($plans->plans as $plan)
                     <div class="cell">
-                        <a href="{{ route('course.plansinf') }}">
+                        <a href="{{ route('course.plansinf', $plan->id) }}">
                         <img src="{{ asset('storage/'.$plan->img) }}" alt="{{ $plan->name }}">
                         <p class="text">{{ $plan->name }}</p>
                         </a>
