@@ -8,17 +8,6 @@ use App\Http\Controllers\Controller;
 
 class PlansController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $plans = Plan::findOrFail();
-        return view('course.plansinf', compact('plans'));
-    }
-
 
     /**
      * Display the specified resource.
@@ -29,7 +18,7 @@ class PlansController extends Controller
     public function show($id)
     {
         $plans = Plan::findOrFail($id);
-        return view('course.plansinf', compact('plans'));
+        return view('course.plans', compact('plans'));
     }
 
 
