@@ -13,7 +13,7 @@
                         @if($plans->lessons->count())
 
                             @foreach($plans->lessons as $lesson)
-                                <li><a href="{{ route('lessons.edit', $lesson->id) }}">{{ $lesson->name }}</a></li>
+                                <li><a href="{{ route('course.lessons', $lesson->id) }}">{{ $lesson->name }}</a></li>
                             @endforeach
 
                         @else

@@ -17,12 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
-//Временная заглушка
-// Route::get('/{page}', function ($page) {
-//     return view($page);
-// });
 
 /*
  * Закрытая часть для учеников
@@ -32,12 +26,8 @@ Route::group(['prefix'=>'course','middleware' => ['auth']], function()
     Route::get('/', 'Course\HomeController@index')->name('course.home');
 
     Route::get('/materials', 'Course\MaterialsController@index')->name('course.materials');
-
     Route::get('/plans/{plan}', 'Course\PlansController@show')->name('course.plans');
-
-    Route::get('/lesson', function() {
-        return view('course.lesson');
-    })->name('course.lesson');
+    Route::get('/lessons/{id}', 'Course\LessonsController@show')->name('course.lessons');
 
     Route::get('/tests', function() {
         return view('course.tests');
@@ -50,8 +40,6 @@ Route::group(['prefix'=>'course','middleware' => ['auth']], function()
     Route::get('/profile', function() {
         return view('course.profile');
     })->name('course.profile');
-
-
 });
 
 Route::get('/catchpage', function() {
@@ -95,3 +83,5 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','can:admin']], function(
         return view('admin.reports');
     })->name('admin.reports');
 });
+
+Auth::routes();

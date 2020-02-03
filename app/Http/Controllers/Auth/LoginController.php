@@ -32,7 +32,7 @@ class LoginController extends Controller
      *  admin - администраторы курса
      *  sa - суперадмин, назначает администраторов, правит настройки системы
      */
-    protected $redirectTo = '/course';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
