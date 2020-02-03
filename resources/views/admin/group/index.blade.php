@@ -7,17 +7,8 @@
 </p>
 
 <div class="row_1">
-    <div class="left">
-        <a href="{{ route('groups.create') }}" class="btn btn-info">Новая группа</a>
-    </div>
-    <div class="right">
-        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#startGroupModal">Начать обучение</a>
-        <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#stopGroupModal"
-            style="margin-left: 20px;">Закончить обучение</a>
-    </div>
-
+    <a href="{{ route('groups.create') }}" class="btn btn-primary">Новая группа</a>
 </div>
-
 <table class="table table-hover">
     <thead class="thead-light">
         <tr>
@@ -60,10 +51,6 @@
                         <a class="dropdown-item" href="#" data-toggle="modal" data-target="#stopGroupModal">
                             <i class="fa fa-stop" aria-hidden="true"></i>&nbsp;&nbsp;
                             Закончить обучение
-                        </a>
-                        <a class="dropdown-item" href="{{ route('admin.groupinf') }}">
-                            <i class="fa fa-info" aria-hidden="true"></i>&nbsp;&nbsp;
-                            Подробнее о группе
                         </a>
                     <a class="dropdown-item" href="javascript:;"
                         data-toggle="modal"
