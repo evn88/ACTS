@@ -23,3 +23,4 @@ public/storage/img/plans
 public/storage/userfiles
 .idea/*
 /_ide_helper_models.php
+/public/images/vendor/*
