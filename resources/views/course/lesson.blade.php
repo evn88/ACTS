@@ -10,7 +10,7 @@
 @endif
 
 
-<div class="block">
+<div class="block btn-lesson">
     <div class="row_1">
         <a href="{{ URL::previous() }}" class="btn btn-secondary">Назад</a>
         @if($next)
