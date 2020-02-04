@@ -13,10 +13,12 @@ try {
     require('bootstrap');
     require('pc-bootstrap4-datetimepicker');
     require('easy-pie-chart/dist/jquery.easypiechart');
-    ClassicEditor = require('@ckeditor/ckeditor5-build-classic/build/ckeditor');
-    require('@ckeditor/ckeditor5-build-classic/build/translations/ru');
+
+    ClassicEditor = require('@ckeditor/ckeditor5-build-classic');
     CKEditor = require('@ckeditor/ckeditor5-vue/dist/ckeditor');
-    // window.BasicStyles = require('@ckeditor/ckeditor5-basic-styles');
+    // require('ckeditor4')
+    // require('@ckeditor/ckeditor5-build-classic/build/translations/ru');
+    // require('@ckeditor/ckeditor5-image/src/imageresize');
 
 } catch (e) {}
 

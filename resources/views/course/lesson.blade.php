@@ -3,7 +3,9 @@
 
 <h3 class="headtxt mar">{{ $lesson->name }}</h3>
 
-{!! $lesson->lesson_text !!}
+<div class="ck-content">
+    {!! $lesson->lesson_text !!}
+</div>
 
 @if(!$next)
     <p class="alert alert-info">Поздравляем! Вы успешно закончили обучение по теме, теперь пора проверить усвоенный материал.</p>
