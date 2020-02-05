@@ -40,12 +40,11 @@
 </template>
 
 <script>
-let nextAnswerId = 1
+let nextAnswerId = 1;
 const formData = new FormData();
 
 export default {
         components: {
-            // Use the <ckeditor> component in this view.
             ckeditor: CKEditor.component
         },
         props: ['planId'],
@@ -85,16 +84,16 @@ export default {
                 Vue.delete(this.selected, id);
             },
             submitForm: function() {
-                formData.append('question', JSON.stringify(this.question))
-                formData.append('answers', JSON.stringify(this.answers))
-                formData.append('trueAnswers', JSON.stringify(this.selected))
-                formData.append('plan_id', this.planId)
+                formData.append('question', this.question);
+                formData.append('answers', JSON.stringify(this.answers));
+                formData.append('trueAnswers', JSON.stringify(this.selected));
+                formData.append('plan_id', this.planId);
 
                 axios
                     .post( this.path + '/api/test/add-new-test', formData)
                     .then(response => {
-                        console.log('response: ', response)
-                        window.location = this.path + "/admin/plans/"+ this.planId
+                        console.log('response: ', response);
+                        window.location = this.path + "/admin/plans/"+ this.planId;
                     })
 
             }
