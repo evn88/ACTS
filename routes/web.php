@@ -31,9 +31,7 @@ Route::group(['prefix'=>'course','middleware' => ['auth']], function()
     Route::get('/plans/{plan}', 'Course\PlansController@show')->name('course.plans');
     Route::get('/lessons/{id}', 'Course\LessonsController@show')->name('course.lessons');
 
-    Route::get('/tests', function() {
-        return view('course.tests');
-    })->name('course.tests');
+    Route::get('/tests/{plan_id}', 'Course\TestsController@show')->name('course.tests');
 
     Route::get('/journal', function() {
         return view('course.journal');

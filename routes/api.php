@@ -26,3 +26,7 @@ Route::group(['middleware' => ['auth:api','can:admin']], function () {
 
     Route::delete('user/{id}/delete', 'API\UserController@destroy')->where(['id'=>'[0-9]+']);
 });
+
+Route::group(['middleware' => ['auth:api']], function () {
+    Route::get('test/{plan_id}', 'API\TestController@index')->where(['plan_id'=>'[0-9]+']);
+});

@@ -8,8 +8,9 @@ use App\Test;
 
 class TestController extends Controller
 {
-    public function index () {
-        // return User::with('groups')->get();
+    public function index ($plan_id) {
+
+         return Test::where('plan_id', $plan_id)->get();
     }
 
     public function show ($id) {
@@ -17,8 +18,8 @@ class TestController extends Controller
     }
 
     public function store (Request $request) {
-
         $test = new Test;
+
         $test->plan_id = $request->plan_id;
         $test->name = substr(strip_tags($request->question), 0, 100).'...';
         $test->question = $request->question;

@@ -19,7 +19,7 @@
                     <a class="nav-link" href="{{ route('course.materials') }}">Учебные материалы</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('course.tests') }}">Тесты</a>
+                    <a class="nav-link" href="{{ route('course.tests', 14) }}">Тесты</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('course.journal') }}">Журнал</a>
