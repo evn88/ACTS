@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(GroupsSeeder::class);
         $this->call(GroupsUsersSeeder::class);
         $this->call(PlansSeeder::class);
+        $this->call(LessonsSeeder::class);
         $this->command->info('Таблицы успешно заполнены!');
     }
 }
