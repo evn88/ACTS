@@ -29,4 +29,5 @@ Route::group(['middleware' => ['auth:api','can:admin']], function () {
 
 Route::group(['middleware' => ['auth:api']], function () {
     Route::get('test/{plan_id}', 'API\TestController@index')->where(['plan_id'=>'[0-9]+']);
+    Route::post('test/storeuseranswer', 'API\TestController@storeanswer');
 });

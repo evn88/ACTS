@@ -2,29 +2,34 @@
     <div>
 
         <h3>Вопросы к материалу: {{ title }}</h3>
-        <form action="">
-            <div class="jumbotron" v-for="test in tests" v-bind:key="test.id">
-                <p class="test">
-                    <span v-html="test.question">нет данных</span>
-                </p>
-                <hr class="my-4">
-                <div class="form-check" v-for="answer in JSON.parse(test.answer)" v-bind:key="answer.id">
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" v-bind:id="answer.id" v-model="selected" :value="answer.id" number>
-                        <label class="custom-control-label" v-bind:for="answer.id">{{ answer.text }}</label>
+        <transition name="fade">
+            <form action="" v-if="show">
+                <div class="jumbotron" v-for="test in tests" v-bind:key="test.id">
+                    <p class="test">
+                        <span v-html="test.question">нет данных</span>
+                    </p>
+                    <hr class="my-4">
+                    <div class="form-check" v-for="answer in JSON.parse(test.answer)" v-bind:key="answer.id">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" v-bind:id="answer.id" v-model="selected" :value="answer.id" number>
+                            <label class="custom-control-label" v-bind:for="answer.id">{{ answer.text }}</label>
+                        </div>
                     </div>
                 </div>
-            </div>
 
 
-            <div class="row_1">
-                <a href="#" class="btn btn-primary">Отправить ответы</a>
-            </div>
-        </form>
+                <div class="row_1">
+                    <button class="btn btn-primary" v-on:click="nextQuestion">Ответить</button>
+                </div>
+            </form>
+            <div v-else="show">Загрузка...</div>
+        </transition>
+
     </div>
 </template>
 
 <script>
+    const formData = new FormData();
     export default {
         props: ['title','planId'],
         name: "TestComponent",
@@ -35,6 +40,7 @@
                 errored: false,
                 tests: null,
                 uid: null,
+                show: true,
                 path: process.env.MIX_URL
             }
         },
@@ -49,9 +55,29 @@
                     this.errored = true;
                 });
         },
+        methods: {
+            nextQuestion: function(){
+                this.show = false;
+                // formData.append('user_id', '1');
+                formData.append('test_id', '1');
+                formData.append('answers', JSON.stringify('[1,2]'));
+                axios.post(this.path + '/api/test/storeuseranswer', formData)
+                .then(response => {
+                    console.log('resp: ', response.status);
+                    this.show = true;
+                });
+                console.log('formData: ', formData);
+
+            }
+        },
     }
 </script>
 
 <style scoped>
-
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity .5s;
+    }
+    .fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+        opacity: 0;
+    }
 </style>

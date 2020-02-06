@@ -34,9 +34,10 @@ class TestController extends Controller
         }
     }
 
-    public function edit($id)
+    public function storeanswer(Request $request)
     {
-        //
+        dd($request);
+        return response('OK', 200);
     }
 
     /**
