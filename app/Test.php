@@ -14,4 +14,9 @@ class Test extends Model
     {
         return $this->belongsTo(Plan::class);
     }
+
+    public function useranswers()
+    {
+        return $this->hasMany(Useranswer::class);
+    }
 }

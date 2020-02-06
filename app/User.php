@@ -52,6 +52,11 @@ class User extends Authenticatable
         return $this->belongsToMany(Group::class, 'group_user');
     }
 
+    public function useranswers()
+    {
+        return $this->hasMany(Useranswer::class);
+    }
+
     public function inGroup($groupId)
     {
         return $this->groups()->where('id', $groupId)->count() == 1;
