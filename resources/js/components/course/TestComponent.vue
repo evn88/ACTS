@@ -1,6 +1,5 @@
 <template>
     <div>
-
         <h3>Вопросы к материалу: {{ title }}</h3>
         <transition name="fade">
             <form action="" v-if="show">
@@ -15,16 +14,21 @@
                             <label class="custom-control-label" v-bind:for="answer.id">{{ answer.text }}</label>
                         </div>
                     </div>
+                    <button class="btn btn-primary mar_2" v-on:click="nextQuestion">Ответить</button>
                 </div>
-
-
-                <div class="row_1">
-                    <button class="btn btn-primary" v-on:click="nextQuestion">Ответить</button>
+                <div class="jumbotron info">
+                    <p class="info-text">Тест не сдан. Вы допустили слишком много ошибок.</p>
+                    <p class="info-text hidden">Результат тестирования: вы успешно сдали тест!</p>
+                    <p></p>
                 </div>
             </form>
             <div v-else="show">Загрузка...</div>
-        </transition>
 
+            <div class="jumbotron">
+                <p class="info-text">Тест не сдан. Вы допустили слишком много ошибок.</p>
+                <p class="info-text hidden">Результат тестирования: вы успешно сдали тест!</p>
+            </div>
+        </transition>
     </div>
 </template>
 
