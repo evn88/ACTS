@@ -26,8 +26,8 @@
                 </div>
                 <div class="jumbotron info hidden">
                     <p class="info-text">Результат тестирования: вы успешно сдали тест!</p>
-                    <img :src="path + '/storage/img/happy.jpg'" alt="">
                     <p>Мошенникам будет сложно вас провести.<br>Вы можете приступать к изучению следующего модуля.</p>
+                    <img :src="path + '/storage/img/happy.jpg'" alt="">
                     <div class="row_1">
                         <button class="btn btn-primary mar_2" v-on:click="nextQuestion">Закончить тестирование</button>
                     </div>
