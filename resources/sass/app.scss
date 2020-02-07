@@ -645,13 +645,23 @@ ul.lesson {
 }
 
 .jumbotron.info {
-    height: 300px;
+    height: 500px;
     text-align: center;
+    padding: 3rem;
 
     .info-text {
-        font-size: 20px;
+        font-size: 25px;
         font-weight: 500;
         color: $dblue;
+    }
+
+    img {
+        width: 200px;
+        padding: 20px 0 20px 0;
+    }
+
+    .btn.btn-primary.mar_2 {
+        margin: 0 auto;
     }
 }
 

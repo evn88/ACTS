@@ -18,16 +18,22 @@
                 </div>
                 <div class="jumbotron info">
                     <p class="info-text">Тест не сдан. Вы допустили слишком много ошибок.</p>
-                    <p class="info-text hidden">Результат тестирования: вы успешно сдали тест!</p>
-                    <p></p>
+                    <p>Повторите уроки текущего модуля и попробуйте снова. У вас все получится!</p>
+                    <img :src="path + '/storage/img/sad.jpg'" alt="">
+                    <div class="row_1">
+                        <button class="btn btn-primary mar_2" v-on:click="nextQuestion">Закончить тестирование</button>
+                    </div>
+                </div>
+                <div class="jumbotron info hidden">
+                    <p class="info-text">Результат тестирования: вы успешно сдали тест!</p>
+                    <img :src="path + '/storage/img/happy.jpg'" alt="">
+                    <p>Мошенникам будет сложно вас провести.<br>Вы можете приступать к изучению следующего модуля.</p>
+                    <div class="row_1">
+                        <button class="btn btn-primary mar_2" v-on:click="nextQuestion">Закончить тестирование</button>
+                    </div>
                 </div>
             </form>
             <div v-else="show">Загрузка...</div>
-
-            <div class="jumbotron">
-                <p class="info-text">Тест не сдан. Вы допустили слишком много ошибок.</p>
-                <p class="info-text hidden">Результат тестирования: вы успешно сдали тест!</p>
-            </div>
         </transition>
     </div>
 </template>
@@ -45,7 +51,8 @@
                 tests: null,
                 uid: null,
                 show: true,
-                path: process.env.MIX_URL
+                path: process.env.MIX_URL,
+
             }
         },
         mounted() {
