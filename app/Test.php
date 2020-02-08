@@ -9,6 +9,7 @@ class Test extends Model
     protected $fillable = [
         'plan_id', 'name', 'question', 'answer'
     ];
+    protected $hidden = ['trueAnswer'];
 
     public function plans()
     {

@@ -10,8 +10,13 @@ class Useranswer extends Model
         'test_id', 'user_id', 'answers', 'ip'
     ];
 
-    public function user()
+    public function users()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function tests()
+    {
+        return $this->belongsTo(Test::class);
     }
 }

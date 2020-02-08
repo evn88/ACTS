@@ -3,18 +3,30 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Useranswer;
 use Illuminate\Http\Request;
 use App\Test;
+use App\Http\Controllers\Auth;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\DB;
 
 class TestController extends Controller
 {
     public function index ($plan_id) {
+        $test = Test::where('plan_id', $plan_id)->get();
 
-         return Test::where('plan_id', $plan_id)->get();
+         return $test;
     }
 
-    public function show ($id) {
-        // return User::findOrFail($id)->toJson();
+    public function show ($plan_id) {
+        $test = Test::where('plan_id', $plan_id)->whereNotExists(function ($query) {
+            $query->select(DB::raw(1))
+                ->from('useranswers')
+                ->where('user_id', '=', \Auth::user()->id)
+                ->whereRaw('tests.id = test_id');
+            })->first();
+
+        return $test;
     }
 
     public function store (Request $request) {
@@ -36,8 +48,18 @@ class TestController extends Controller
 
     public function storeanswer(Request $request)
     {
-        dd($request);
-        return response('OK', 200);
+
+        $useranswer = Useranswer::create([
+            'test_id' => $request->test_id,
+            'user_id' => $request->user()->id,
+            'answers' => $request->answers,
+            'ip' => $request->ip()
+        ]);
+
+
+        $useranswer->save();
+
+        return response($useranswer, 200);
     }
 
     /**
