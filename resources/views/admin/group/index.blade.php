@@ -12,7 +12,6 @@
 <table class="table table-hover">
     <thead class="thead-light">
         <tr>
-            <th scope="col"></th>
             <th scope="col">Группы</th>
             <th scope="col" class="txt-center" width="200px">Темы</th>
             <th scope="col" class="txt-center">Количество обучающихся</th>
@@ -24,7 +23,6 @@
     <tbody>
         @foreach($groups as $group)
         <tr>
-            <td><i class="fa fa-stop" aria-hidden="true"></i></td>
             <td><a href="{{ route('groups.edit', $group->id) }}"> {{ $group->name }}</a></td>
             <td class="txt-left" >
                 @foreach($group->plans as $plan)
@@ -40,7 +38,7 @@
                         <i class="fa fa-bars" aria-hidden="true"></i>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#startGroupModal">
+                        {{-- <a class="dropdown-item" href="#" data-toggle="modal" data-target="#startGroupModal">
                             <i class="fa fa-play" aria-hidden="true"></i>&nbsp;&nbsp;
                             Начать обучение
                         </a>
@@ -51,7 +49,7 @@
                         <a class="dropdown-item" href="#" data-toggle="modal" data-target="#stopGroupModal">
                             <i class="fa fa-stop" aria-hidden="true"></i>&nbsp;&nbsp;
                             Закончить обучение
-                        </a>
+                        </a> --}}
                     <a class="dropdown-item" href="javascript:;"
                         data-toggle="modal"
                         data-target="#deleteConfirm"

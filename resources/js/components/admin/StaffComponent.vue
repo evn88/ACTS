@@ -11,16 +11,16 @@
             </ul>
 
             <ul class="my-2 my-lg-0">
-              <li class="nav-item btn">
+              <!-- <li class="nav-item btn">
                 <a class="btn btn-light" href="#" data-toggle="modal" data-target="#importStaffModal">Импорт из csv</a>
-              </li>
+              </li> -->
               <li class="nav-item dropdown btn">
                 <a class="btn btn-light dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Действия
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Переместить в другую группу</a>
-                    <a class="dropdown-item" href="#">Приостановить обучение</a>
+                    <!-- <a class="dropdown-item" href="#">Переместить в другую группу</a> -->
+                    <!-- <a class="dropdown-item" href="#">Приостановить обучение</a> -->
                     <a class="dropdown-item" href="javascript:;" @click="deleteSelected">Удалить выделенное</a>
                 </div>
               </li>
