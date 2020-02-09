@@ -10,6 +10,7 @@ use App\Http\Requests\UpdateUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Mail\Test;
+use App\Mail\Attack;
 use Illuminate\Support\Facades\Mail;
 use \Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -43,7 +44,8 @@ class StaffController extends Controller
     public function create()
     {
         $groups = Group::all();
-//        Mail::to('aniamanson@gmail.com')->send(new Test());
+
+        Mail::to('aniamanson@gmail.com')->send(new Attack());
         return view('admin.staff.create', compact('groups'));
     }
 

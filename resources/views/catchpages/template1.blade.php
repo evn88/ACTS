@@ -56,19 +56,16 @@
     </div>
 </div>
 <div class="row py-5"></div>
-<h3 class="fishing">Что нужно делать, если вы получили фишинговое письмо?</h3>
-<div class="row_1">
-    <div class="card_progress fishing">
-        <div class="cell">
-            <p class="text">Не нажимать на активные элементы внутри письма и не сохранять файлы из него</p>
-        </div>
-        <div class="cell">
-            <p class="text">Сообщить о получении письма в отдел безопасности вашей компании</p>
-        </div>
-        <div class="cell">
-            <p class="text">Удалить это письмо</p>
-        </div>
-    </div>
+<div class="jumbotron">
+    <p class="test">
+        Что нужно делать, если вы получили фишинговое письмо?
+    </p>
+    <hr class="my-4">
+    <ul type="square" class="lesson catch">
+        <li><span>Не нажимать на активные элементы внутри письма и не сохранять файлы из него</span></li>
+        <li><span>Сообщить о получении письма в отдел безопасности вашей компании</span></li>
+        <li><span>Удалить это письмо</span></li>
+    </ul>
 </div>
 <div class="row py-4"></div>
 <div class="block catch">
