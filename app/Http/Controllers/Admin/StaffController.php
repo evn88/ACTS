@@ -7,16 +7,20 @@ use App\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUser;
 use App\Http\Requests\UpdateUser;
+use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Mail\Test;
 use App\Mail\Attack;
 use Illuminate\Support\Facades\Mail;
 use \Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Str;
 
 class StaffController extends Controller
 {
-     use RegistersUsers;
+    use RegistersUsers;
+    use SendsPasswordResetEmails;
 
     /**
      * Where to redirect users after registration.
@@ -46,6 +50,9 @@ class StaffController extends Controller
         $groups = Group::all();
 
         Mail::to('aniamanson@gmail.com')->send(new Attack());
+//       Mail::to('aniamanson@gmail.com')->send(new Test());
+
+//        dd(createToken());
         return view('admin.staff.create', compact('groups'));
     }
 
@@ -58,10 +65,14 @@ class StaffController extends Controller
      */
     public function store(StoreUser $request)
     {
-        $user = User::create($request->all()+['password'=>Hash::make('12345678')]);
+        $user = User::create($request->all()+['password'=>Hash::make(Str::random(60))]);
         $user->groups()->sync($request->group_id);
         $user->save();
-        $user->sendEmailVerificationNotification();
+
+        Password::sendResetLink( ['email' => $user->email], function (Message $message) {
+            $message->subject($this->getEmailSubject());
+        });
+
         return redirect()->route('staff.index')
                          ->with('success','Сотрудник успешно добавлен');
     }
