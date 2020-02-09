@@ -18,7 +18,7 @@
         @if($next)
             <a href="{{ route('course.lessons', $next) }}" class="btn btn-primary">Следующий урок</a>
         @else
-            <a href="{{ route('course.plans', $plan_id)  }}" class="btn btn-primary">Перейти к тестированию</a>
+            <a href="{{ route('course.tests', $plan_id)  }}" class="btn btn-primary">Перейти к тестированию</a>
         @endif
 
     </div>

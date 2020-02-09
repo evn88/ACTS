@@ -22,28 +22,12 @@
                     <p class="info-text">{{ results.title }}</p>
                     <p>{{ results.text }}</p>
                     <p>{{ results.score }}</p>
-                    <img :src="results.img" alt="">
+                    <img :src="results.img">
                     <div class="row_1">
-                        <button class="btn btn-primary mar_2" v-on:click="nextQuestion">Закончить тестирование</button>
+                        <button class="btn btn-primary mar_2" v-on:click="complete">OK</button>
                     </div>
                 </div>
 
-<!--                <div class="jumbotron info" v-if="finish = 2">-->
-<!--                    <p class="info-text">Результат тестирования: вы успешно сдали тест!</p>-->
-<!--                    <p>Мошенникам будет сложно вас провести.<br>Вы можете приступать к изучению следующего модуля.</p>-->
-<!--                    <img :src="path + '/storage/img/happy.jpg'" alt="">-->
-<!--                    <div class="row_1">-->
-<!--                        <button class="btn btn-primary mar_2" v-on:click="nextQuestion">Закончить тестирование</button>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="jumbotron info" v-if="!tests">-->
-<!--                    <p class="info-text">Вы уже завершили тестирование!</p>-->
-<!--                    <p>Для повторного прохождения обратитесь к администратору.</p>-->
-<!--                    <img :src="path + '/storage/img/happy.jpg'" alt="">-->
-<!--                    <div class="row_1">-->
-<!--                        <a :href="path + '/course/plans/' + planId" class="btn btn-primary mar_2">ОК</a>-->
-<!--                    </div>-->
-<!--                </div>-->
                 <div class="jumbotron info" v-if="errored">
                     <p class="info-text">Ошибка в работе приложения!</p>
                     <p>{{ error }}</p>
@@ -131,7 +115,9 @@
                         this.error = error.response.status + ' ' + error.response.statusText + ' | ' + error.response.data.message;
                         this.errored = true;
                     });
-
+            },
+            complete: function(){
+                window.location = this.path + '/course/materials';
             }
         },
     }
