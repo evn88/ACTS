@@ -49,7 +49,7 @@
 
 <h5 class="home">Отчет по группам</h5>
 <div class="row_1">
-    <div class="accordion" id="accordionExample">
+    <div class="accordion" id="accordionExample1">
         <div class="card">
             <div class="card-header" id="headingOne">
                 <h5 class="mb-0">
@@ -61,7 +61,7 @@
                     <div class="progress-bar progress-bar-striped progress-bar-animated"  role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 30%">30%</div>
                 </div>
             </div>
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample1">
                 <div class="card-body">
                     <table class="table table-striped">
                         <thead>
@@ -96,11 +96,11 @@
 </div>
 <h5 class="home">Отчет по сотрудникам</h5>
 <div class="row_1">
-    <div class="accordion" id="accordionExample">
+    <div class="accordion" id="accordionExample2">
         <div class="card">
             <div class="card-header" id="headingOne">
                 <h5 class="mb-0">
-                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
                         Иванов Иван Иванович
                     </button>
                 </h5>
@@ -108,7 +108,7 @@
                     <div class="progress-bar progress-bar-striped progress-bar-animated"  role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 30%">30%</div>
                 </div>
             </div>
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div id="collapseTwo" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample2">
                 <div class="card-body">
                     <table class="table table-striped">
                         <thead>
