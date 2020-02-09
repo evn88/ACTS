@@ -155,6 +155,29 @@ a:hover {
 
 
 }
+.home {
+    padding-left: 30px;
+}
+.accordion {
+    width: 100%;
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .btn.btn-link {
+            font-size: 18px;
+            padding-right: 100px;
+
+        }
+
+        .progress {
+            width: 400px;
+        }
+    }
+
+
+}
 
 .card_progress {
     width: 650px;

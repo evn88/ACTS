@@ -24,9 +24,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/admin/plans') }}">Учебный план</a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.reports') }}">Отчеты</a>
-                </li>
+                </li> --}}
             </ul>
 
             <!-- Right Side Of Navbar -->
