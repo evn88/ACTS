@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 
 Route::get('/', function () {
@@ -24,7 +24,7 @@ Route::get('/catchpage', function() {
 /*
  * Закрытая часть для учеников
  */
-Route::group(['prefix'=>'course','middleware' => ['auth']], function()
+Route::group(['prefix'=>'course','middleware' => ['auth','verified']], function()
 {
     Route::get('/', 'Course\HomeController@index')->name('course.home');
     Route::get('/materials', 'Course\MaterialsController@index')->name('course.materials');

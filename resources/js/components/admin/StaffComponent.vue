@@ -72,7 +72,10 @@
                                 </span>
                             </div>
                         </td>
-                        <td>{{ user.status_id }}</td>
+                        <td>
+                            <span v-if="user.email_verified_at" class="badge badge-success">подтвержден</span>
+                            <span v-else class="badge badge-warning">не подтвержден</span>
+                        </td>
                     </tr>
 
                     <tr v-if="!users">

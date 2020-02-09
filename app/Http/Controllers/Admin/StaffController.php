@@ -9,11 +9,13 @@ use App\Http\Requests\StoreUser;
 use App\Http\Requests\UpdateUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-
+use App\Mail\Test;
+use Illuminate\Support\Facades\Mail;
+use \Illuminate\Foundation\Auth\RegistersUsers;
 
 class StaffController extends Controller
 {
-    // use RegistersUsers;
+     use RegistersUsers;
 
     /**
      * Where to redirect users after registration.
@@ -41,6 +43,7 @@ class StaffController extends Controller
     public function create()
     {
         $groups = Group::all();
+//        Mail::to('aniamanson@gmail.com')->send(new Test());
         return view('admin.staff.create', compact('groups'));
     }
 
@@ -56,6 +59,7 @@ class StaffController extends Controller
         $user = User::create($request->all()+['password'=>Hash::make('12345678')]);
         $user->groups()->sync($request->group_id);
         $user->save();
+        $user->sendEmailVerificationNotification();
         return redirect()->route('staff.index')
                          ->with('success','Сотрудник успешно добавлен');
     }
