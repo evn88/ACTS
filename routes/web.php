@@ -48,9 +48,7 @@ Route::group(['prefix'=>'course','middleware' => ['auth','verified']], function(
  */
 Route::group(['prefix'=>'admin','middleware' => ['auth','can:admin']], function()
 {
-    Route::get('/', function() {
-        return view('admin.dashboard');
-    })->name('admin.dashboard');
+    Route::get('/', 'Admin\DashboardController@index')->name('admin.dashboard');
 
     Route::resource('staff', 'Admin\StaffController');
     Route::get('/staff/{id}/delete', 'Admin\StaffController@destroy');
