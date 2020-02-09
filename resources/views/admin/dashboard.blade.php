@@ -47,7 +47,7 @@
     </div>
 </div>
 
-<h5>Отчет по группам</h5>
+<h5 class="home">Отчет по группам</h5>
 <div class="row_1">
     <div class="accordion" id="accordionExample">
         <div class="card">

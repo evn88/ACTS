@@ -18,9 +18,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('course.materials') }}">Учебные материалы</a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="{{ route('course.tests', 14) }}">Тесты</a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('course.journal') }}">Журнал</a>
                 </li>
