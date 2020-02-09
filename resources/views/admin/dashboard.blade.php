@@ -47,7 +47,105 @@
     </div>
 </div>
 
+<h5>Отчет по группам</h5>
 <div class="row_1">
+    <div class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Основная
+                    </button>
+                </h5>
+                <div class="progress" style="height: 30px;">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated"  role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 30%">30%</div>
+                </div>
+            </div>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">Показатель успеваемости</th>
+                            <th scope="col">Количество</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Сотрудники, сдавшие тесты</td>
+                            <td>5</td>
+                          </tr>
+                          <tr>
+                            <td>Сотрудники, провалившие тесты</td>
+                            <td>1</td>
+                          </tr>
+                          <tr>
+                            <td>Сотрудники, прошедшие атаки</td>
+                            <td>3</td>
+                          </tr>
+                          <tr>
+                            <td>Сотрудники, провалившие атаки</td>
+                            <td>3</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<h5 class="home">Отчет по сотрудникам</h5>
+<div class="row_1">
+    <div class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Иванов Иван Иванович
+                    </button>
+                </h5>
+                <div class="progress" style="height: 30px;">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated"  role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 30%">30%</div>
+                </div>
+            </div>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">Показатель успеваемости</th>
+                            <th scope="col">Количество</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Пройдено уроков</td>
+                            <td>5</td>
+                          </tr>
+                          <tr>
+                            <td>Сдано тестов</td>
+                            <td>2</td>
+                          </tr>
+                          <tr>
+                            <td>Провалено тестов</td>
+                            <td>1</td>
+                          </tr>
+                          <tr>
+                            <td>Пройдено атак</td>
+                            <td>2</td>
+                          </tr>
+                          <tr>
+                            <td>Провалено атак</td>
+                            <td>1</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- <div class="row_1">
     <div class="card_progress">
         <div class="row_1">
             <div class="cell">
@@ -88,7 +186,8 @@
 <div class="row_1" style="width: 650px; align-items: baseline;">
     <p style="font-size: 18px;">Сформировать отчет в формате xls и скачать его</p>
     <a href="#" class="btn btn-primary">Скачать отчет</a>
-</div>
+</div> --}}
+
 
 
 
