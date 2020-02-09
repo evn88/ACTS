@@ -6,17 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Useranswer;
 use Illuminate\Http\Request;
 use App\Test;
-use App\Http\Controllers\Auth;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\DB;
 
 class TestController extends Controller
 {
-    public function index ($plan_id) {
-        $test = Test::where('plan_id', $plan_id)->get();
-
-         return $test;
-    }
 
     public function show ($plan_id) {
         $test = Test::where('plan_id', $plan_id)->whereNotExists(function ($query) {
@@ -55,11 +48,44 @@ class TestController extends Controller
             'answers' => $request->answers,
             'ip' => $request->ip()
         ]);
-
-
         $useranswer->save();
 
-        return response($useranswer, 200);
+//        //проверяем остались ли тесты
+//        $test_count = Test::where('plan_id', $request->plan_id)->whereNotExists(function ($query) {
+//            $query->select(DB::raw(1))
+//                ->from('useranswers')
+//                ->where('user_id', '=', \Auth::user()->id)
+//                ->whereRaw('tests.id = test_id');
+//        })->count();
+//
+//        if($test_count > 0){
+//            return response('OK', 200);
+//        } else {
+//            return response('false', 200);
+//        }
+    }
+
+    public function result($plan_id)
+    {
+        $result['trueanswer'] = 0;
+        $result['falseanswer'] = 0;
+        $result['questioncount'] = 0;
+        $result['score'] = 0;
+
+        $test = Test::where('plan_id', $plan_id)->join('useranswers', 'tests.id', '=', 'useranswers.test_id')->get();
+        $result['questioncount'] = $test->count();
+        foreach ($test as $t){
+            $t->setVisible(['trueAnswer']);
+            if($t->trueAnswer === $t->answers){
+                $result['trueanswer']++;
+            } else {
+                $result['falseanswer']++;
+            }
+        }
+        $result['score'] = $result['trueanswer'] / $result['questioncount'] * 100;
+
+        return $result;
+
     }
 
     /**

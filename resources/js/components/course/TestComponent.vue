@@ -18,22 +18,32 @@
                 </div>
 
 
-                <div class="jumbotron info" v-if="false">
-                    <p class="info-text">Тест не сдан. Вы допустили слишком много ошибок.</p>
-                    <p>Повторите уроки текущего модуля и попробуйте снова. У вас все получится!</p>
-                    <img :src="path + '/storage/img/sad.jpg'" alt="">
+                <div class="jumbotron info" v-if="results">
+                    <p class="info-text">{{ results.title }}</p>
+                    <p>{{ results.text }}</p>
+                    <p>{{ results.score }}</p>
+                    <img :src="results.img" alt="">
                     <div class="row_1">
                         <button class="btn btn-primary mar_2" v-on:click="nextQuestion">Закончить тестирование</button>
                     </div>
                 </div>
-                <div class="jumbotron info" v-if="false">
-                    <p class="info-text">Результат тестирования: вы успешно сдали тест!</p>
-                    <p>Мошенникам будет сложно вас провести.<br>Вы можете приступать к изучению следующего модуля.</p>
-                    <img :src="path + '/storage/img/happy.jpg'" alt="">
-                    <div class="row_1">
-                        <button class="btn btn-primary mar_2" v-on:click="nextQuestion">Закончить тестирование</button>
-                    </div>
-                </div>
+
+<!--                <div class="jumbotron info" v-if="finish = 2">-->
+<!--                    <p class="info-text">Результат тестирования: вы успешно сдали тест!</p>-->
+<!--                    <p>Мошенникам будет сложно вас провести.<br>Вы можете приступать к изучению следующего модуля.</p>-->
+<!--                    <img :src="path + '/storage/img/happy.jpg'" alt="">-->
+<!--                    <div class="row_1">-->
+<!--                        <button class="btn btn-primary mar_2" v-on:click="nextQuestion">Закончить тестирование</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="jumbotron info" v-if="!tests">-->
+<!--                    <p class="info-text">Вы уже завершили тестирование!</p>-->
+<!--                    <p>Для повторного прохождения обратитесь к администратору.</p>-->
+<!--                    <img :src="path + '/storage/img/happy.jpg'" alt="">-->
+<!--                    <div class="row_1">-->
+<!--                        <a :href="path + '/course/plans/' + planId" class="btn btn-primary mar_2">ОК</a>-->
+<!--                    </div>-->
+<!--                </div>-->
                 <div class="jumbotron info" v-if="errored">
                     <p class="info-text">Ошибка в работе приложения!</p>
                     <p>{{ error }}</p>
@@ -56,7 +66,9 @@
                 error: null,
                 errored: false,
                 tests: null,
+                results: null,
                 show: true,
+                finish: false,
                 path: process.env.MIX_URL,
             }
         },
@@ -68,6 +80,30 @@
                 axios.get(this.path + '/api/test/'+ this.planId)
                     .then(response => {
                         this.tests = response.data;
+                        if (response.data) {
+                            console.log('данные есть')
+                        } else {
+                            axios.get(this.path + '/api/test/result/'+ this.planId)
+                                .then(response => {
+                                    if (response.data.score >= 70){
+                                        this.results = {
+                                            'img': this.path + '/storage/img/happy.jpg',
+                                            'title': 'Результат тестирования: вы успешно сдали тест на '+ response.data.score +'%!',
+                                            'text': 'Мошенникам будет сложно вас провести. Вы можете приступать к изучению следующего модуля.',
+                                            'score': 'Вы ответили на ' + response.data.trueanswer + ' из ' + response.data.questioncount + ' вопросов правильно.'
+                                        }
+                                    } else {
+                                        this.results = {
+                                            'img': this.path + '/storage/img/sad.jpg',
+                                            'title': 'Тест не сдан. Вы допустили слишком много ошибок.',
+                                            'text': 'Повторите уроки текущего модуля и попробуйте снова. У вас все получится!',
+                                            'score': 'Вы ответили на ' + response.data.trueanswer + ' из ' + response.data.questioncount + ' вопросов правильно.'
+                                        }
+                                    }
+                                    console.log('данных нет: ', response.data)
+                                });
+                        }
+                        console.log(response.data);
                     })
                     .catch(error => {
                         console.error(error.response);
@@ -78,11 +114,13 @@
             nextQuestion: function(){
                 this.show = false;
                 formData.append('test_id', this.tests.id);
+                formData.append('plan_id', this.planId);
                 formData.append('answers', JSON.stringify(this.selected));
                 console.log('formData: ', formData);
                 axios.post(this.path + '/api/test/storeuseranswer', formData)
                     .then(response => {
-                        console.log('resp: ', response.data);
+                        console.log('resp: ', response);
+                        this.finish = response;
                         this.selected = [];
                         this.tests = null;
                         this.updateQuestion()

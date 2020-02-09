@@ -20,4 +20,11 @@ class Test extends Model
     {
         return $this->hasMany(Useranswer::class);
     }
+
+    public function scopeTrueanswer($query, $plan_id)
+    {
+        $this->setVisible(['trueAnswer']);
+        $result = $this->where('plan_id', $plan_id)->trueanswer()->join('useranswers', 'tests.id', '=', 'useranswers.test_id');
+        return $result;
+    }
 }
