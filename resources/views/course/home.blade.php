@@ -10,8 +10,8 @@
 <div class="row_1">
     <div class="card_progress course">
         <div class="cell">
-            <div class="chart" data-percent="30">
-                <p class="count">30%</p>
+            <div class="chart" data-percent="{{ $user->percent_pass }}">
+                <p class="count">{{ $user->percent_pass }}%</p>
             </div>
         </div>
         <div class="info_progress">

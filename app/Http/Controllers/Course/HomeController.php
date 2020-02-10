@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Course;
 
 use App\Http\Controllers\Controller;
+use App\Test;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,9 +17,37 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $test_pass = 0;
+        $test_fail = 0;
+        $percent_pass = 0;
         $username = Auth::getUser()->name;
-//        dd($user);
-        return view('course.home', compact('username'));
+        $user = User::find(Auth::getUser()->id);
+        foreach ($user->groups as $group) {
+            foreach ($group->plans as $plan) {
+                $test = Test::where('plan_id', $plan->id)
+                    ->join('useranswers', 'tests.id', '=', 'useranswers.test_id')
+                    ->where('useranswers.user_id','=',$user->id)->get();
+
+                foreach ($test as $t){
+                    $t->setVisible(['trueAnswer']);
+                    if($t->trueAnswer === $t->answers){
+                        $test_pass++;
+                    } else {
+                        $test_fail++;
+                    }
+//                    $count++;
+                }
+            }
+        }
+        $count = ($user->useranswers->count());
+        if($count > 0){
+             $percent_pass = round($test_pass / $count * 100);
+        }
+        $user->percent_pass = $percent_pass;
+        $user->tests_pass = $test_pass;
+        $user->tests_fail = $test_fail;
+
+        return view('course.home', compact('username','user'));
     }
 
     /**
