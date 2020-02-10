@@ -21,9 +21,9 @@
                 {{-- <li class="nav-item">
                     <a class="nav-link" href="{{ route('course.tests', 14) }}">Тесты</a>
                 </li> --}}
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="{{ route('course.journal') }}">Журнал</a>
-                </li>
+                </li> --}}
 
 
 
@@ -65,7 +65,7 @@
                         @can('admin')
                             <a class="dropdown-item" href="{{ route('admin.dashboard') }}">Admin Panel</a>
                         @endcan
-                        <a class="dropdown-item" href="{{ route('course.profile') }}">Профиль пользователя</a>
+                        {{-- <a class="dropdown-item" href="{{ route('course.profile') }}">Профиль пользователя</a> --}}
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                             {{ __('Выход') }}

@@ -133,8 +133,8 @@
                             <td>{{ $user->tests_fail }} из {{ $user->tests_count }}</td>
                           </tr>
                           <tr>
-                            <td>Провалено атак</td>
-                            <td>1</td>
+                            {{-- <td>Провалено атак</td>
+                            <td>1</td> --}}
                           </tr>
                         </tbody>
                       </table>
