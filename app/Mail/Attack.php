@@ -10,15 +10,16 @@ use Illuminate\Queue\SerializesModels;
 class Attack extends Mailable
 {
     use Queueable, SerializesModels;
+    public $data;
 
     /**
      * Create a new message instance.
      *
-     * @return void
+     * @param \Auth $user
      */
-    public function __construct()
+    public function __construct($data)
     {
-        //
+        $this->data = $data;
     }
 
     /**
@@ -29,6 +30,5 @@ class Attack extends Mailable
     public function build()
     {
         return $this->view('emails.attack');
-        
     }
 }

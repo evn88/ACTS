@@ -3,10 +3,14 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\SendAttackEmail;
+use App\Mail\Attack;
 use App\Useranswer;
 use Illuminate\Http\Request;
 use App\Test;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class TestController extends Controller
 {
@@ -70,6 +74,12 @@ class TestController extends Controller
             }
         }
         $result['score'] = $result['trueanswer'] / $result['questioncount'] * 100;
+
+        dispatch(new SendAttackEmail([
+            'username' => \Auth::user()->name,
+            'email' => \Auth::user()->email,
+            'html' => '<p>test test</p>'
+        ]))->delay(Carbon::now()->addMinutes(1));
 
         return $result;
 
