@@ -43,54 +43,54 @@
 </div>
 
 
-<h5 class="home">Отчет по группам</h5>
-<div class="row_1">
-    <div class="accordion" id="accordionExample1">
-        <div class="card">
+{{--<h5 class="home">Отчет по группам</h5>--}}
+{{--<div class="row_1">--}}
+{{--    <div class="accordion" id="accordionExample1">--}}
+{{--        <div class="card">--}}
 
-            @foreach($groups as $group)
-            <div class="card-header" id="headingOne">
-                <h5 class="mb-0">
-                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-{{ $group->id }}" aria-expanded="true" aria-controls="collapse-{{ $group->id }}">
-                        {{ $group->name }}
-                    </button>
-                </h5>
-                <div class="progress" style="height: 30px;">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated"  role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 30%">30%</div>
-                </div>
-            </div>
-            <div id="collapse-{{ $group->id }}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample1">
-                <div class="card-body">
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th scope="col">Показатель успеваемости</th>
-                            <th scope="col">Количество</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>Сотрудники, сдавшие тесты</td>
-                            <td>5</td>
-                        </tr>
-                        <tr>
-                            <td>Сотрудники, провалившие тесты</td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>Сотрудники, провалившие атаки</td>
-                            <td>3</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            @endforeach
+{{--            @foreach($groups as $group)--}}
+{{--            <div class="card-header" id="headingOne">--}}
+{{--                <h5 class="mb-0">--}}
+{{--                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-{{ $group->id }}" aria-expanded="true" aria-controls="collapse-{{ $group->id }}">--}}
+{{--                        {{ $group->name }}--}}
+{{--                    </button>--}}
+{{--                </h5>--}}
+{{--                <div class="progress" style="height: 30px;">--}}
+{{--                    <div class="progress-bar progress-bar-striped progress-bar-animated"  role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 30%">30%</div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div id="collapse-{{ $group->id }}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample1">--}}
+{{--                <div class="card-body">--}}
+{{--                    <table class="table table-striped">--}}
+{{--                        <thead>--}}
+{{--                        <tr>--}}
+{{--                            <th scope="col">Показатель успеваемости</th>--}}
+{{--                            <th scope="col">Количество</th>--}}
+{{--                        </tr>--}}
+{{--                        </thead>--}}
+{{--                        <tbody>--}}
+{{--                        <tr>--}}
+{{--                            <td>Сотрудники, сдавшие тесты ({{ $group->usersCount()  }})</td>--}}
+{{--                            <td>{{ $group->tests_pass }} из {{ $group->tests_count }}</td>--}}
+{{--                        </tr>--}}
+{{--                        <tr>--}}
+{{--                            <td>Сотрудники, провалившие тесты</td>--}}
+{{--                            <td>1</td>--}}
+{{--                        </tr>--}}
+{{--                        <tr>--}}
+{{--                            <td>Сотрудники, провалившие атаки</td>--}}
+{{--                            <td>3</td>--}}
+{{--                        </tr>--}}
+{{--                        </tbody>--}}
+{{--                    </table>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            @endforeach--}}
 
-        </div>
-    </div>
+{{--        </div>--}}
+{{--    </div>--}}
 
-</div>
+{{--</div>--}}
 
 <h5 class="home">Отчет по сотрудникам</h5>
 <div class="row_1">
