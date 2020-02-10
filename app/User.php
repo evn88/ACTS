@@ -37,9 +37,9 @@ class User extends Authenticatable implements MustVerifyEmail
      * add custom attribute
      * @var array
      */
-    protected $appends = [
-        'lessons_count','tests_count','tests_passed','tests_failed','attacks_failed','percent_pass'
-    ];
+//    protected $appends = [
+//        'lessons_count','tests_count','tests_passed','tests_failed','attacks_failed','percent_pass'
+//    ];
     /**
      * The attributes that should be cast to native types.
      *
