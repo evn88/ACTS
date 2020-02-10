@@ -14,18 +14,15 @@
                 <p class="count">30%</p>
             </div>
         </div>
-        <div class="cell">
-            <p class="date">Плановая дата окончания:</p>
-            <p class="text">15.03.2020</p>
+        <div class="info_progress">
+            <p class="info_text">Так держать!</p>
+            <p>Не останавлявайтесь на достигнутом.
+                Впереди еще много интересного!
+            </p>
+            <a href="#" class="btn btn-primary">Продолжить</a>
         </div>
     </div>
-    <div class="info_progress">
-        <p class="info_text">Так держать!</p>
-        <p>Не останавлявайтесь на достигнутом.
-            Впереди еще много интересного!
-        </p>
-        <a href="#" class="btn btn-primary">Продолжить</a>
-    </div>
+
 </div>
 
 

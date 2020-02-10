@@ -541,9 +541,10 @@ footer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 800px;
 
     .cell {
-        width: 300px;
+        width: 400px;
         text-align: left;
         padding: 25px;
 
