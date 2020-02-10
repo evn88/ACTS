@@ -50,19 +50,6 @@ class TestController extends Controller
         ]);
         $useranswer->save();
 
-//        //проверяем остались ли тесты
-//        $test_count = Test::where('plan_id', $request->plan_id)->whereNotExists(function ($query) {
-//            $query->select(DB::raw(1))
-//                ->from('useranswers')
-//                ->where('user_id', '=', \Auth::user()->id)
-//                ->whereRaw('tests.id = test_id');
-//        })->count();
-//
-//        if($test_count > 0){
-//            return response('OK', 200);
-//        } else {
-//            return response('false', 200);
-//        }
     }
 
     public function result($plan_id)

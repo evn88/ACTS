@@ -82,10 +82,6 @@
                             <td>1</td>
                         </tr>
                         <tr>
-                            <td>Сотрудники, прошедшие атаки</td>
-                            <td>3</td>
-                        </tr>
-                        <tr>
                             <td>Сотрудники, провалившие атаки</td>
                             <td>3</td>
                         </tr>
@@ -113,7 +109,9 @@
                     </button>
                 </h5>
                 <div class="progress" style="height: 30px;">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated"  role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 30%">30%</div>
+                    <div class="progress-bar progress-bar-striped progress-bar-animated"  role="progressbar"
+                         aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
+                         style="width: {{ $user->percent_pass }}%">{{ $user->percent_pass }}%</div>
                 </div>
             </div>
             <div id="collapseUser-{{ $user->id }}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample2">
@@ -131,12 +129,12 @@
                             <td>5</td>
                           </tr>
                           <tr>
-                            <td>Сдано тестов</td>
-                            <td>2</td>
+                            <td>Успешно сдано тестов</td>
+                            <td>{{ $user->tests_pass }} из {{ $user->tests_count }}</td>
                           </tr>
                           <tr>
                             <td>Провалено тестов</td>
-                            <td>1</td>
+                            <td>{{ $user->tests_fail }} из {{ $user->tests_count }}</td>
                           </tr>
                           <tr>
                             <td>Провалено атак</td>
