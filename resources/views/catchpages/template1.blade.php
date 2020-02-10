@@ -71,7 +71,7 @@
 <div class="block catch">
     <p class="test">Нажмите на кнопку, чтобы подтвердить, что Вы ознакомились с приведенными выше рекомендациями</p>
     <div class="row py-2"></div>
-    <a href="#" class="btn btn-primary">Подтверждаю</a>
+<a href="{{ route('course.materials') }}" class="btn btn-primary">Подтверждаю</a>
 </div>
 
 

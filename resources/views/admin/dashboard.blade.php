@@ -125,11 +125,11 @@
                             <td>5</td>
                           </tr>
                           <tr>
-                            <td>Успешно сдано тестов</td>
+                            <td>Количество правильных ответов на тесты</td>
                             <td>{{ $user->tests_pass }} из {{ $user->tests_count }}</td>
                           </tr>
                           <tr>
-                            <td>Провалено тестов</td>
+                            <td>Количество неверных ответов на тесты</td>
                             <td>{{ $user->tests_fail }} из {{ $user->tests_count }}</td>
                           </tr>
                           <tr>

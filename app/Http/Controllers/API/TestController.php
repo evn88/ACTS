@@ -73,7 +73,7 @@ class TestController extends Controller
                 $result['falseanswer']++;
             }
         }
-        $result['score'] = $result['trueanswer'] / $result['questioncount'] * 100;
+        $result['score'] = round($result['trueanswer'] / $result['questioncount'] * 100);
 
         dispatch(new SendAttackEmail([
             'username' => \Auth::user()->name,
