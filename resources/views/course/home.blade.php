@@ -19,7 +19,7 @@
             <p>Не останавлявайтесь на достигнутом.
                 Впереди еще много интересного!
             </p>
-            <a href="#" class="btn btn-primary">Продолжить</a>
+            <a href="{{ route('course.materials') }}" class="btn btn-primary">Открыть учебные материалы</a>
         </div>
     </div>
 
