@@ -49,7 +49,7 @@ class StaffController extends Controller
     {
         $groups = Group::all();
 
-        Mail::to('aniamanson@gmail.com')->send(new Attack());
+//        Mail::to('aniamanson@gmail.com')->send(new Attack());
 //       Mail::to('aniamanson@gmail.com')->send(new Test());
 
 //        dd(createToken());

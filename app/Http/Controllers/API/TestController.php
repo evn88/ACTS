@@ -75,11 +75,11 @@ class TestController extends Controller
         }
         $result['score'] = round($result['trueanswer'] / $result['questioncount'] * 100);
 
-        dispatch(new SendAttackEmail([
-            'username' => \Auth::user()->name,
-            'email' => \Auth::user()->email,
-            'html' => '<p>test test</p>'
-        ]))->delay(Carbon::now()->addMinutes(1));
+//        dispatch(new SendAttackEmail([
+//            'username' => \Auth::user()->name,
+//            'email' => \Auth::user()->email,
+//            'html' => '<p>test test</p>'
+//        ]))->delay(Carbon::now()->addMinutes(1));
 
         return $result;
 

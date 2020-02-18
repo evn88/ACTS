@@ -66,12 +66,4 @@
             </span>
         @enderror
     </div>
-    <div class="form-group">
-        <a href="{{ URL::previous() }}" class="btn btn-secondary">Назад</a>
 
-        @if(isset($user))
-        <a href="{{ url('admin/staff/'.$user->id.'/delete') }}" class="btn btn-secondary"><i class="fa fa-trash" aria-hidden="true"></i></a>
-        @endif
-
-        <button type="submit" class="btn btn-primary float-right">Сохранить</button>
-    </div>

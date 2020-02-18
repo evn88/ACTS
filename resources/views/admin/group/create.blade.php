@@ -4,17 +4,17 @@
 <h1><i class="fa fa-graduation-cap" aria-hidden="true"></i> Учебные группы</h1>
 
 
-<div class="card">
-    <h5 class="card-header">Добавить новую группу</h5>
-    <div class="card-body">
-        @include('errors.form')
-
-        <form action="{{ url('/admin/groups') }}" method="POST">
+<form action="{{ url('/admin/groups') }}" method="POST">
+    <div class="card">
+        <h5 class="card-header">Добавить новую группу</h5>
+        <div class="card-body">
+            @include('errors.form')
             @include('admin.group.__form')
-        </form>
+        </div>
+        <div class="card-footer">
+            @include('admin.group.__card_footer')
+        </div>
     </div>
-  </div>
+</form>
 
-
-</div>
 @endsection
