@@ -31,7 +31,7 @@
 
         <div class="row">
             <div class="form-group butt lesson">
-                <a href="" class="btn btn-secondary">Назад</a>
+                <a href="#" class="btn btn-secondary" v-on:click="goBack">Назад</a>
                 <button type="submit" v-on:click.prevent="submitForm" class="btn btn-primary float-right">Сохранить</button>
             </div>
         </div>
@@ -96,6 +96,9 @@ export default {
                         window.location = this.path + "/admin/plans/"+ this.planId;
                     })
 
+            },
+            goBack: function() {
+                window.history.back();
             }
         }
 }
