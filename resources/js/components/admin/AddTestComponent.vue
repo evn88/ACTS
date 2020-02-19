@@ -46,7 +46,7 @@ export default {
         components: {
             ckeditor: CKEditor.component
         },
-        props: ['planId'],
+        props: ['planId', 'testId'],
         data() {
             return {
                 editor: ClassicEditor,

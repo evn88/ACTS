@@ -65,7 +65,8 @@ class TestsController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.tests.edit');
+        $test = Test::findOrFail($id);
+        return view('admin.tests.edit', compact('test'));
     }
 
     /**
