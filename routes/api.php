@@ -23,12 +23,13 @@ Route::group(['middleware' => ['auth:api','can:admin']], function () {
     Route::get('user', 'API\UserController@index');
     Route::get('user/{id}', 'API\UserController@show')->where(['id'=>'[0-9+]']);
     Route::post('test/add-new-test', 'API\TestController@store');
+    Route::get('test/{test_id}/show', 'API\TestController@show')->where(['test_id'=>'[0-9]+']);
 
     Route::delete('user/{id}/delete', 'API\UserController@destroy')->where(['id'=>'[0-9]+']);
 });
 
 Route::group(['middleware' => ['auth:api']], function () {
-    Route::get('test/{plan_id}', 'API\TestController@show')->where(['plan_id'=>'[0-9]+']);
+    Route::get('test/{plan_id}', 'API\TestController@index')->where(['plan_id'=>'[0-9]+']);
     Route::post('test/storeuseranswer', 'API\TestController@storeanswer');
     Route::get('test/result/{plan_id}', 'API\TestController@result')->where(['plan_id'=>'[0-9]+']);
 });

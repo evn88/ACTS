@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Mail;
 class TestController extends Controller
 {
 
-    public function show ($plan_id) {
+    public function index ($plan_id) {
         $test = Test::where('plan_id', $plan_id)->whereNotExists(function ($query) {
             $query->select(DB::raw(1))
                 ->from('useranswers')
@@ -24,6 +24,14 @@ class TestController extends Controller
             })->first();
 
         return $test;
+    }
+
+    public function show ($test_id) {
+
+        $test = Test::findOrFail($test_id);
+
+        if($test) return $test;
+        return response('Not Found', 404);
     }
 
     public function store (Request $request) {

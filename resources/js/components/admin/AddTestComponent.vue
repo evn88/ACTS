@@ -71,7 +71,21 @@ export default {
                 path: process.env.MIX_URL
             }
         },
-        methods: {
+        mounted() {
+            console.log("test id mounted "+ this.testId)
+            if(this.testId){
+                axios.get(this.path + '/api/test/'+this.testId+'/show')
+                    .then(response => {
+                        // this.users = this.usersOriginal = response.data;
+                    })
+                    .catch(error => {
+                        console.error(error.response);
+                        this.error = error.response.status + ' ' + error.response.statusText + ' | ' + error.response.data.message;
+                        this.errored = true;
+                    });
+            }
+        },
+         methods: {
             addAnswer: function(){
                 this.answers.unshift({
                     id: nextAnswerId++,
