@@ -77,6 +77,8 @@ export default {
                 axios.get(this.path + '/api/test/'+this.testId+'/show')
                     .then(response => {
                         // this.users = this.usersOriginal = response.data;
+                        // this.answers = response.data.answer;
+                        this.question = response.data.question;
                     })
                     .catch(error => {
                         console.error(error.response);
