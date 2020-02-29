@@ -51,6 +51,22 @@ class TestController extends Controller
         }
     }
 
+    public function update (Request $request, $test_id) {
+        $test = Test::findOrFail($test_id);
+
+        $test->name = substr(strip_tags($request->question), 0, 100).'...';
+        $test->question = $request->question;
+        $test->answer = $request->answers;
+        $test->trueAnswer = $request->trueAnswers;
+        $test->save();
+
+        if($test && $test_id){
+            return response('OK', 200);
+        } else {
+            return response('error', 500);
+        }
+    }
+
     public function storeanswer(Request $request)
     {
 

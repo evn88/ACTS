@@ -64,6 +64,7 @@ export default {
 					    text: ''
 				    }
                 ],
+                update: false,
                 question: null,
                 error: null,
                 errored: false,
@@ -72,9 +73,9 @@ export default {
             }
         },
         mounted() {
-            console.log("test id mounted "+ this.testId)
+            //если передан идентификатор теста то подгружаем данные для формы
             if(this.testId){
-                axios.get(this.path + '/api/test/'+this.testId+'/show')
+                axios.get(this.path + '/api/test/'+this.testId)
                     .then(response => {
                         this.selected = JSON.parse(response.data.trueAnswer);
                         this.answers = JSON.parse(response.data.answer);
@@ -85,6 +86,8 @@ export default {
                         this.error = error.response.status + ' ' + error.response.statusText + ' | ' + error.response.data.message;
                         this.errored = true;
                     });
+                // устанавливаем признак обновления данных (чтобы не создавать новую запись)
+                this.update = true;
             }
         },
          methods: {
@@ -94,18 +97,24 @@ export default {
                     text: ''
                 })
             },
-             removeAnswer: function (id) {
+            removeAnswer: function (id) {
                 Vue.delete(this.answers, id);
                 Vue.delete(this.selected, id);
             },
             submitForm: function() {
+                let actionPath = '/api/test'; //default store path
+
                 formData.append('question', this.question);
                 formData.append('answers', JSON.stringify(this.answers));
                 formData.append('trueAnswers', JSON.stringify(this.selected));
                 formData.append('plan_id', this.planId);
 
+                if(this.update){
+                    actionPath = '/api/test/' + this.testId;
+                }
+
                 axios
-                    .post( this.path + '/api/test/add-new-test', formData)
+                    .post( this.path + actionPath, formData)
                     .then(response => {
                         console.log('response: ', response);
                         window.location = this.path + "/admin/plans/"+ this.planId;
