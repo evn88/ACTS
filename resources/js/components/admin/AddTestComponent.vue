@@ -75,7 +75,7 @@ export default {
         mounted() {
             //если передан идентификатор теста то подгружаем данные для формы
             if(this.testId){
-                axios.get(this.path + '/api/test/'+this.testId)
+                axios.get(this.path + '/api/admin/test/'+this.testId)
                     .then(response => {
                         this.selected = JSON.parse(response.data.trueAnswer);
                         this.answers = JSON.parse(response.data.answer);
@@ -102,7 +102,7 @@ export default {
                 Vue.delete(this.selected, id);
             },
             submitForm: function() {
-                let actionPath = '/api/test'; //default store path
+                let actionPath = '/api/admin/test'; //default store path
 
                 formData.append('question', this.question);
                 formData.append('answers', JSON.stringify(this.answers));
@@ -110,7 +110,7 @@ export default {
                 formData.append('plan_id', this.planId);
 
                 if(this.update){
-                    actionPath = '/api/test/' + this.testId;
+                    actionPath = '/api/admin/test/' + this.testId;
                 }
 
                 axios
