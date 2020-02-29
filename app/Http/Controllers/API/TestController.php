@@ -29,7 +29,7 @@ class TestController extends Controller
     public function show ($test_id) {
 
         $test = Test::findOrFail($test_id);
-
+        $test->makeVisible(['trueAnswer']);
         if($test) return $test;
         return response('Not Found', 404);
     }
