@@ -27,7 +27,7 @@ window.Vue = require('vue');
 // admin.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('admin-staff-component', require('./components/admin/StaffComponent').default);
-Vue.component('admin-staff-modal-component', require('./components/modal/StaffModalComponent').default);
+// Vue.component('admin-staff-modal-component', require('./components/modal/StaffModalComponent').default);
 Vue.component('admin-add-test-component', require('./components/admin/AddTestComponent').default);
 
 Vue.component('course-test-component', require('./components/course/TestComponent').default);

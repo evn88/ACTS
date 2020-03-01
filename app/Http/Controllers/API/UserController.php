@@ -9,11 +9,16 @@ use App\User;
 class UserController extends Controller
 {
     public function index () {
-        return User::with('groups')->get();
+        $users = User::with(['groups'])->get();
+        foreach ($users as &$user) {
+             ($user->isAdmin()) ? $user['isAdmin'] = true : $user['isAdmin'] = false;
+        }
+
+        return $users;
     }
 
     public function show ($id) {
-        return User::findOrFail($id)->toJson();
+        //return User::findOrFail($id)->toJson();
     }
 
     public function store (Request $request) {
@@ -28,8 +33,9 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy($id)
     {

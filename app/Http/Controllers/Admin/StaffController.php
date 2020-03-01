@@ -22,10 +22,11 @@ class StaffController extends Controller
     use RegistersUsers;
     use SendsPasswordResetEmails;
 
+
     /**
      * Where to redirect users after registration.
      *
-     * @var string
+     * @return
      */
     // protected $redirectTo = '/admin/staff';
 
@@ -65,9 +66,16 @@ class StaffController extends Controller
      */
     public function store(StoreUser $request)
     {
-        $user = User::create($request->all()+['password'=>Hash::make(Str::random(60))]);
+        $user = User::create([
+            'name' => $request->name,
+            'email' =>  $request->email,
+            'profession' =>  $request->profession,
+            'password' => Hash::make(Str::random(60)),
+        ]);
         $user->groups()->sync($request->group_id);
         $user->save();
+
+        $user->roles()->attach(2); //добавляем пользователя с ролью гостя
 
         Password::sendResetLink( ['email' => $user->email], function (Message $message) {
             $message->subject($this->getEmailSubject());

@@ -75,6 +75,8 @@
                         <td>
                             <span v-if="user.email_verified_at" class="badge badge-success">подтвержден</span>
                             <span v-else class="badge badge-warning">не подтвержден</span>
+
+                            <span v-if="user.isAdmin" class="badge badge-warning">admin</span>
                         </td>
                     </tr>
 

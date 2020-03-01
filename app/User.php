@@ -5,7 +5,6 @@ namespace App;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable implements MustVerifyEmail
@@ -17,12 +16,11 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array
      */
-    //TODO: Удалить из видимости пароль
+
     protected $fillable = [
         'name', 'email', 'password', 'profession'
     ];
 
-//    protected $touches = ['roles','groups'];
 
     /**
      * The attributes that should be hidden for arrays.

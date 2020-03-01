@@ -88,7 +88,7 @@
     </div>
 </div>
 
-<a href="{{ route('plans.index') }}" class="btn btn-secondary">Назад</a>
+<a href="{{ route('plans.index') }}" class="btn btn-secondary">Назад к списку тем</a>
 @include('admin.modal.confirm_delete')
 
 @endsection
