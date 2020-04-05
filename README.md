@@ -3,15 +3,15 @@
 
 ![Laravel](https://github.com/evn88/ACTS/workflows/Laravel/badge.svg?branch=master)
 
-## Скриншоты приложения
-###Администрвативная панель 
+### Скриншоты приложения
+#### Администрвативная панель 
 управление пользователями:
 ![Пример управления сотрудниками](.screenshots/acts_admin_example.jpg "Пример административной панели")
 
 управление учебными планами:
 ![Пример управления учебными планами](.screenshots/acts_admin__example_plans.jpg "Пример административной панели")
 
-## Установка
+### Установка
 
 1. Клонируйте репозиторий <code>git clone https://github.com/evn88/ACTS.git</code>
 2. Скопируйте и переименуйте файл <b>.env.example</b>  в <b>.env</b>, далее укажите ваши настройки для БД и вашего почтового сервера, через который будут отправляться сообщения.
@@ -52,7 +52,7 @@ ACTS написан E & A Вершковы на платформе Laravel и в
 
 # Automatic Cybersecurity Training System
 
-## Install
+### Install
 
 1. Clone Repository <code>git clone https://github.com/evn88/ACTS.git</code>
 2. Copy and rename file <b>.env.example</b>  to <b>.env</b>, then specify your settings for the database and your mail server through which messages will be sent.
