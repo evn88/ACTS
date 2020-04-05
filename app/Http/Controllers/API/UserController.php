@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUser;
 use Illuminate\Http\Request;
 use App\User;
 
@@ -13,7 +14,6 @@ class UserController extends Controller
         foreach ($users as &$user) {
              ($user->isAdmin()) ? $user['isAdmin'] = true : $user['isAdmin'] = false;
         }
-
         return $users;
     }
 
@@ -21,7 +21,7 @@ class UserController extends Controller
         //return User::findOrFail($id)->toJson();
     }
 
-    public function store (Request $request) {
+    public function store (StoreUser $request) {
         // return response('OK', 200);
     }
 
