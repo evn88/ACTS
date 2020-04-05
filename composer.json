@@ -25,6 +25,7 @@
         "laracasts/generators": "^1.1",
         "laravel/ui": "^1.1",
         "mockery/mockery": "^1.0",
+        "mpociot/laravel-apidoc-generator": "^4.5",
         "nunomaduro/collision": "^3.0",
         "phpunit/phpunit": "^8.0"
     },
