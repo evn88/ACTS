@@ -3,7 +3,9 @@
 
 ![Laravel](https://github.com/evn88/ACTS/workflows/Laravel/badge.svg?branch=master)
 
-
+### Скриншоты приложения:
+Администрвативная панель - управление пользователями:
+![Пример приложения](.screenshots/acts_admin_example.jpg "Пример административной панели")
 
 ### Установка
 
