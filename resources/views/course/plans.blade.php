@@ -26,9 +26,9 @@
                     <ul>
                         @if($plans->tests->count())
                             <p>Нажимая кнопку "Начать тестирование" вы соглашаетесь начать тестирование, отменить это действие нельзя.</p>
-                            <p>Тест содержит {{ $plans->tests->count() }} вопроса(-ов)</p>
-                            <a href="{{ route('course.tests', $plans->id) }}" class="btn btn-primary">Начать тестирование</a>
 
+                            <a href="{{ route('course.tests', $plans->id) }}" class="btn btn-primary" style="text-shadow: none">Начать тестирование</a>
+                            <small class="text-muted">Тест содержит {{ $plans->tests->count() }} {{ \App\Helpers\Declination\Questions::change( $plans->tests->count() ) }}</small>
                         @else
                             <li>Тестов нет.</li>
                         @endif
