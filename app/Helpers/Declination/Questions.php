@@ -19,7 +19,7 @@ class Questions {
      */
     public static function change($number = 1, $word = "вопрос"){
 
-        if(!is_int($number)) throw new Exception('Value is not integer');
+        if(!is_int($number)) throw new Exception('Value is not integer: ' . $number);
 
         if ($number === 0 || $number >= 5 ) return $word . "ов";
 
